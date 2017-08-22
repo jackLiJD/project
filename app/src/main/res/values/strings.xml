@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MyDemo</string>
+    <string name="animation">animation</string>
+    <string name="AIDL">AIDL</string>
+    <string name="animation_start">启动动画</string>
+    <string name="animation_start_time">王者荣耀点击效果</string>
+    <string name="Service">Service</string>
+    <string name="start_service">start_service</string>
+    <string name="stop_service">stop_service</string>
+    <string name="bind_service">bind_service</string>
+    <string name="unbind_service">unbind_service</string>
+    <string name="start_intentservice">start_intentservice</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="main_item_title">
+        <item>@string/animation</item>
+        <item>@string/AIDL</item>
+        <item>@string/Service</item>
+    </array>
+</resources>
