@@ -29,6 +29,7 @@ public class AIDLAct extends Activity {
 
     private IImoocAIDL iImoocAIDL;
 
+
     private Button aidl_computations;
 
     private ServiceConnection conn=new ServiceConnection() {
