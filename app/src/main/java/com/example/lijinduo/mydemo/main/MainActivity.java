@@ -20,8 +20,7 @@ import java.util.ServiceConfigurationError;
 
 public class MainActivity extends AppCompatActivity {
 
-    //奥迪
-    //返利风账号上传
+    //返利风账号上传1
     //source tree修改代码上传GitHub
     //git修改
     private List<String> stringList;
