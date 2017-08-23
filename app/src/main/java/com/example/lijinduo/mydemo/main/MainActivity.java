@@ -20,6 +20,7 @@ import java.util.ServiceConfigurationError;
 
 public class MainActivity extends AppCompatActivity {
 
+    //修改代码上传GitHub
     private List<String> stringList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
