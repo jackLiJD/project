@@ -4,5 +4,6 @@
         <item>@string/animation</item>
         <item>@string/AIDL</item>
         <item>@string/Service</item>
+        <item>@string/retrofit2</item>
     </array>
 </resources>

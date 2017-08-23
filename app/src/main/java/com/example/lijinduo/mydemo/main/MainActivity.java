@@ -4,19 +4,17 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Adapter;
 
 import com.example.lijinduo.mydemo.R;
 import com.example.lijinduo.mydemo.aidl.AIDLAct;
 import com.example.lijinduo.mydemo.animation.AnimationAct;
+import com.example.lijinduo.mydemo.retrofit.RetrofitTestAct;
 import com.example.lijinduo.mydemo.service.ServiceAct;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.ServiceConfigurationError;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -62,12 +60,19 @@ public class MainActivity extends AppCompatActivity {
                 intent=new Intent(this, AnimationAct.class);
                 startActivity(intent);
                 break;
+            //跨进程通讯
             case 1:
                 intent=new Intent(this, AIDLAct.class);
                 startActivity(intent);
                 break;
+            //服务模块
             case 2:
                 intent=new Intent(this, ServiceAct.class);
+                startActivity(intent);
+                break;
+            //retrofit网络请求框架
+            case 3:
+                intent=new Intent(this,RetrofitTestAct.class);
                 startActivity(intent);
                 break;
         }
