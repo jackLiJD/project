@@ -30,7 +30,10 @@ public class RetrofitClient {
 
     public static String cookies="";
 
-    private String baseUrl="https://api.thinkpage.cn";
+//    private String baseUrl="https://api.thinkpage.cn";
+
+    private String baseUrl="https://www.edspay.com/app/";
+
     public RetrofitClient() {
         updataRetrofit();
     }
@@ -63,9 +66,9 @@ public class RetrofitClient {
         builder.connectTimeout(TIME_OUT, TimeUnit.SECONDS);
         builder.readTimeout(READ_OUT, TimeUnit.SECONDS);
         // 添加签名参数
-        builder.addInterceptor(BasicParamsInject.getInstance().getInterceptor() );
+        builder.addInterceptor(BasicParamsInject.getInstance().getInterceptor());
         // 打印参数
-//        builder.addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY));
+        builder.addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY));
         if(!cookies.equals("")) {
             builder.addInterceptor((new Interceptor() {
                 @Override

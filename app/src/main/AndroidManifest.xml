@@ -3,6 +3,7 @@
     package="com.example.lijinduo.mydemo">
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
+        android:name=".tool.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -33,6 +34,11 @@
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
             android:name=".retrofit.RetrofitTestAct"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan"></activity>
+        <activity
+            android:name=".retrofit.DoubleActTest"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>

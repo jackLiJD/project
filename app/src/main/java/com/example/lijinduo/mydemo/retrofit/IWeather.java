@@ -17,4 +17,6 @@ public interface IWeather {
     @GET("/v3/weather/now.json")
     Call<TianQiBean> weather(@Query("key")String key, @Query("location")String location);
 
+    @GET("invest/investList.html")
+    Call<InvestListBean> invest();
 }

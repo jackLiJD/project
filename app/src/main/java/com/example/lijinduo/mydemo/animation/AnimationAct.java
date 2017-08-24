@@ -14,6 +14,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 
+import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.R;
 
 /**
@@ -27,7 +28,7 @@ import com.example.lijinduo.mydemo.R;
  * 链接：http://www.jianshu.com/p/0af106016140
  * 來源：简书
  */
-public class AnimationAct extends Activity {
+public class AnimationAct extends BaseActivity {
     Button animation_start,startAnimatorPath;
     Button animation_xml_start, animation_start_time;
     int i = 0;

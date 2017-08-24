@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.IImoocAIDL;
 import com.example.lijinduo.mydemo.R;
 
@@ -23,7 +24,7 @@ import com.example.lijinduo.mydemo.R;
  * 修订历史：
  * 参考链接：http://www.jianshu.com/p/eeb2bd59853f
  */
-public class ServiceAct extends Activity implements View.OnClickListener {
+public class ServiceAct extends BaseActivity implements View.OnClickListener {
     Button start_service, stop_servie, bind_service, unbind_service, start_intentservice;
     Button do_someting,open_something;
     //一开始，并没有和Service绑定.这个参数是用来显示绑定状态

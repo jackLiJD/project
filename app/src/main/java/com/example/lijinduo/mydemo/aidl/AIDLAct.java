@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.IImoocAIDL;
 import com.example.lijinduo.mydemo.R;
 
@@ -25,7 +26,7 @@ import com.example.lijinduo.mydemo.R;
  * 修订历史：
  * 参考链接：http://www.jianshu.com/p/a5c73da2e9be
  */
-public class AIDLAct extends Activity {
+public class AIDLAct extends BaseActivity {
 
     private IImoocAIDL iImoocAIDL;
 

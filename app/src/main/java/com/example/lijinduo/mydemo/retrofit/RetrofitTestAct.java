@@ -1,12 +1,14 @@
 package com.example.lijinduo.mydemo.retrofit;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.R;
 
 import okhttp3.OkHttpClient;
@@ -23,8 +25,8 @@ import retrofit2.Response;
  * 修订历史：
  * 参考链接：http://www.jianshu.com/p/eab096d82ce1
  */
-public class RetrofitTestAct extends Activity {
-    Button query_weather;
+public class RetrofitTestAct extends BaseActivity {
+    Button query_weather,other_load,system_maintain;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,23 +40,17 @@ public class RetrofitTestAct extends Activity {
         });
 
     }
-
     private void init() {
-        Call<TianQiBean> call = RetrofitClient.getInstance().getService(IWeather.class).weather("rot2enzrehaztkdk", "beijing");
-        call.enqueue(new Callback<TianQiBean>() {
+        Call<InvestListBean> call = RetrofitClient.getInstance().getService(IWeather.class).invest();
+        call.enqueue(new RequestCallBack<InvestListBean>(false) {
             @Override
-            public void onResponse(Call<TianQiBean> call, Response<TianQiBean> response) {
-                TianQiBean tianqiBean = response.body();
-                Log.d("cylog", tianqiBean.getResults().get(0).getNow().getTemperature() + "");
-                query_weather.setText("北京温度"+ tianqiBean.getResults().get(0).getNow().getTemperature() + "");
-            }
-
-            @Override
-            public void onFailure(Call<TianQiBean> call, Throwable t) {
-                Log.d("cylog", "Error" + t.toString());
+            public void onSuccess(Call<InvestListBean> call, Response<InvestListBean> response) {
+                InvestListBean investBean = response.body();
+                query_weather.setText(investBean.getResData().getList().get(0).getGoodType());
             }
         });
-
+        Intent intent=new Intent(RetrofitTestAct.this,DoubleActTest.class);
+        startActivity(intent);
 
     }
 

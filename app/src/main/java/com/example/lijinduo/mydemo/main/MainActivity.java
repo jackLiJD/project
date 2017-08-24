@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.R;
 import com.example.lijinduo.mydemo.aidl.AIDLAct;
 import com.example.lijinduo.mydemo.animation.AnimationAct;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     //返利风账号上传
     //source tree修改代码上传GitHub

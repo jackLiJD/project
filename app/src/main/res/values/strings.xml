@@ -11,5 +11,7 @@
     <string name="bind_service">bind_service</string>
     <string name="unbind_service">unbind_service</string>
     <string name="start_intentservice">start_intentservice</string>
-    <string name="Query_weather">查询天气</string>
+    <string name="Query_weather">网络请求 默认被他人登陆</string>
+    <string name="other_load">其他人登陆</string>
+    <string name="system_maintain">系统维护</string>
 </resources>

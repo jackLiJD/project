@@ -1,5 +1,7 @@
 package com.example.lijinduo.mydemo.retrofit;
 
+import android.util.Log;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -121,6 +123,7 @@ public class BasicParamsInterceptor implements Interceptor {
             Iterator iterator = paramsMap.entrySet().iterator();
             while (iterator.hasNext()) {
                 Map.Entry entry = (Map.Entry) iterator.next();
+                Log.d("拦截器添加参数的打印", "injectParamsIntoUrl: "+ entry.getKey()+"／"+entry.getValue());
                 httpUrlBuilder.addQueryParameter((String) entry.getKey(), (String) entry.getValue());
             }
         }
