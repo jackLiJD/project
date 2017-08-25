@@ -1,5 +1,9 @@
 package com.example.lijinduo.mydemo.retrofit;
 
+import android.databinding.BaseObservable;
+
+import java.io.Serializable;
+
 /**
  * 版权：XXX公司 版权所有
  * 作者：lijinduo
@@ -9,7 +13,7 @@ package com.example.lijinduo.mydemo.retrofit;
  * 修订历史：
  * 参考链接：
  */
-public class HttpResult {
+public class HttpResult extends BaseObservable  {
 
     /**
      * 数据返回code  如成功 失败 账号被顶 系统维护等操作

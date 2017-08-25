@@ -75,12 +75,12 @@ public class AnimationAct extends BaseActivity {
      * 设置动画启动次数
      */
     private void startAnimTime() {
-        final ObjectAnimator animatorX = ObjectAnimator.ofFloat(animation_start_time, "scaleX", 1f, 1.1f, 1f);
-        final ObjectAnimator animatorY = ObjectAnimator.ofFloat(animation_start_time, "scaleY", 1f, 1.1f, 1f);
+        final ObjectAnimator animatorX = ObjectAnimator.ofFloat(animation_start_time, "scaleX", 1f, 0.9f, 1f);
+        final ObjectAnimator animatorY = ObjectAnimator.ofFloat(animation_start_time, "scaleY", 1f, 0.9f, 1f);
         //设置额外重复播放的次数n+1 负1未无限循环
 //        animator.setRepeatCount(1);
         final AnimatorSet animSet = new AnimatorSet();
-        animSet.setDuration(500);
+        animSet.setDuration(300);
 //      设置循环模式，有两种，RESTRAT重新播放，REVERSE倒序播放 animSet.setRepeatMode(ValueAnimator.REVERSE);
 //      这玩意设置不了次数  animSet.setRepeatCount(ValueAnimator.INFINITE);
         //时间插值器

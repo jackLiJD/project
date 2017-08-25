@@ -46,7 +46,7 @@ public class PathView extends View {
         Path path = new Path();
         path.moveTo(60,60);
         path.lineTo(460,460);
-        path.quadTo(660, 260, 860, 460); //订单
+        path.quadTo(660, 260, 860, 460);
         path.cubicTo(160,660,960,1060,260,1260);
         canvas.drawPath(path,paint);
     }

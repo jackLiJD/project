@@ -3,6 +3,9 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
+    dataBinding {
+        enabled =true
+    }
     defaultConfig {
         applicationId "com.example.lijinduo.mydemo"
         minSdkVersion 21
@@ -30,4 +33,8 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:25.3.0'
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+    compile 'me.tatarka:bindingcollectionadapter:0.16'
+    compile 'me.tatarka:bindingcollectionadapter-recyclerview:0.16'
+    compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 }

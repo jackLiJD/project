@@ -5,5 +5,7 @@
         <item>@string/AIDL</item>
         <item>@string/Service</item>
         <item>@string/retrofit2</item>
+        <item>@string/Mvvm</item>
+        <item>@string/Mvp</item>
     </array>
 </resources>

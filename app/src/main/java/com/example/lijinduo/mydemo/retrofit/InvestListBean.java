@@ -1,5 +1,9 @@
 package com.example.lijinduo.mydemo.retrofit;
 
+import android.databinding.BaseObservable;
+
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,7 +15,7 @@ import java.util.List;
  * 修订历史：
  * 参考链接：
  */
-public class InvestListBean extends HttpResult{
+public class InvestListBean extends HttpResult implements Serializable{
 
     /**
      * resCode : 1
@@ -42,7 +46,18 @@ public class InvestListBean extends HttpResult{
         private int pageCount;
         private int pageNumber;
         private int pageSize;
-        private List<ListBean> list;
+
+
+
+        private ArrayList<Bean> list;
+
+        public ArrayList<Bean> getList() {
+            return list;
+        }
+
+        public void setList(ArrayList<Bean> list) {
+            this.list = list;
+        }
 
         public int getCollection() {
             return collection;
@@ -76,15 +91,9 @@ public class InvestListBean extends HttpResult{
             this.pageSize = pageSize;
         }
 
-        public List<ListBean> getList() {
-            return list;
-        }
 
-        public void setList(List<ListBean> list) {
-            this.list = list;
-        }
 
-        public static class ListBean {
+        public static class Bean extends BaseObservable implements Serializable {
             /**
              * addApr : 0
              * addTime : 1503470898000

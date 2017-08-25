@@ -14,4 +14,6 @@
     <string name="Query_weather">网络请求 默认被他人登陆</string>
     <string name="other_load">其他人登陆</string>
     <string name="system_maintain">系统维护</string>
+    <string name="Mvvm">Mvvm</string>
+    <string name="Mvp">Mvp</string>
 </resources>

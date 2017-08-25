@@ -10,6 +10,8 @@ import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.R;
 import com.example.lijinduo.mydemo.aidl.AIDLAct;
 import com.example.lijinduo.mydemo.animation.AnimationAct;
+import com.example.lijinduo.mydemo.mvp.mvpactivity.MvpActivity;
+import com.example.lijinduo.mydemo.mvvm.MvvmAct;
 import com.example.lijinduo.mydemo.retrofit.RetrofitTestAct;
 import com.example.lijinduo.mydemo.service.ServiceAct;
 
@@ -74,6 +76,16 @@ public class MainActivity extends BaseActivity {
             //retrofit网络请求框架
             case 3:
                 intent=new Intent(this,RetrofitTestAct.class);
+                startActivity(intent);
+                break;
+            //mvvm
+            case 4:
+                intent=new Intent(this,MvvmAct.class);
+                startActivity(intent);
+                break;
+            //mvp
+            case 5:
+                intent=new Intent(this,MvpActivity.class);
                 startActivity(intent);
                 break;
         }
