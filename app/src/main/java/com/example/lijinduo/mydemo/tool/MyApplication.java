@@ -12,7 +12,8 @@ import android.app.Application;
  * 参考链接：
  */
 public class MyApplication extends Application {
-
-
-
+    @Override
+    public void onCreate() {
+        super.onCreate();
+    }
 }

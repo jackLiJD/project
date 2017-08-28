@@ -16,4 +16,5 @@
     <string name="system_maintain">系统维护</string>
     <string name="Mvvm">Mvvm</string>
     <string name="Mvp">Mvp</string>
+    <string name="Push">Push</string>
 </resources>

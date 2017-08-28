@@ -7,5 +7,6 @@
         <item>@string/retrofit2</item>
         <item>@string/Mvvm</item>
         <item>@string/Mvp</item>
+        <item>@string/Push</item>
     </array>
 </resources>

@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.lijinduo.mydemo.tool.AppManager;
 
+import butterknife.ButterKnife;
+
 /**
  * 版权：XXX公司 版权所有
  * 作者：lijinduo
@@ -20,6 +22,7 @@ public class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AppManager.getAppManager().addActivity(this);
+
     }
 
     @Override
