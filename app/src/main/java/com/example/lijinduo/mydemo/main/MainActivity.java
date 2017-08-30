@@ -13,6 +13,7 @@ import com.example.lijinduo.mydemo.animation.AnimationAct;
 import com.example.lijinduo.mydemo.main.MainAdapter;
 import com.example.lijinduo.mydemo.mvp.mvpactivity.MvpActivity;
 import com.example.lijinduo.mydemo.mvvm.MvvmAct;
+import com.example.lijinduo.mydemo.permission.PermissionAct;
 import com.example.lijinduo.mydemo.push.PushActivity;
 import com.example.lijinduo.mydemo.retrofit.RetrofitTestAct;
 import com.example.lijinduo.mydemo.service.ServiceAct;
@@ -93,6 +94,11 @@ public class MainActivity extends BaseActivity {
             //开启推送
             case 6:
                 intent = new Intent(this, PushActivity.class);
+                startActivity(intent);
+                break;
+            //权限测试
+            case 7:
+                intent = new Intent(this, PermissionAct.class);
                 startActivity(intent);
                 break;
         }

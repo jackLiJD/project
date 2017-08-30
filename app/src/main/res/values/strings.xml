@@ -17,4 +17,6 @@
     <string name="Mvvm">Mvvm</string>
     <string name="Mvp">Mvp</string>
     <string name="Push">Push</string>
+    <string name="permissions">permissions</string>
+    <string name="call">Call</string>
 </resources>

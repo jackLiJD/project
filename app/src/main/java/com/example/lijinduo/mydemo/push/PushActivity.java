@@ -49,24 +49,9 @@ public class PushActivity extends BaseActivity {
 
     @OnClick(R.id.push_btn)
     public void onViewClicked() {
-//        requestPermission();
         getAppDetailSettingIntent(PushActivity.this);
     }
 
-    protected void requestPermission() {
-        // TODO Auto-generated method stub
-        // 6.0以上系统才可以判断权限
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.BASE) {
-//            // 进入设置系统应用权限界面
-//            Intent intent = new Intent(Settings.ACTION_SETTINGS);
-//            startActivity(intent);
-//        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {// 运行系统在5.x环境使用
-//            // 进入设置系统应用权限界面
-//            Intent intent = new Intent(Settings.ACTION_SETTINGS);
-//            startActivity(intent);
-//        }
-
-    }
     private void getAppDetailSettingIntent(Context context) {
         Intent localIntent = new Intent();
         localIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

@@ -8,5 +8,6 @@
         <item>@string/Mvvm</item>
         <item>@string/Mvp</item>
         <item>@string/Push</item>
+        <item>@string/permissions</item>
     </array>
 </resources>
