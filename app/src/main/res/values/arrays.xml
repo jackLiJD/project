@@ -9,5 +9,7 @@
         <item>@string/Mvp</item>
         <item>@string/Push</item>
         <item>@string/permissions</item>
+        <item>@string/手势分发</item>
+        <item>@string/isBeing</item>
     </array>
 </resources>

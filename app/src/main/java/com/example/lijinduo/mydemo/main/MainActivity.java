@@ -10,6 +10,8 @@ import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.R;
 import com.example.lijinduo.mydemo.aidl.AIDLAct;
 import com.example.lijinduo.mydemo.animation.AnimationAct;
+import com.example.lijinduo.mydemo.being.BeingA;
+import com.example.lijinduo.mydemo.hand.HandTouchAct;
 import com.example.lijinduo.mydemo.main.MainAdapter;
 import com.example.lijinduo.mydemo.mvp.mvpactivity.MvpActivity;
 import com.example.lijinduo.mydemo.mvvm.MvvmAct;
@@ -59,51 +61,50 @@ public class MainActivity extends BaseActivity {
      * @param position 跳转目录
      */
     private void jump(int position) {
-        Intent intent;
+        Intent intent=null;
         switch (position) {
             //动画
             case 0:
                 intent = new Intent(this, AnimationAct.class);
-                startActivity(intent);
                 break;
             //跨进程通讯
             case 1:
                 intent = new Intent(this, AIDLAct.class);
-                startActivity(intent);
                 break;
             //服务模块
             case 2:
                 intent = new Intent(this, ServiceAct.class);
-                startActivity(intent);
                 break;
             //retrofit网络请求框架
             case 3:
                 intent = new Intent(this, RetrofitTestAct.class);
-                startActivity(intent);
                 break;
             //mvvm
             case 4:
                 intent = new Intent(this, MvvmAct.class);
-                startActivity(intent);
                 break;
             //mvp
             case 5:
                 intent = new Intent(this, MvpActivity.class);
-                startActivity(intent);
                 break;
             //开启推送
             case 6:
                 intent = new Intent(this, PushActivity.class);
-                startActivity(intent);
                 break;
             //权限测试
             case 7:
                 intent = new Intent(this, PermissionAct.class);
-                startActivity(intent);
                 break;
+            case 8:
+                intent = new Intent(this, HandTouchAct.class);
+                break;
+            case 9:
+                intent=new Intent(this, BeingA.class);
+
+
         }
 
-
+        startActivity(intent);
     }
 
 
