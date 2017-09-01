@@ -18,6 +18,7 @@ import com.example.lijinduo.mydemo.tool.AppTool;
 import com.example.lijinduo.mydemo.tool.Constant;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import me.tatarka.bindingcollectionadapter.ItemView;
 import retrofit2.Call;
@@ -47,7 +48,7 @@ public class MvvmActVM extends BaseRecyclerViewVM{
             public void onSuccess(Call<InvestListBean> call, Response<InvestListBean> response) {
                 investListBeanObservableField.set(response.body());
 //                Toast.makeText(AppManager.getAppManager().currentActivity(), response.body().getResData().getList().get(0).getGoodType(), Toast.LENGTH_SHORT).show();
-                ArrayList<InvestListBean.ResDataBean.Bean> beans= (ArrayList<InvestListBean.ResDataBean.Bean>) response.body().getResData().getList();
+                List<InvestListBean.ResDataBean.Bean> beans= response.body().getResData().getList();
                 AppTool.log("撒打算的",response.body().getResData().getList().get(0).getGoodType());
                 items.addAll(beans);
                 Constant.OTHERLOAD=false;

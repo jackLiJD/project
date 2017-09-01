@@ -11,5 +11,6 @@
         <item>@string/permissions</item>
         <item>@string/手势分发</item>
         <item>@string/isBeing</item>
+        <item>@string/Toast</item>
     </array>
 </resources>

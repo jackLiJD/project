@@ -49,13 +49,13 @@ public class InvestListBean extends HttpResult implements Serializable{
 
 
 
-        private ArrayList<Bean> list;
+        private List<Bean> list;
 
-        public ArrayList<Bean> getList() {
+        public List<Bean> getList() {
             return list;
         }
 
-        public void setList(ArrayList<Bean> list) {
+        public void setList(List<Bean> list) {
             this.list = list;
         }
 

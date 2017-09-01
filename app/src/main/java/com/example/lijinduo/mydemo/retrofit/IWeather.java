@@ -19,4 +19,15 @@ public interface IWeather {
 
     @GET("invest/investList.html")
     Call<InvestListBean> invest();
+
+
+
+
+
+
+
+
+
+
+
 }

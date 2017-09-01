@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.R;
@@ -19,6 +20,7 @@ import com.example.lijinduo.mydemo.permission.PermissionAct;
 import com.example.lijinduo.mydemo.push.PushActivity;
 import com.example.lijinduo.mydemo.retrofit.RetrofitTestAct;
 import com.example.lijinduo.mydemo.service.ServiceAct;
+import com.example.lijinduo.mydemo.toast.ToastAct;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -100,6 +102,10 @@ public class MainActivity extends BaseActivity {
                 break;
             case 9:
                 intent=new Intent(this, BeingA.class);
+                break;
+            case 10:
+                intent=new Intent(this, ToastAct.class);
+                break;
 
 
         }
