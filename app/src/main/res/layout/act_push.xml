@@ -4,8 +4,14 @@
     android:layout_height="match_parent">
 
     <Button
+        android:tag="{100,100,0,0}(100)"
         android:id="@+id/push_btn"
         android:text="推送状态"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:tag="(100)"
+        android:text="sdasdasd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

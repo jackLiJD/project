@@ -1,10 +1,13 @@
 package com.example.lijinduo.mydemo;
 
 import android.os.Bundle;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.ViewGroup;
 
 import com.example.lijinduo.mydemo.tool.AppManager;
+import com.example.lijinduo.mydemo.tool.MyApplication;
 
 import butterknife.ButterKnife;
 
@@ -19,10 +22,15 @@ import butterknife.ButterKnife;
  */
 public class BaseActivity extends AppCompatActivity {
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AppManager.getAppManager().addActivity(this);
+    }
 
+    @Override
+    public void setContentView(@LayoutRes int layoutResID) {
+        super.setContentView(layoutResID);
+        MyApplication.scaleScreenHelper.loadView((ViewGroup) getWindow().getDecorView());
     }
 
     @Override

@@ -4,6 +4,12 @@
     android:gravity="center"
     android:layout_height="match_parent">
 
+    <Button
+        android:text="windowmanager"
+        android:id="@+id/setview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 
 
     <com.example.lijinduo.mydemo.hand.OutLin

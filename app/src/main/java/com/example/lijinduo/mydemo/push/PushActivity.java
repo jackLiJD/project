@@ -7,10 +7,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.R;
+import com.example.lijinduo.mydemo.tool.MyApplication;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,10 +33,11 @@ public class PushActivity extends BaseActivity {
     Button pushBtn;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_push);
         ButterKnife.bind(this);
+//        MyApplication.scaleScreenHelper.loadView((ViewGroup) getWindow().getDecorView());
     }
 
     @Override

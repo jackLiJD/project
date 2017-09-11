@@ -1,13 +1,25 @@
 package com.example.lijinduo.mydemo.hand;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.pm.PackageManager;
+import android.graphics.PixelFormat;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.R;
+import com.example.lijinduo.mydemo.tool.AppManager;
 import com.example.lijinduo.mydemo.tool.AppTool;
 
 import butterknife.BindView;
@@ -31,13 +43,55 @@ public class HandTouchAct extends BaseActivity {
     @BindView(R.id.out_lin)
     OutLin outLin;
 
+    private final int REQUEST_CODE_ASK_CALL_PHONE=1234;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_handtouch);
         ButterKnife.bind(this);
+
+        onCall();
+    }
+    private void onCall(){
+        if (Build.VERSION.SDK_INT >= 23) {
+            int checkCallPhonePermission = ContextCompat.checkSelfPermission(HandTouchAct.this, Manifest.permission.SYSTEM_ALERT_WINDOW);
+            if(checkCallPhonePermission != PackageManager.PERMISSION_GRANTED){
+                ActivityCompat.requestPermissions(HandTouchAct.this,new String[]{Manifest.permission.SYSTEM_ALERT_WINDOW},REQUEST_CODE_ASK_CALL_PHONE);
+                return;
+            }else{
+                window();
+            }
+        } else {
+            window();
+        }
     }
 
+    private void window() {
+        AppTool.log("window: ");
+//        final Button setview= (Button) findViewById(R.id.setview);
+        Button floatingButton = new Button(getApplicationContext());
+        floatingButton.setText("button");
+        final WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(
+                WindowManager.LayoutParams.WRAP_CONTENT,
+                WindowManager.LayoutParams.WRAP_CONTENT,
+                0, 0,
+                PixelFormat.TRANSPARENT
+        );
+        // flag 设置 Window 属性
+        layoutParams.flags= WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
+        // type 设置 Window 类别（层级）
+        layoutParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY;
+        layoutParams.gravity = Gravity.CENTER;
+        final WindowManager windowManager = getWindowManager();
+        windowManager.addView(floatingButton, layoutParams);
+
+//        setview.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                windowManager.removeView(setview);
+//            }
+//        });
+    }
 
     @OnClick({R.id.in_lin, R.id.middle_lin, R.id.out_lin})
     public void onViewClicked(View view) {
@@ -51,6 +105,23 @@ public class HandTouchAct extends BaseActivity {
             case R.id.out_lin:
                 AppTool.log("out");
                 break;
+        }
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_CODE_ASK_CALL_PHONE:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // Permission Granted
+                    window();
+                } else {
+                    // Permission Denied
+                    Toast.makeText(HandTouchAct.this, "权限未确认", Toast.LENGTH_SHORT)
+                            .show();
+                }
+                break;
+            default:
+                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 }

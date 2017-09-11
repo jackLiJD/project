@@ -12,5 +12,7 @@
         <item>@string/手势分发</item>
         <item>@string/isBeing</item>
         <item>@string/Toast</item>
+        <item>@string/Album</item>
+        <item>@string/Webview</item>
     </array>
 </resources>

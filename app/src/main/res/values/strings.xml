@@ -22,4 +22,7 @@
     <string name="手势分发">手势分发</string>
     <string name="isBeing">isBeing</string>
     <string name="Toast">Toast</string>
+    <string name="Album">Album</string>
+    <string name="Webview">Webview</string>
+
 </resources>

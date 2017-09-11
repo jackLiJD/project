@@ -5,6 +5,8 @@ import android.databinding.ObservableArrayList;
 import android.databinding.ObservableField;
 import android.databinding.ObservableList;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.lijinduo.mydemo.BR;
@@ -16,6 +18,7 @@ import com.example.lijinduo.mydemo.retrofit.RetrofitClient;
 import com.example.lijinduo.mydemo.tool.AppManager;
 import com.example.lijinduo.mydemo.tool.AppTool;
 import com.example.lijinduo.mydemo.tool.Constant;
+import com.example.lijinduo.mydemo.tool.MyApplication;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +36,7 @@ import retrofit2.Response;
  * 修订历史：
  * 参考链接：
  */
-public class MvvmActVM extends BaseRecyclerViewVM{
+public class MvvmActVM extends BaseRecyclerViewVM<InvestListBean.ResDataBean.Bean>{
 //    public final ObservableList items = new ObservableArrayList<>();
     public  ObservableField<InvestListBean> investListBeanObservableField = new ObservableField<>();
     public MvvmActVM() {
@@ -47,9 +50,7 @@ public class MvvmActVM extends BaseRecyclerViewVM{
             @Override
             public void onSuccess(Call<InvestListBean> call, Response<InvestListBean> response) {
                 investListBeanObservableField.set(response.body());
-//                Toast.makeText(AppManager.getAppManager().currentActivity(), response.body().getResData().getList().get(0).getGoodType(), Toast.LENGTH_SHORT).show();
                 List<InvestListBean.ResDataBean.Bean> beans= response.body().getResData().getList();
-                AppTool.log("撒打算的",response.body().getResData().getList().get(0).getGoodType());
                 items.addAll(beans);
                 Constant.OTHERLOAD=false;
 
@@ -59,8 +60,11 @@ public class MvvmActVM extends BaseRecyclerViewVM{
     }
 
     @Override
-    protected void selectView(ItemView itemView, int position, Object item) {
-        itemView.set(BR.item, R.layout.item_mvvm);
+    protected void selectView(ItemView itemView, int position, InvestListBean.ResDataBean.Bean item) {
+        AppTool.log(item.getGoodType());
 
+//        itemView.set(BR.item, R.layout.item_mvvm);
+        itemView.set(BR.item, R.layout.item_mvvm);
     }
+
 }

@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.R;
+import com.example.lijinduo.mydemo.view.DrawView;
 import com.github.johnpersano.supertoasts.library.Style;
 import com.github.johnpersano.supertoasts.library.SuperActivityToast;
 import com.github.johnpersano.supertoasts.library.utils.PaletteUtils;
@@ -32,6 +33,10 @@ public class ToastAct extends BaseActivity {
     Button button5;
     @BindView(R.id.button6)
     Button button6;
+    @BindView(R.id.drawview)
+    DrawView drawview;
+    @BindView(R.id.button7)
+    Button button7;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,7 +45,7 @@ public class ToastAct extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.button4, R.id.button5, R.id.button6})
+    @OnClick({R.id.button4, R.id.button5, R.id.button6,R.id.button7, R.id.drawview})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.button4:
@@ -78,7 +83,11 @@ public class ToastAct extends BaseActivity {
                         .setFrame(Style.FRAME_LOLLIPOP)
                         .setColor(PaletteUtils.getSolidColor(PaletteUtils.MATERIAL_PURPLE))
                         .setAnimations(Style.ANIMATIONS_POP).show();
+
                 break;
+            case R.id.button7:
+                break;
+
         }
     }
 }

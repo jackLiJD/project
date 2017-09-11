@@ -122,8 +122,10 @@ public class InvestListBean extends HttpResult implements Serializable{
              * uuid : 1708232004194673
              */
 
-            private int addApr;
+            private double addApr;
             private long addTime;
+
+
             private int amount;
             private String apr;
             private boolean directional;
@@ -148,12 +150,12 @@ public class InvestListBean extends HttpResult implements Serializable{
             private int type;
             private String uuid;
 
-            public int getAddApr() {
-                return addApr;
-            }
 
-            public void setAddApr(int addApr) {
+            public void setAddApr(double addApr) {
                 this.addApr = addApr;
+            }
+            public double getAddApr() {
+                return addApr;
             }
 
             public long getAddTime() {

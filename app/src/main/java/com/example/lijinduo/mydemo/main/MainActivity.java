@@ -10,8 +10,10 @@ import android.widget.Toast;
 import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.R;
 import com.example.lijinduo.mydemo.aidl.AIDLAct;
+import com.example.lijinduo.mydemo.album.MyAlbum;
 import com.example.lijinduo.mydemo.animation.AnimationAct;
 import com.example.lijinduo.mydemo.being.BeingA;
+import com.example.lijinduo.mydemo.book.Book;
 import com.example.lijinduo.mydemo.hand.HandTouchAct;
 import com.example.lijinduo.mydemo.main.MainAdapter;
 import com.example.lijinduo.mydemo.mvp.mvpactivity.MvpActivity;
@@ -106,8 +108,12 @@ public class MainActivity extends BaseActivity {
             case 10:
                 intent=new Intent(this, ToastAct.class);
                 break;
-
-
+            case 11:
+                intent=new Intent(this, MyAlbum.class);
+                break;
+            case 12:
+                intent=new Intent(this, Book.class);
+                break;
         }
 
         startActivity(intent);

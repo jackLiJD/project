@@ -14,7 +14,11 @@ import android.databinding.ObservableArrayList;
 import android.databinding.ObservableBoolean;
 import android.databinding.ObservableInt;
 import android.databinding.ObservableList;
+import android.view.ViewGroup;
 
+
+import com.example.lijinduo.mydemo.tool.AppManager;
+import com.example.lijinduo.mydemo.tool.MyApplication;
 
 import me.tatarka.bindingcollectionadapter.ItemView;
 import me.tatarka.bindingcollectionadapter.ItemViewSelector;
@@ -53,6 +57,7 @@ public abstract class BaseRecyclerViewVM<T> {
     public final ItemViewSelector<T> itemView = new ItemViewSelector<T>() {
         @Override
         public void select(ItemView itemView, int position, T item) {
+            MyApplication.scaleScreenHelper.loadView((ViewGroup) AppManager.getAppManager().currentActivity().getWindow().getDecorView());
             selectView(itemView, position, item);
         }
 
