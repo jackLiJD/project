@@ -14,12 +14,18 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.target.Target;
 import com.example.lijinduo.mydemo.R;
 
 import java.util.List;
@@ -39,11 +45,23 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumViewHoler> {
         return new AlbumViewHoler(view);
     }
 
-    @Override
-    public void onBindViewHolder(AlbumViewHoler holder, final int position) {
-        Glide.with(context).load(stringList.get(position)).fitCenter().into(holder.item_album_img);
-    }
 
+    @Override
+    public void onBindViewHolder(final AlbumViewHoler holder, final int position) {
+        Glide.with(context).load(stringList.get(position)).into(new GlideDrawableImageViewTarget(holder.item_album_img) {
+            @Override
+            public void onResourceReady(GlideDrawable drawable, GlideAnimation anim) {
+                super.onResourceReady(drawable, anim);
+                ViewGroup.LayoutParams top = holder.item_album_img.getLayoutParams();
+                holder.item_album_img.measure(0, 0);
+                Log.d("g高度", "onBindViewHolder: " + holder.item_album_img.getMeasuredHeight());
+//                top.height = holder.item_album_img.getMeasuredHeight();
+//                holder.item_album_img.setLayoutParams(top);
+            }
+
+
+        });
+    }
 
     @Override
     public int getItemCount() {
