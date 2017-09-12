@@ -13,6 +13,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -45,7 +46,7 @@ public class MyAlbum extends BaseActivity {
         setContentView(R.layout.act_album);
         onCall();
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.album_view);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
         AlbumAdapter adapter = new AlbumAdapter(mContext,imagePath);
         recyclerView.setAdapter(adapter);
 

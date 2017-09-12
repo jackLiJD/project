@@ -48,19 +48,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumViewHoler> {
 
     @Override
     public void onBindViewHolder(final AlbumViewHoler holder, final int position) {
-        Glide.with(context).load(stringList.get(position)).into(new GlideDrawableImageViewTarget(holder.item_album_img) {
-            @Override
-            public void onResourceReady(GlideDrawable drawable, GlideAnimation anim) {
-                super.onResourceReady(drawable, anim);
-                ViewGroup.LayoutParams top = holder.item_album_img.getLayoutParams();
-                holder.item_album_img.measure(0, 0);
-                Log.d("g高度", "onBindViewHolder: " + holder.item_album_img.getMeasuredHeight());
-//                top.height = holder.item_album_img.getMeasuredHeight();
-//                holder.item_album_img.setLayoutParams(top);
-            }
-
-
-        });
+        Glide.with(context).load(stringList.get(position)).into(holder.item_album_img);
     }
 
     @Override
