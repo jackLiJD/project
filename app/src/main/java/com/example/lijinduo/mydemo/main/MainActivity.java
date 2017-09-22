@@ -23,6 +23,7 @@ import com.example.lijinduo.mydemo.push.PushActivity;
 import com.example.lijinduo.mydemo.retrofit.RetrofitTestAct;
 import com.example.lijinduo.mydemo.service.ServiceAct;
 import com.example.lijinduo.mydemo.toast.ToastAct;
+import com.example.lijinduo.mydemo.vr.VRAct;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -113,6 +114,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 12:
                 intent=new Intent(this, Book.class);
+                break;
+            case 13:
+                intent=new Intent(this, VRAct.class);
                 break;
         }
 

@@ -14,5 +14,6 @@
         <item>@string/Toast</item>
         <item>@string/Album</item>
         <item>@string/Webview</item>
+        <item>@string/VR</item>
     </array>
 </resources>

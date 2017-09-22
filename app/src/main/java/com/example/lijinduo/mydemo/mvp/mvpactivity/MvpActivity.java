@@ -2,6 +2,7 @@ package com.example.lijinduo.mydemo.mvp.mvpactivity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,6 +32,10 @@ public class MvpActivity extends Activity implements LoginView {
     Button loginBtn;
     @BindView(R.id.mvp_progress)
     ProgressBar mvpProgress;
+    @BindView(R.id.uesrname_input)
+    TextInputLayout uesrnameInput;
+    @BindView(R.id.password_input)
+    TextInputLayout passwordInput;
     private LoginPresenter presenter;
 
     @Override
@@ -38,7 +43,7 @@ public class MvpActivity extends Activity implements LoginView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_mvp);
         ButterKnife.bind(this);
-        presenter=new LoginPresenterImpl(MvpActivity.this);
+        presenter = new LoginPresenterImpl(MvpActivity.this);
     }
 
     @Override
@@ -56,17 +61,21 @@ public class MvpActivity extends Activity implements LoginView {
 
     @Override
     public void setUsernameError() {
-        Toast.makeText(this, "账号为空", Toast.LENGTH_SHORT).show();
-
+        uesrnameInput.setEnabled(true);
+        uesrnameInput.setError("账号为空");
     }
 
     @Override
     public void setPasswordError() {
-        Toast.makeText(this, "密码为空", Toast.LENGTH_SHORT).show();
+        passwordInput.setEnabled(true);
+        passwordInput.setError("密码为空");
+
     }
 
     @Override
     public void setnavigateToHome() {
+        uesrnameInput.setEnabled(false);
+        passwordInput.setEnabled(false);
         Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
     }
 
@@ -86,7 +95,7 @@ public class MvpActivity extends Activity implements LoginView {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.login_btn:
-                presenter.validateCredentials(uesrname.getText().toString(),password.getText().toString());
+                presenter.validateCredentials(uesrname.getText().toString(), password.getText().toString());
                 break;
         }
     }

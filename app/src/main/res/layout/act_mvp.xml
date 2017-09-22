@@ -5,20 +5,31 @@
     android:layout_height="match_parent">
 
 
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/uesrname_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <EditText
+        android:hint="userName"
         android:layout_marginTop="10dp"
         android:gravity="center_vertical"
         android:id="@+id/uesrname"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/password_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <EditText
+        android:hint="passWord"
         android:layout_marginTop="10dp"
         android:gravity="center_vertical"
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
-
+    </android.support.design.widget.TextInputLayout>
     <Button
         android:text="@string/app_name"
         android:layout_marginTop="10dp"

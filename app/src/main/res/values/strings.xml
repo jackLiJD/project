@@ -24,5 +24,6 @@
     <string name="Toast">Toast</string>
     <string name="Album">Album</string>
     <string name="Webview">Webview</string>
+    <string name="VR">VR全景</string>
 
 </resources>

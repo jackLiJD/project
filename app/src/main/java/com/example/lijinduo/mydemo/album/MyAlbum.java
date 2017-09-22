@@ -46,7 +46,7 @@ public class MyAlbum extends BaseActivity {
         setContentView(R.layout.act_album);
         onCall();
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.album_view);
-        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL));
         AlbumAdapter adapter = new AlbumAdapter(mContext,imagePath);
         recyclerView.setAdapter(adapter);
 
