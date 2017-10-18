@@ -40,8 +40,8 @@ public class Book extends BaseActivity {
         bookWeb.setCacheStrategy(WebViewCache.CacheStrategy.FORCE);
         bookWeb.setEnableCache(true);
         bookWeb.getWebViewCache().getStaticRes().addRamExtension("png").addRamExtension("html");
-        bookWeb.loadUrl("https://test1static.edspay.com/#/wxRankingList");
-//        bookWeb.loadUrl("https://www.baidu.com/");
+//        bookWeb.loadUrl("https://test1static.edspay.com/#/wxRankingList");
+        bookWeb.loadUrl("https://www.baidu.com/");
     }
 
     public class WebClient extends WebViewClient{
