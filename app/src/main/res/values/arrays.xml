@@ -15,5 +15,7 @@
         <item>@string/Album</item>
         <item>@string/Webview</item>
         <item>@string/VR</item>
+        <item>@string/Thread</item>
+        <item>@string/BackLinear</item>
     </array>
 </resources>

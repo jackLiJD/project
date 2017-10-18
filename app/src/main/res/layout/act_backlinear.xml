@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.example.lijinduo.mydemo.view.BackLinearlayout
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:divider="@mipmap/ic_launcher"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:borderColor="@color/colorPrimary"
+        app:borderWidth="3dp"
+        app:radius="15dp">
+
+        <ImageView
+            android:id="@+id/start_xj"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+           />
+
+        <Button
+            android:textAllCaps="false"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:text="leab " />
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:text="eqwwewqe" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:text="string" />
+    </com.example.lijinduo.mydemo.view.BackLinearlayout>
+
+    <!--<com.example.lijinduo.mydemo.view.BgButton-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center_horizontal"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:padding="10dp"-->
+    <!--app:cornerRadius="5dp"-->
+    <!--app:borderWidth="2dp"-->
+    <!--app:bgColor="#ff0000"-->
+    <!--app:cornerRadiusColor="@color/colorAccent"-->
+    <!--/>-->
+
+    <!--
+
+
+        <com.example.lijinduo.mydemo.view.BgButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:textColor="#f21"
+            app:bgColor="@color/colorPrimaryDark"
+            app:cornerRadius="5dp"
+            app:borderWidth="2dp"
+            app:cornerRadiusColor="@color/colorAccent"
+            />
+
+
+        <com.example.lijinduo.mydemo.view.BgButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:textColor="#f21"
+            app:bgColor="@color/colorPrimaryDark"
+            app:cornerRadius="15dp"
+            app:borderWidth="1dp"
+            app:cornerRadiusColor="@color/colorAccent"
+            />
+
+        <com.example.lijinduo.mydemo.view.BgButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:textColor="#f21"
+            app:borderWidth="1dp"
+            app:cornerRadiusColor="@color/colorAccent"
+            app:shapeType="oval"/>
+
+        <com.example.lijinduo.mydemo.view.BgButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:textColor="#f21"
+            app:borderWidth="1dp"
+            app:cornerRadiusColor="@color/colorAccent"
+            app:shapeType="oval"/>
+
+        <com.example.lijinduo.mydemo.view.BgButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:textColor="#f21"
+            app:borderWidth="1dp"
+            app:cornerRadius="5dp"
+            app:cornerRadiusColor="@color/colorAccent"
+            app:borderDashLength="5dp"
+            app:borderDashGap="3dp"/>
+
+
+        <com.example.lijinduo.mydemo.view.BgButton
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:textColor="#f21"
+            app:borderWidth="1dp"
+            app:cornerRadiusColor="@color/colorAccent"
+            app:shapeType="oval"
+            app:borderDashLength="5dp"
+            app:borderDashGap="3dp"
+            app:borderDashGapSmall="1dp"/>
+
+
+    -->
+
+     <ImageView
+
+            android:id="@+id/imageview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop" />
+</LinearLayout>

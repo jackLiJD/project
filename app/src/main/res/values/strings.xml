@@ -25,5 +25,7 @@
     <string name="Album">Album</string>
     <string name="Webview">Webview</string>
     <string name="VR">VR全景</string>
+    <string name="Thread">Thread Stop</string>
+    <string name="BackLinear">BackLinear</string>
 
 </resources>

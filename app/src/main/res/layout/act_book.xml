@@ -3,8 +3,8 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <WebView
+    <ren.yale.android.cachewebviewlib.CacheWebView
         android:id="@+id/book_web"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></WebView>
+        android:layout_width="400dp"
+        android:layout_height="400dp"></ren.yale.android.cachewebviewlib.CacheWebView>
 </LinearLayout>

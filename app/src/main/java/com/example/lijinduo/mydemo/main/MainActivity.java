@@ -12,6 +12,7 @@ import com.example.lijinduo.mydemo.R;
 import com.example.lijinduo.mydemo.aidl.AIDLAct;
 import com.example.lijinduo.mydemo.album.MyAlbum;
 import com.example.lijinduo.mydemo.animation.AnimationAct;
+import com.example.lijinduo.mydemo.backlinear.BackLinearAct;
 import com.example.lijinduo.mydemo.being.BeingA;
 import com.example.lijinduo.mydemo.book.Book;
 import com.example.lijinduo.mydemo.hand.HandTouchAct;
@@ -22,10 +23,12 @@ import com.example.lijinduo.mydemo.permission.PermissionAct;
 import com.example.lijinduo.mydemo.push.PushActivity;
 import com.example.lijinduo.mydemo.retrofit.RetrofitTestAct;
 import com.example.lijinduo.mydemo.service.ServiceAct;
+import com.example.lijinduo.mydemo.thread.ThreadAct;
 import com.example.lijinduo.mydemo.toast.ToastAct;
 import com.example.lijinduo.mydemo.vr.VRAct;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -58,8 +61,8 @@ public class MainActivity extends BaseActivity {
      */
     private void initData() {
         String[] stringArray = getResources().getStringArray(R.array.main_item_title);
-        stringList = new ArrayList<>();
-        Collections.addAll(stringList, stringArray);
+        stringList = new ArrayList<>(Arrays.asList(stringArray));
+//        Collections.addAll(stringList, stringArray);
     }
 
     /**
@@ -117,6 +120,12 @@ public class MainActivity extends BaseActivity {
                 break;
             case 13:
                 intent=new Intent(this, VRAct.class);
+                break;
+            case 14:
+                intent=new Intent(this, ThreadAct.class);
+                break;
+            case 15:
+                intent=new Intent(this, BackLinearAct.class);
                 break;
         }
 

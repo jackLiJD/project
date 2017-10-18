@@ -7,6 +7,10 @@ import android.support.multidex.MultiDex;
 import com.zcx.helper.scale.ScaleScreenHelper;
 import com.zcx.helper.scale.ScaleScreenHelperFactory;
 
+import java.io.File;
+
+import ren.yale.android.cachewebviewlib.CacheWebView;
+
 /**
  * 版权：XXX公司 版权所有
  * 作者：lijinduo
@@ -21,6 +25,8 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        File cacheFile = new File(this.getCacheDir(),"cache_path_name");
+        CacheWebView.getWebViewCache().init(this,cacheFile,1024*1024*100,1024*1024*10);//100M 磁盘缓存空间,10M 内存缓存空间
         scaleScreenHelper = ScaleScreenHelperFactory.create(this, 750);
     }
     @Override

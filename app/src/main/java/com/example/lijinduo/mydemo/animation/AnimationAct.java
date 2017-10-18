@@ -5,6 +5,7 @@ import android.animation.AnimatorInflater;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 
 import com.example.lijinduo.mydemo.BaseActivity;
@@ -47,6 +49,7 @@ public class AnimationAct extends BaseActivity {
             @Override
             public void onClick(View v) {
                 startAnimation(i++);
+//                Rotate();
             }
         });
         animation_xml_start.setOnClickListener(new View.OnClickListener() {
@@ -108,7 +111,6 @@ public class AnimationAct extends BaseActivity {
         Animator animator = AnimatorInflater.loadAnimator(AnimationAct.this, R.animator.group_anim);
 
         animator.setTarget(animation_xml_start);
-
         animator.start();
 
     }
@@ -127,7 +129,7 @@ public class AnimationAct extends BaseActivity {
         //渐变
         ObjectAnimator animtorAlpha = ObjectAnimator.ofFloat(animation_start, "alpha", 1f, 0f, 1f, 0.5f, 1f);
         //旋转
-        ObjectAnimator animtorRotation = ObjectAnimator.ofFloat(animation_start, "rotation", 0f, 360f);
+        ObjectAnimator animtorRotation = ObjectAnimator.ofFloat(animation_start, "rotationY", 0f, 360f);
         //平移
         ObjectAnimator animtorCurTranslationX = ObjectAnimator.ofFloat(animation_start, "translationX", curTranslationX, -500f, 500f, curTranslationX);
         //缩放
@@ -168,8 +170,10 @@ public class AnimationAct extends BaseActivity {
                 animSet.start();
                 break;
             case 1:
-                animSet.play(animtorRotation).before(animtorScaleY);
-                animSet.setDuration(2000);
+                animtorRotation.setRepeatCount(5);
+                animSet.setInterpolator(new LinearInterpolator());
+                animSet.play(animtorRotation);
+                animSet.setDuration(300);
                 animSet.start();
                 break;
 
@@ -198,6 +202,18 @@ public class AnimationAct extends BaseActivity {
         }
 
 
+    }
+
+
+    //旋转
+    public void Rotate(){
+        ObjectAnimator animtorRotation = ObjectAnimator.ofFloat(animation_start, "rotation", 0f, 360f);
+        animtorRotation.setRepeatCount(-1);
+        AnimatorSet animSet = new AnimatorSet();
+        animSet.setInterpolator(new LinearInterpolator());
+        animSet.play(animtorRotation);
+        animSet.setDuration(300);
+        animSet.start();
     }
 
     /*设置动画路径*/

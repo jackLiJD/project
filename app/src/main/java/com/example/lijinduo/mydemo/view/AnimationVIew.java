@@ -1,6 +1,5 @@
 package com.example.lijinduo.mydemo.view;
 
-import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -9,7 +8,8 @@ import android.graphics.Path;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.animation.PathInterpolator;
+
+import com.example.lijinduo.mydemo.animation.AnimatorPath;
 
 /**
  * 版权：XXX公司 版权所有
@@ -23,6 +23,9 @@ import android.view.animation.PathInterpolator;
 public class AnimationVIew extends View{
     Path path;
     Paint paint;
+    AnimatorPath animatorPath;
+//    http://blog.csdn.net/szqsdq/article/details/53838111
+
     public AnimationVIew(Context context) {
         this(context,null);
     }
@@ -41,9 +44,20 @@ public class AnimationVIew extends View{
         paint.setStrokeWidth(4);
         path = new Path();
         path.moveTo(100, 100);
-        path.lineTo(600,100);
-        path.lineTo(600,600);
+        path.quadTo(200, 300, 300, 100);
+        path.quadTo(400,400,500,0);
+//        path.lineTo(600,100);
+//        path.lineTo(600,600);
+//        path.cubicTo(200,350,300,50,400,100);
+//        path.close();
         canvas.drawPath(path,paint);
+    }
+
+    private void startAnimator(){
+        animatorPath=new AnimatorPath();
+
+
+//        ObjectAnimator objAnimator = ObjectAnimator.ofObject(this, "PointPath", new MyEvalueTor(), animatorPath.getPoints().toArray());
     }
 
 }

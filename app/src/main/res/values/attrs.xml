@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <declare-styleable name="backLinear">
+        <attr name="backColor" format="color|reference" />
+        <attr name="borderColor" format="color" />
+        <attr name="borderWidth" format="dimension" />
+        <attr name="radius" format="dimension" />
+        <attr name="topLeft" format="dimension" />
+        <attr name="topRight" format="dimension" />
+        <attr name="bottomLeft" format="dimension" />
+        <attr name="bottomRight" format="dimension" />
+
+
+        <attr name="shapeType" format="enum">
+            <enum name="rectangle" value="0"></enum>
+            <enum name="oval" value="1"></enum>
+        </attr>
+        <attr name="borderDashLength" format="dimension"/>
+        <attr name="borderDashGapSmall" format="dimension"/>
+        <attr name="borderDashGap" format="dimension"/>
+
+    </declare-styleable>
+  <!--  <declare-styleable name="BgButton">
+        &lt;!&ndash;背景颜色&ndash;&gt;
+        <attr name="bgColor" format="color|reference"/>
+        &lt;!&ndash;边框颜色&ndash;&gt;
+        <attr name="cornerRadiusColor" format="color"/>
+        &lt;!&ndash; 边框厚度 &ndash;&gt;
+        <attr name="borderWidth" format="dimension"/>
+        &lt;!&ndash;圆角半径&ndash;&gt;
+        <attr name="cornerRadius" format="dimension" />
+        <attr name="topLeftRadius" format="dimension"></attr>
+        <attr name="topRightRadius" format="dimension"></attr>
+        <attr name="bottomLeftRadius" format="dimension"></attr>
+        <attr name="bottomRightRadius" format="dimension"></attr>
+        &lt;!&ndash;形状&ndash;&gt;
+        <attr name="shapeType" format="enum">
+            <enum name="rectangle" value="0"></enum>
+            <enum name="oval" value="1"></enum>
+        </attr>
+        &lt;!&ndash; 虚线长度 &ndash;&gt;
+        <attr name="borderDashLength" format="dimension"/>
+        &lt;!&ndash; 虚线间隙小点长度 &ndash;&gt;
+        <attr name="borderDashGapSmall" format="dimension"/>
+        &lt;!&ndash; 虚线间隙 &ndash;&gt;
+        <attr name="borderDashGap" format="dimension"/>
+
+    </declare-styleable>-->
+
+</resources>
