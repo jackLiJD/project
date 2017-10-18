@@ -39,6 +39,8 @@ public class MainActivity extends BaseActivity {
     //git修改
     private List<String> stringList;
 
+    private  String str="李金舵mast分之提交";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
