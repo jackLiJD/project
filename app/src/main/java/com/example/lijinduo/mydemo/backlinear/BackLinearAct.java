@@ -1,37 +1,34 @@
 package com.example.lijinduo.mydemo.backlinear;
 
-import android.Manifest;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.VideoView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.R;
 import com.example.lijinduo.mydemo.tool.AppTool;
+import com.example.lijinduo.mydemo.view.BackLinearlayout;
 import com.example.lijinduo.mydemo.view.PictureHandlerActivity;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static android.support.design.R.id.start;
 
 /**
  * 版权：XXX公司 版权所有
@@ -43,9 +40,12 @@ import static android.support.design.R.id.start;
  * 参考链接：
  */
 public class BackLinearAct extends PictureHandlerActivity {
-    @BindView(R.id.start_xj)
-    ImageView startXj;
+    @BindView(R.id.start_other)
+    BackLinearlayout startOther;
+    //    @BindView(R.id.start_xj)
+//    ImageView startXj;
     private Context context = BackLinearAct.this;
+    private VideoView videoview;
     String path;
 
     @Override
@@ -53,21 +53,33 @@ public class BackLinearAct extends PictureHandlerActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_backlinear);
         ButterKnife.bind(this);
-        startXj.setOnClickListener(new View.OnClickListener() {
+        videoview= (VideoView) findViewById(R.id.videoview);
+        startOther.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ContextCompat.checkSelfPermission(BackLinearAct.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                    //申请权限，REQUEST_TAKE_PHOTO_PERMISSION是自定义的常量
-                    ActivityCompat.requestPermissions(BackLinearAct.this,
-                            new String[]{Manifest.permission.CAMERA},
-                            1234);
-                } else {
-                    //有权限，直接拍照
-                    startCamera(null);
-                }
-
+                openApp("com.zw.zwlc");
+//                Intent intent = new Intent(Intent.ACTION_MAIN);
+//                intent.addCategory(Intent.CATEGORY_LAUNCHER);
+//                ComponentName cn = new ComponentName("com.zw.zwlc", "com.zw.zwlc.activity.WelcomeAct");
+//                intent.setComponent(cn);
+//                startActivity(intent);
             }
         });
+//        startXj.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (ContextCompat.checkSelfPermission(BackLinearAct.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+//                    //申请权限，REQUEST_TAKE_PHOTO_PERMISSION是自定义的常量
+//                    ActivityCompat.requestPermissions(BackLinearAct.this,
+//                            new String[]{Manifest.permission.CAMERA},
+//                            1234);
+//                } else {
+//                    //有权限，直接拍照
+//                    startCamera(null);
+//                }
+//
+//            }
+//        });
         Log.d("啊实打实的", "onCreate: ");
 //        LinearLayout.LayoutParams mParams = new LinearLayout.LayoutParams(800, 800);
 //        ImageView iv = new ImageView(BackLinearAct.this);
@@ -88,13 +100,14 @@ public class BackLinearAct extends PictureHandlerActivity {
     protected Crop getCrop() {
         return new Crop().setCrop(false).setAspectX(590).setAspectY(374).setOutputX(590).setOutputY(374);
     }
+
     @Override
     protected void resultPhotoPath(ImageView view, String photoPath) {
 //        return Environment.getExternalStorageDirectory().getPath();
         AppTool.log("返回的路径", "返回的路径=====" + photoPath);
-        startXj.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        //本地加载图片
-        startXj.setImageBitmap(revitionImageSize(photoPath));
+//        startXj.setScaleType(ImageView.ScaleType.CENTER_CROP);
+//        //本地加载图片
+//        startXj.setImageBitmap(revitionImageSize(photoPath));
 
     }
 
@@ -151,5 +164,32 @@ public class BackLinearAct extends PictureHandlerActivity {
         bitmap = BitmapFactory.decodeFile(srcPath, newOpts);
         return bitmap;// 压缩好比例大小后再进行质量压缩
     }
+    private void openApp(String packageName) {
+        PackageInfo pi = null;
+        try {
+            pi = getPackageManager().getPackageInfo(packageName, 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
 
+        Intent resolveIntent = new Intent(Intent.ACTION_MAIN, null);
+        resolveIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+        resolveIntent.setPackage(pi.packageName);
+
+        List<ResolveInfo> apps = getPackageManager().queryIntentActivities(resolveIntent, 0);
+
+        ResolveInfo ri = apps.iterator().next();
+        if (ri != null ) {
+//            String packageName = ri.activityInfo.packageName;
+            String className = ri.activityInfo.name;
+
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_LAUNCHER);
+
+            ComponentName cn = new ComponentName(packageName, className);
+
+            intent.setComponent(cn);
+            startActivity(intent);
+        }
+    }
 }
