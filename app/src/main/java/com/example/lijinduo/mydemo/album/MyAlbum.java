@@ -23,6 +23,8 @@ import com.example.lijinduo.mydemo.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import ren.yale.android.cachewebviewlib.CacheWebView;
+
 /**
  * 版权：XXX公司 版权所有
  * 作者：lijinduo
@@ -40,10 +42,13 @@ public class MyAlbum extends BaseActivity {
     String lanlingwang="打野-复活，鞋，黑切，冰痕，魔女，破军";
     String yangjian="黑切，鞋，冰痕，反甲，魔女，复活";
     String hanxin="打野-复活，鞋，黑切，吸血，宗师，暴击刀";
+    CacheWebView cacheWebView;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_album);
+
+
         onCall();
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.album_view);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL));

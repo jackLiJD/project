@@ -49,7 +49,7 @@ public class AnimationVIew extends View{
 //        path.lineTo(600,100);
 //        path.lineTo(600,600);
 //        path.cubicTo(200,350,300,50,400,100);
-//        path.close();
+        path.close();
         canvas.drawPath(path,paint);
     }
 

@@ -72,11 +72,8 @@ public class Book extends BaseActivity {
                 FrameLayout.LayoutParams.MATCH_PARENT,
                 FrameLayout.LayoutParams.MATCH_PARENT));
         cacheweb.setCacheStrategy(WebViewCache.CacheStrategy.FORCE);
-        cacheweb.getWebViewCache().getStaticRes().addExtension("swf").removeExtension("svg")
-                .addRamExtension("png").removeRamExtension("html");
-
-
-
+        cacheweb.getWebViewCache().getStaticRes().addExtension("swf").addExtension("svg")
+                .addRamExtension("png").addRamExtension("html");
 //        commonUrl = "https://ywww.edspay.com/#/channel/ypwk";
         //        bookWeb.loadUrl("https://www.baidu.com/");
 //        bookWeb.loadUrl("https://test1static.edspay.com/#/wxAnnouncement?id=401&uid=&token=&vcode=3.0.4&osType=Android&osVersion=Android:6.0");

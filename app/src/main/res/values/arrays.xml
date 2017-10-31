@@ -17,5 +17,6 @@
         <item>@string/VR</item>
         <item>@string/Thread</item>
         <item>@string/BackLinear</item>
+        <item>@string/myMap</item>
     </array>
 </resources>

@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.R;
+import com.example.lijinduo.mydemo.view.CommonPopWindow;
 
 import retrofit2.Call;
 import retrofit2.Response;
@@ -37,16 +38,16 @@ public class RetrofitTestAct extends BaseActivity {
 
     }
     private void init() {
-        Call<InvestListBean> call = RetrofitClient.getInstance().getService(IWeather.class).invest();
-        call.enqueue(new RequestCallBack<InvestListBean>(false) {
-            @Override
-            public void onSuccess(Call<InvestListBean> call, Response<InvestListBean> response) {
-                InvestListBean investBean = response.body();
-                query_weather.setText(investBean.getResData().getList().get(0).getGoodType());
-            }
-        });
-        Intent intent=new Intent(RetrofitTestAct.this,DoubleActTest.class);
-        startActivity(intent);
+//        Call<InvestListBean> call = RetrofitClient.getInstance().getService(IWeather.class).invest();
+//        call.enqueue(new RequestCallBack<InvestListBean>(false) {
+//            @Override
+//            public void onSuccess(Call<InvestListBean> call, Response<InvestListBean> response) {
+//                InvestListBean investBean = response.body();
+//                query_weather.setText(investBean.getResData().getList().get(0).getGoodType());
+//            }
+//        });
+//        Intent intent=new Intent(RetrofitTestAct.this,DoubleActTest.class);
+//        startActivity(intent);
 
     }
 

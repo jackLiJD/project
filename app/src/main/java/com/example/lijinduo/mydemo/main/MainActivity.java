@@ -1,11 +1,9 @@
 package com.example.lijinduo.mydemo.main;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
 
 import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.R;
@@ -16,9 +14,9 @@ import com.example.lijinduo.mydemo.backlinear.BackLinearAct;
 import com.example.lijinduo.mydemo.being.BeingA;
 import com.example.lijinduo.mydemo.book.Book;
 import com.example.lijinduo.mydemo.hand.HandTouchAct;
-import com.example.lijinduo.mydemo.main.MainAdapter;
 import com.example.lijinduo.mydemo.mvp.mvpactivity.MvpActivity;
 import com.example.lijinduo.mydemo.mvvm.MvvmAct;
+import com.example.lijinduo.mydemo.mymap.MyMapAct;
 import com.example.lijinduo.mydemo.permission.PermissionAct;
 import com.example.lijinduo.mydemo.push.PushActivity;
 import com.example.lijinduo.mydemo.retrofit.RetrofitTestAct;
@@ -128,6 +126,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 15:
                 intent=new Intent(this, BackLinearAct.class);
+                break;
+            case 16:
+                intent=new Intent(this, MyMapAct.class);
                 break;
         }
 

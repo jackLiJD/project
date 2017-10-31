@@ -59,7 +59,7 @@ public class DrawView extends View {
             case MotionEvent.ACTION_MOVE:
                 AppTool.log("ACTION_MOVE");
                 path.lineTo(event.getX(), event.getY());
-                        invalidate();
+//                        invalidate();
                 break;
 
             case MotionEvent.ACTION_UP:

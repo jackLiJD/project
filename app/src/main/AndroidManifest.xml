@@ -132,7 +132,12 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name=".backlinear.BackLinearAct"
+        android:name=".backlinear.BackLinearAct"
+        android:launchMode="singleTask"
+        android:screenOrientation="portrait"
+        android:windowSoftInputMode="stateHidden|adjustPan"></activity>
+        <activity
+            android:name=".mymap.MyMapAct"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
