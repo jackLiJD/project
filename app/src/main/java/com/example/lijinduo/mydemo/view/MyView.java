@@ -40,7 +40,7 @@ public class MyView extends LinearLayout {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        Log.d(TAG, "onMeasure: ");
+        Log.d(TAG, "onMeasure: "+getWidth()+"/"+getHeight());
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 

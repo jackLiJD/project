@@ -8,6 +8,11 @@
         android:id="@+id/book_web"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>-->
+    <!--<com.example.lijinduo.mydemo.view.MyView-->
+        <!--android:dividerPadding="1dp"-->
+        <!--android:divider="@mipmap/ic_launcher"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="100dp"></com.example.lijinduo.mydemo.view.MyView>-->
     <FrameLayout
         android:layout_weight="1"
         android:id="@+id/webview_content"
@@ -16,6 +21,11 @@
     <FrameLayout
         android:layout_weight="1"
         android:id="@+id/webview_contentChache"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <FrameLayout
+        android:layout_weight="1"
+        android:id="@+id/webview_contentChacheall"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </LinearLayout>

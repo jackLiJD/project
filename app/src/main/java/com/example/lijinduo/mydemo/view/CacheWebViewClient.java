@@ -6,17 +6,18 @@ import android.net.http.SslError;
 import android.os.Build;
 import android.os.Message;
 import android.view.KeyEvent;
-import android.webkit.ClientCertRequest;
-import android.webkit.HttpAuthHandler;
-import android.webkit.SslErrorHandler;
-import android.webkit.WebResourceError;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebResourceResponse;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 
-import ren.yale.android.cachewebviewlib.WebViewCache;
+import com.tencent.smtt.export.external.interfaces.ClientCertRequest;
+import com.tencent.smtt.export.external.interfaces.HttpAuthHandler;
+import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
+import com.tencent.smtt.export.external.interfaces.WebResourceError;
+import com.tencent.smtt.export.external.interfaces.WebResourceRequest;
+import com.tencent.smtt.export.external.interfaces.WebResourceResponse;
+import com.tencent.smtt.sdk.WebSettings;
+import com.tencent.smtt.sdk.WebView;
+import com.tencent.smtt.sdk.WebViewClient;
+
+
 
 /**
  * 版权：XXX公司 版权所有
@@ -39,37 +40,56 @@ public class CacheWebViewClient extends WebViewClient {
         mCustomWebViewClient = webViewClient;
     }
 
+//    @Override
+//    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+//
+//        if (mCustomWebViewClient!=null){
+//            boolean load =  mCustomWebViewClient.shouldOverrideUrlLoading(view,url);
+//            if (!load){
+//
+//                view.loadUrl(url);
+//            }
+//            return load;
+//        }
+//        view.loadUrl(url);
+//        return true;
+//    }
+
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, String url) {
 
         if (mCustomWebViewClient!=null){
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             boolean load =  mCustomWebViewClient.shouldOverrideUrlLoading(view,url);
             if (!load){
 
                 view.loadUrl(url);
             }
             return load;
-        }
-        view.loadUrl(url);
-        return true;
-    }
-
-    @Override
-    public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-        if (mCustomWebViewClient!=null){
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                boolean load =   mCustomWebViewClient.shouldOverrideUrlLoading(view,request);
-                if (!load){
-                    view.loadUrl(request.getUrl().toString());
-                }
-                return load;
             }
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            view.loadUrl(request.getUrl().toString());
+        view.loadUrl(url);
         }
         return true;
     }
+
+//    @Override
+//    public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+//        if (mCustomWebViewClient!=null){
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//                boolean load =   mCustomWebViewClient.shouldOverrideUrlLoading(view,request);
+//                if (!load){
+//                    view.loadUrl(request.getUrl().toString());
+//                }
+//                return load;
+//            }
+//        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            view.loadUrl(request.getUrl().toString());
+//        }
+//        return true;
+//    }
 
     @Override
     public void onPageStarted(WebView view, String url, Bitmap favicon) {
@@ -106,16 +126,19 @@ public class CacheWebViewClient extends WebViewClient {
         super.onLoadResource(view, url);
     }
 
-    @Override
-    public void onPageCommitVisible(WebView view, String url) {
-        if (mCustomWebViewClient!=null){
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                mCustomWebViewClient.onPageCommitVisible(view,url);
-                return;
-            }
-        }
-        super.onPageCommitVisible(view, url);
-    }
+
+
+
+//    @Override
+//    public void onPageCommitVisible(WebView view, String url) {
+//        if (mCustomWebViewClient!=null){
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//                mCustomWebViewClient.onPageCommitVisible(view,url);
+//                return;
+//            }
+//        }
+//        super.onPageCommitVisible(view, url);
+//    }
 
     public void setCacheStrategy(WebViewCache.CacheStrategy cacheStrategy){
         mCacheStrategy =cacheStrategy;
@@ -229,14 +252,14 @@ public class CacheWebViewClient extends WebViewClient {
     }
 
     @Override
-    public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-
+    public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, com.tencent.smtt.export.external.interfaces.SslError sslError) {
         if (mCustomWebViewClient!=null){
-            mCustomWebViewClient.onReceivedSslError( view,  handler,  error);
+            mCustomWebViewClient.onReceivedSslError( webView,  sslErrorHandler,  sslError);
             return;
         }
-        super.onReceivedSslError( view,  handler,  error);
+        super.onReceivedSslError(webView, sslErrorHandler, sslError);
     }
+
 
     @Override
     public void onReceivedClientCertRequest(WebView view, ClientCertRequest request) {

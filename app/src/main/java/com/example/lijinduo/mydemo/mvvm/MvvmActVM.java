@@ -1,6 +1,9 @@
 package com.example.lijinduo.mydemo.mvvm;
 
+import android.app.Activity;
+import android.content.Context;
 import android.databinding.ObservableField;
+import android.view.ViewGroup;
 
 import com.example.lijinduo.mydemo.BR;
 import com.example.lijinduo.mydemo.R;
@@ -10,6 +13,9 @@ import com.example.lijinduo.mydemo.retrofit.RequestCallBack;
 import com.example.lijinduo.mydemo.retrofit.RetrofitClient;
 import com.example.lijinduo.mydemo.tool.AppTool;
 import com.example.lijinduo.mydemo.tool.Constant;
+import com.example.lijinduo.mydemo.tool.MyApplication;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import me.tatarka.bindingcollectionadapter.ItemView;
@@ -25,32 +31,34 @@ import retrofit2.Response;
  * 修订历史：
  * 参考链接：
  */
-public class MvvmActVM extends BaseRecyclerViewVM<InvestListBean.ResDataBean.Bean>{
+public class MvvmActVM extends BaseRecyclerViewVM<OutBean>{
     public  ObservableField<InvestListBean> investListBeanObservableField = new ObservableField<>();
-    public MvvmActVM() {
-        init();
+    public List<OutBean> outBeans=new ArrayList<>();
+    private Activity context;
+
+
+    public MvvmActVM(Activity context) {
+        this.context=context;
+        data();
     }
 
-    private void init() {
-        Constant.OTHERLOAD=true;
-        Call<InvestListBean> call = RetrofitClient.getInstance().getService(IWeather.class).invest();
-        call.enqueue(new RequestCallBack<InvestListBean>(false) {
-            @Override
-            public void onSuccess(Call<InvestListBean> call, Response<InvestListBean> response) {
-                investListBeanObservableField.set(response.body());
-                List<InvestListBean.ResDataBean.Bean> beans= response.body().getResData().getList();
-                items.addAll(beans);
-                Constant.OTHERLOAD=false;
-
+    private void data() {
+        for (int i = 0; i <5 ; i++) {
+            OutBean outBean=new OutBean();
+            outBean.outTitle="外部"+i;
+            for (int j = 0; j < 3; j++) {
+                inBean inbean=new inBean();
+                inbean.inTitle="内部"+j;
+                outBean.inBeanList.add(inbean);
             }
-        });
-
+            outBeans.add(outBean);
+        }
+        items.addAll(outBeans);
     }
+
 
     @Override
-    protected void selectView(ItemView itemView, int position, InvestListBean.ResDataBean.Bean item) {
-        AppTool.log(item.getGoodType());
+    protected void selectView(ItemView itemView, int position, OutBean item) {
         itemView.set(BR.item, R.layout.item_mvvm);
     }
-
 }

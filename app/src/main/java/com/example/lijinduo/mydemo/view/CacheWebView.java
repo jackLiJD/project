@@ -5,11 +5,12 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-import android.webkit.CookieManager;
-import android.webkit.ValueCallback;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+
+import com.tencent.smtt.sdk.CookieManager;
+import com.tencent.smtt.sdk.ValueCallback;
+import com.tencent.smtt.sdk.WebSettings;
+import com.tencent.smtt.sdk.WebView;
+import com.tencent.smtt.sdk.WebViewClient;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,9 +19,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
 
-import ren.yale.android.cachewebviewlib.WebViewCache;
-import ren.yale.android.cachewebviewlib.utils.FileUtil;
-import ren.yale.android.cachewebviewlib.utils.NetworkUtils;
 
 /**
  * 版权：XXX公司 版权所有
@@ -70,7 +68,7 @@ public class  CacheWebView extends WebView {
 
         File cacheFile = new File(getContext().getCacheDir(),CACHE_NAME);
         try {
-            ren.yale.android.cachewebviewlib.CacheWebView.getWebViewCache().openCache(getContext(),cacheFile,CACHE_SIZE);
+               getWebViewCache().openCache(getContext(),cacheFile,CACHE_SIZE);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -113,8 +111,8 @@ public class  CacheWebView extends WebView {
         mCacheWebViewClient.setCacheStrategy(cacheStrategy);
     }
 
-    public static ren.yale.android.cachewebviewlib.CacheWebView cacheWebView(Context context){
-        return new ren.yale.android.cachewebviewlib.CacheWebView(context);
+    public static CacheWebView cacheWebView(Context context){
+        return new CacheWebView(context);
     }
 
     public void setEnableCache(boolean enableCache){
@@ -185,10 +183,10 @@ public class  CacheWebView extends WebView {
                     WebSettings.LOAD_CACHE_ELSE_NETWORK);
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            webSettings.setMixedContentMode(
-                    WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            webSettings.setMixedContentMode(
+//                    WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
+//        }
 
         mUserAgent = webSettings.getUserAgentString();
         setCachePath();

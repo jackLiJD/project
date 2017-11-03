@@ -13,6 +13,7 @@ import com.example.lijinduo.mydemo.animation.AnimationAct;
 import com.example.lijinduo.mydemo.backlinear.BackLinearAct;
 import com.example.lijinduo.mydemo.being.BeingA;
 import com.example.lijinduo.mydemo.book.Book;
+import com.example.lijinduo.mydemo.electrocardiogram.ElectrocardiogramAct;
 import com.example.lijinduo.mydemo.hand.HandTouchAct;
 import com.example.lijinduo.mydemo.mvp.mvpactivity.MvpActivity;
 import com.example.lijinduo.mydemo.mvvm.MvvmAct;
@@ -129,6 +130,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 16:
                 intent=new Intent(this, MyMapAct.class);
+                break;
+            case 17:
+                intent=new Intent(this, ElectrocardiogramAct.class);
                 break;
         }
 

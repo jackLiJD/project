@@ -28,4 +28,6 @@
     <string name="Thread">Thread Stop</string>
     <string name="BackLinear">BackLinear</string>
     <string name="myMap">自定义区域搜索</string>
+    <string name="Electrocardiogram">心电图</string>
+    <string name="GreenDAO">GreenDAO(数据库)</string>
 </resources>

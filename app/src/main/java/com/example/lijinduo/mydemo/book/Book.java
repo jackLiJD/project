@@ -7,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -18,6 +19,8 @@ import android.widget.Toast;
 
 import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.R;
+import com.example.lijinduo.mydemo.view.CacheWebView;
+import com.example.lijinduo.mydemo.view.WebViewCache;
 import com.tencent.smtt.export.external.interfaces.SslError;
 import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
 import com.tencent.smtt.sdk.DownloadListener;
@@ -26,10 +29,12 @@ import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
 
+import java.io.File;
+import java.net.URI;
+import java.net.URISyntaxException;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import ren.yale.android.cachewebviewlib.CacheWebView;
-import ren.yale.android.cachewebviewlib.WebViewCache;
 
 /**
  * 版权：XXX公司 版权所有
@@ -45,7 +50,9 @@ public class Book extends BaseActivity {
     FrameLayout webviewContent;
     @BindView(R.id.webview_contentChache)
     FrameLayout webviewContentChache;
-    private String TAG = "TAg";
+    @BindView(R.id.webview_contentChacheall)
+    FrameLayout webviewContentChacheall;
+    private String TAG = "TAG";
     //是否缓存
     private String isCache = null;
     private Handler handler = new Handler();
@@ -53,6 +60,7 @@ public class Book extends BaseActivity {
     private String commonUrl;
     private WebView bookWeb;
     private CacheWebView cacheweb;
+    private ren.yale.android.cachewebviewlib.CacheWebView cacheWebView;
 
 
     @Override
@@ -61,7 +69,10 @@ public class Book extends BaseActivity {
         setContentView(R.layout.act_book);
         isCache = getIntent().getStringExtra("isCache");
         commonUrl = getIntent().getStringExtra("commonUrl");
-        commonUrl = "https://test1static.edspay.com/#/storeIndex?uid=&token=&vcode=3.0.4&osType=Android&osVersion=Android:6.0";
+//        commonUrl = "https://test1static.edspay.com/#/storeIndex?uid=&token=&vcode=3.0.4&osType=Android&osVersion=Android:6.0";
+//        commonUrl = "https://www.baidu.com/";
+        commonUrl  ="https://ywww.edspay.com/#/customRedEnvelope?uid=58764&token=150925854568358764&vcode=3.0.4&osType=Android&osVersion=Android%3A6.0.1";
+
         ButterKnife.bind(this);
         bookWeb = new WebView(context);
         webviewContent.addView(bookWeb, new FrameLayout.LayoutParams(
@@ -74,10 +85,23 @@ public class Book extends BaseActivity {
         cacheweb.setCacheStrategy(WebViewCache.CacheStrategy.FORCE);
         cacheweb.getWebViewCache().getStaticRes().addExtension("swf").addExtension("svg")
                 .addRamExtension("png").addRamExtension("html");
+
+        cacheWebView=new ren.yale.android.cachewebviewlib.CacheWebView(context);
+        webviewContentChacheall.addView(cacheWebView, new FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT,
+                FrameLayout.LayoutParams.MATCH_PARENT));
+
+
+        cacheWebView.setCacheStrategy(ren.yale.android.cachewebviewlib.WebViewCache.CacheStrategy.FORCE);
+        cacheWebView.getWebViewCache().getStaticRes().addExtension("swf").addExtension("svg")
+                .addRamExtension("png").addRamExtension("html").removeExtension("js");
+
 //        commonUrl = "https://ywww.edspay.com/#/channel/ypwk";
         //        bookWeb.loadUrl("https://www.baidu.com/");
 //        bookWeb.loadUrl("https://test1static.edspay.com/#/wxAnnouncement?id=401&uid=&token=&vcode=3.0.4&osType=Android&osVersion=Android:6.0");
         initView();
+
+
     }
 
 
@@ -185,6 +209,7 @@ public class Book extends BaseActivity {
             if (isNetworkConnected()) {
                 bookWeb.loadUrl(commonUrl);
                 cacheweb.loadUrl(commonUrl);
+                cacheWebView.loadUrl(commonUrl);
             } else {
                 bookWeb.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
                 bookWeb.getSettings().setCacheMode(android.webkit.WebSettings.LOAD_CACHE_ELSE_NETWORK);  //设置 缓存模式
@@ -237,15 +262,15 @@ public class Book extends BaseActivity {
     }
 
     //在 Activity 销毁（ WebView ）的时候，先让 WebView 加载null内容，然后移除 WebView，再销毁 WebView，最后置空
-    @Override
-    protected void onDestroy() {
-        if (bookWeb != null) {
-            bookWeb.loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
-            bookWeb.clearHistory();
-            ((ViewGroup) webviewContent.getParent()).removeView(bookWeb);
-            bookWeb.destroy();
-            bookWeb = null;
-        }
-        super.onDestroy();
-    }
+//    @Override
+//    protected void onDestroy() {
+//        if (bookWeb != null) {
+//            bookWeb.loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
+//            bookWeb.clearHistory();
+//            ((ViewGroup) webviewContent.getParent()).removeView(bookWeb);
+//            bookWeb.destroy();
+//            bookWeb = null;
+//        }
+//        super.onDestroy();
+//    }
 }

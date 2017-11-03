@@ -24,7 +24,7 @@ public class MvvmAct extends BaseActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding= DataBindingUtil.setContentView(this,R.layout.act_mvvm);
-        viewmode=new MvvmActVM();
+        viewmode=new MvvmActVM(MvvmAct.this);
         binding.setViewModel(viewmode);
     }
 }

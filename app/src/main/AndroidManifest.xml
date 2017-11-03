@@ -137,7 +137,12 @@
         android:screenOrientation="portrait"
         android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name=".mymap.MyMapAct"
+        android:name=".mymap.MyMapAct"
+        android:launchMode="singleTask"
+        android:screenOrientation="portrait"
+        android:windowSoftInputMode="stateHidden|adjustPan"></activity>
+        <activity
+            android:name=".electrocardiogram.ElectrocardiogramAct"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>

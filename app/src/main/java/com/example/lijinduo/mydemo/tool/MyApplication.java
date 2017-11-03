@@ -35,9 +35,10 @@ public class MyApplication extends Application {
         Intent intent = new Intent(this, AdvanceLoadX5Service.class);
         startService(intent);
         scaleScreenHelper = ScaleScreenHelperFactory.create(this, 750);
-
-        File cacheFile = new File(this.getCacheDir(),"cache_path_name");
+        File cacheFile = new File(getCacheDir(),"CacheWebView");
         CacheWebView.getWebViewCache().init(this,cacheFile,1024*1024*100,1024*1024*10);
+//        File cacheFile = new File(this.getCacheDir(),"cache_path_name");
+//        CacheWebView.getWebViewCache().init(this,cacheFile,1024*1024*100,1024*1024*10);
     }
     @Override
     protected void attachBaseContext(Context base) {
