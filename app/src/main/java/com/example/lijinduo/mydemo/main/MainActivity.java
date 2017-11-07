@@ -20,6 +20,7 @@ import com.example.lijinduo.mydemo.mvvm.MvvmAct;
 import com.example.lijinduo.mydemo.mymap.MyMapAct;
 import com.example.lijinduo.mydemo.permission.PermissionAct;
 import com.example.lijinduo.mydemo.push.PushActivity;
+import com.example.lijinduo.mydemo.redbag.RedBagAct;
 import com.example.lijinduo.mydemo.retrofit.RetrofitTestAct;
 import com.example.lijinduo.mydemo.service.ServiceAct;
 import com.example.lijinduo.mydemo.thread.ThreadAct;
@@ -30,6 +31,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
+import ren.yale.android.cachewebviewlib.CacheWebView;
 
 public class MainActivity extends BaseActivity {
 
@@ -133,6 +136,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 17:
                 intent=new Intent(this, ElectrocardiogramAct.class);
+                break;
+            case 18:
+                intent=new Intent(this, RedBagAct.class);
                 break;
         }
 

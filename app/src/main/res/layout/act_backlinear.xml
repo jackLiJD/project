@@ -3,31 +3,53 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.example.lijinduo.mydemo.view.BackLinearlayout
-        android:id="@+id/start_other"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center_horizontal"
-        android:divider="@mipmap/ic_launcher"
-        android:orientation="vertical"
-        app:borderColor="@color/colorPrimary"
-        app:borderWidth="3dp"
-        app:radius="15dp" />
-
-
-    <com.example.lijinduo.mydemo.view.ShadowLinearview
-        android:background="#ffffff"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="30dp"
-         />
-
-    <VideoView
-        android:id="@+id/videoview"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.example.lijinduo.mydemo.view.BackLinearlayout
+                android:id="@+id/start_other"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:divider="@mipmap/ic_launcher"
+                android:orientation="vertical"
+                app:borderColor="@color/colorPrimary"
+                app:borderWidth="3dp"
+                app:radius="15dp" />
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_margin="20dp"
+                android:orientation="vertical"
+                android:id="@+id/shadowlin"
+                android:background="#999999"
+                android:layout_width="200dp"
+                android:layout_height="200dp">
+
+                <TextView
+                    android:id="@+id/html_tv"
+                    android:text="撒打算打算打算"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/start_xj"
+                android:layout_width="150dp"
+                android:layout_height="150dp" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

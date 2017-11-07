@@ -19,6 +19,6 @@
         <item>@string/BackLinear</item>
         <item>@string/myMap</item>
         <item>@string/Electrocardiogram</item>
-        <item>@string/GreenDAO</item>
+        <item>@string/redbag</item>
     </array>
 </resources>
