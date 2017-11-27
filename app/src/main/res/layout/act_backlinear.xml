@@ -16,17 +16,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+            <!--<com.facebook.drawee.view.SimpleDraweeView-->
+                <!--android:id="@+id/draweeve"-->
+                <!--android:layout_width="100dp"-->
+                <!--android:layout_height="100dp" />-->
 
-            <com.example.lijinduo.mydemo.view.BackLinearlayout
-                android:id="@+id/start_other"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center_horizontal"
-                android:divider="@mipmap/ic_launcher"
-                android:orientation="vertical"
-                app:borderColor="@color/colorPrimary"
-                app:borderWidth="3dp"
-                app:radius="15dp" />
+
 
             <LinearLayout
                 android:gravity="center"
@@ -43,11 +38,26 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
-
-            <ImageView
+            <com.example.lijinduo.mydemo.view.BackLinearlayout
+                android:id="@+id/start_other"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:divider="@mipmap/ic_launcher"
+                android:orientation="vertical"
+                app:borderColor="@color/colorPrimary"
+                app:borderWidth="3dp"
+                app:radius="15dp" />
+     <!--       <ImageView
+                android:visibility="gone"
                 android:id="@+id/start_xj"
                 android:layout_width="150dp"
-                android:layout_height="150dp" />
+                android:layout_height="150dp" />-->
+
+
+            <com.example.lijinduo.mydemo.view.ResultAnimation
+                android:id="@+id/donghua"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
     </ScrollView>

@@ -14,10 +14,13 @@ import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.Button;
 
 import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.R;
+
+import java.util.Random;
 
 /**
  * 版权：XXX公司 版权所有
@@ -109,7 +112,6 @@ public class AnimationAct extends BaseActivity {
      */
     private void startXmlAnim() {
         Animator animator = AnimatorInflater.loadAnimator(AnimationAct.this, R.animator.group_anim);
-
         animator.setTarget(animation_xml_start);
         animator.start();
 

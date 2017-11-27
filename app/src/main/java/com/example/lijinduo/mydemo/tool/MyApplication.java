@@ -8,6 +8,7 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.multidex.MultiDex;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.tencent.smtt.sdk.QbSdk;
 import com.zcx.helper.scale.ScaleScreenHelper;
 import com.zcx.helper.scale.ScaleScreenHelperFactory;
@@ -30,6 +31,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Fresco.initialize(this);
         preinitX5WebCore();
         //预加载x5内核
         Intent intent = new Intent(this, AdvanceLoadX5Service.class);

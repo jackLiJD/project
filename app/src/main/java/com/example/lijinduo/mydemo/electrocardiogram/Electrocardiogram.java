@@ -64,8 +64,8 @@ public class Electrocardiogram extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        Width= getWidth();
-        Height=getHeight();
+        Width= getMeasuredWidth();
+        Height=getMeasuredHeight();
         if (Height != 0) {
             Thread thread=new Thread(new Runnable() {
                 @Override

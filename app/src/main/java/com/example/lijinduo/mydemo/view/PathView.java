@@ -149,9 +149,8 @@ public class PathView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        screenX=getWidth();
-        screenY=getHeight();
-//        Log.d(TAG, screenX+"onMeasure: "+screenY);
+        screenX=getMeasuredHeight();
+        screenY=getMeasuredWidth();
         coordinatesRandom();
     }
 

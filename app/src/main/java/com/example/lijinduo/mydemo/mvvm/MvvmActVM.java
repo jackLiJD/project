@@ -1,26 +1,18 @@
 package com.example.lijinduo.mydemo.mvvm;
 
 import android.app.Activity;
-import android.content.Context;
+import android.databinding.DataBindingUtil;
 import android.databinding.ObservableField;
-import android.view.ViewGroup;
+import android.util.Log;
 
 import com.example.lijinduo.mydemo.BR;
 import com.example.lijinduo.mydemo.R;
-import com.example.lijinduo.mydemo.retrofit.IWeather;
+import com.example.lijinduo.mydemo.databinding.ItemMvvmBinding;
 import com.example.lijinduo.mydemo.retrofit.InvestListBean;
-import com.example.lijinduo.mydemo.retrofit.RequestCallBack;
-import com.example.lijinduo.mydemo.retrofit.RetrofitClient;
-import com.example.lijinduo.mydemo.tool.AppTool;
-import com.example.lijinduo.mydemo.tool.Constant;
-import com.example.lijinduo.mydemo.tool.MyApplication;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import me.tatarka.bindingcollectionadapter.ItemView;
-import retrofit2.Call;
-import retrofit2.Response;
 
 /**
  * 版权：XXX公司 版权所有
@@ -35,7 +27,7 @@ public class MvvmActVM extends BaseRecyclerViewVM<OutBean>{
     public  ObservableField<InvestListBean> investListBeanObservableField = new ObservableField<>();
     public List<OutBean> outBeans=new ArrayList<>();
     private Activity context;
-
+    private ItemMvvmBinding binding;
 
     public MvvmActVM(Activity context) {
         this.context=context;
@@ -43,7 +35,7 @@ public class MvvmActVM extends BaseRecyclerViewVM<OutBean>{
     }
 
     private void data() {
-        for (int i = 0; i <5 ; i++) {
+        for (int i = 0; i <10 ; i++) {
             OutBean outBean=new OutBean();
             outBean.outTitle="外部"+i;
             for (int j = 0; j < 3; j++) {
@@ -54,11 +46,16 @@ public class MvvmActVM extends BaseRecyclerViewVM<OutBean>{
             outBeans.add(outBean);
         }
         items.addAll(outBeans);
+
     }
 
 
     @Override
     protected void selectView(ItemView itemView, int position, OutBean item) {
+        Log.d("selectViewOut", "selectView: ");
         itemView.set(BR.item, R.layout.item_mvvm);
+        binding=DataBindingUtil.setContentView(context,R.layout.item_mvvm);
+        MvvmActNeiVM mvvmnei=new MvvmActNeiVM(item.inBeanList);
+        binding.setViewModel(mvvmnei);
     }
 }

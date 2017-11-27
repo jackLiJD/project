@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="me.tatarka.bindingcollectionadapter.LayoutManagers" />
+
+        <variable
+            name="viewModel"
+            type="com.example.lijinduo.mydemo.redbag.RedBagRainMvvm" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/redBag_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+ <ImageView
+            android:id="@+id/redBag_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:id="@+id/redBag_Bottom_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:tag="(750,617)"></ImageView>
+
+
+        <TextView
+            android:id="@+id/redbg_top_btn"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:tag="{0,0,0,270}(360,100)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/redbg_bottom_btn"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:tag="{0,0,0,120}(360,100)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <LinearLayout
+            android:tag="(0,70)"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:paddingLeft="20dp"
+                android:onClick="@{viewModel.rule}"
+                android:id="@+id/redbag_rule"
+                android:text="活动规则 "
+                android:textColor="#ffffff"
+                android:tag="(35)"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <TextView
+                android:paddingRight="20dp"
+                android:onClick="@{viewModel.share}"
+                android:id="@+id/redbag_share"
+                android:text="| 分享"
+                android:textColor="#ffffff"
+                android:tag="(35)"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </RelativeLayout>
+    <com.example.lijinduo.mydemo.redbag.Rain
+            android:id="@+id/redBag"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"></com.example.lijinduo.mydemo.redbag.Rain>
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:scaleType="centerCrop"
+        android:id="@+id/redbag_gain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <LinearLayout
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:id="@+id/redbag_gain_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="(500,270)">
+
+            <View
+                android:layout_alignParentRight="true"
+                android:background="#ff0000"
+                android:id="@+id/redbag_gain_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="(60,60)"></View>
+            <View
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:background="#ff0000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="{0,0,60,0}(130,46)"></View>
+
+        </RelativeLayout>
+
+        <!--红包列表-->
+        <LinearLayout
+            android:tag="(500,420)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+        </LinearLayout>
+
+        <!--主会场-->
+        <LinearLayout
+            android:tag="(500,208)"
+            android:gravity="center_horizontal"
+            android:background="@drawable/red_gain_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <View
+                android:background="#ff0000"
+                android:id="@+id/redbag_nogain_next"
+                android:layout_alignParentRight="true"
+                android:tag="{0,60,0,0}(360,90)"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></View>
+
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

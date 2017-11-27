@@ -8,7 +8,7 @@ android {
     }
     defaultConfig {
         applicationId "com.example.lijinduo.mydemo"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -17,6 +17,8 @@ android {
         ndk {
             abiFilters "armeabi", "armeabi-v7a","x86"
         }
+//        renderscriptTargetApi 19
+//        renderscriptSupportModeEnabled true
     }
     buildTypes {
         release {
@@ -49,5 +51,6 @@ dependencies {
     compile 'com.google.vr:sdk-panowidget:1.80.0'
     compile 'ren.yale.android:cachewebviewlib:0.9.0'
     compile files('libs/tbs_sdk_thirdapp_v3.5.0.1004_43500_sharewithdownload_withoutGame_obfs_20170801_113025.jar')
-    compile 'tyrantgit:explosionfield:1.0.1'
+    compile 'com.flaviofaria:kenburnsview:1.0.7'
+    compile 'com.facebook.fresco:fresco:0.8.1+'
 }

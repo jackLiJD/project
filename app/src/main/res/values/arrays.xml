@@ -20,5 +20,6 @@
         <item>@string/myMap</item>
         <item>@string/Electrocardiogram</item>
         <item>@string/redbag</item>
+        <item>@string/fuzzy</item>
     </array>
 </resources>

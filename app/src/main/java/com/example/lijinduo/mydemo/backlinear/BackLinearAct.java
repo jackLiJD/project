@@ -1,6 +1,5 @@
 package com.example.lijinduo.mydemo.backlinear;
 
-import android.Manifest;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -10,10 +9,9 @@ import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.text.Html;
 import android.util.Log;
@@ -26,6 +24,7 @@ import com.example.lijinduo.mydemo.R;
 import com.example.lijinduo.mydemo.tool.AppTool;
 import com.example.lijinduo.mydemo.view.BackLinearlayout;
 import com.example.lijinduo.mydemo.view.PictureHandlerActivity;
+import com.example.lijinduo.mydemo.view.ResultAnimation;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -49,12 +48,15 @@ import butterknife.ButterKnife;
 public class BackLinearAct extends PictureHandlerActivity {
     @BindView(R.id.start_other)
     BackLinearlayout startOther;
-    @BindView(R.id.start_xj)
-    ImageView startXj;
-    @BindView(R.id.shadowlin)
-    LinearLayout shadowlin;
+    //    @BindView(R.id.start_xj)
+//    ImageView startXj;
     @BindView(R.id.html_tv)
     TextView htmlTv;
+    @BindView(R.id.shadowlin)
+    LinearLayout shadowlin;
+    @BindView(R.id.donghua)
+    ResultAnimation donghua;
+
     private Context context = BackLinearAct.this;
     String path;
 
@@ -63,11 +65,15 @@ public class BackLinearAct extends PictureHandlerActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_backlinear);
         ButterKnife.bind(this);
+        donghua.setmResultType(1);
         startOther.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                                String url="mqqwpa://im/chat?chat_type=wpa&uin=1102377755";
-//                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+                String url = "test://tp/open?name=miss&age=8";
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                intent.putExtra("uuid", "118");
+                startActivity(intent);
 //                openApp("com.zw.zwlc");
 //                Intent intent = new Intent(Intent.ACTION_MAIN);
 //                intent.addCategory(Intent.CATEGORY_LAUNCHER);
@@ -76,21 +82,21 @@ public class BackLinearAct extends PictureHandlerActivity {
 //                startActivity(intent);
             }
         });
-        startXj.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (ContextCompat.checkSelfPermission(BackLinearAct.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                    //申请权限，REQUEST_TAKE_PHOTO_PERMISSION是自定义的常量
-                    ActivityCompat.requestPermissions(BackLinearAct.this,
-                            new String[]{Manifest.permission.CAMERA},
-                            1234);
-                } else {
-                    //有权限，直接拍照
-                    startCamera(null);
-                }
-
-            }
-        });
+//        startXj.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (ContextCompat.checkSelfPermission(BackLinearAct.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+//                    //申请权限，REQUEST_TAKE_PHOTO_PERMISSION是自定义的常量
+//                    ActivityCompat.requestPermissions(BackLinearAct.this,
+//                            new String[]{Manifest.permission.CAMERA},
+//                            1234);
+//                } else {
+//                    //有权限，直接拍照
+//                    startCamera(null);
+//                }
+//
+//            }
+//        });
         Log.d("啊实打实的", "onCreate: ");
 
         ShadowProperty sp = new ShadowProperty()
@@ -113,12 +119,13 @@ public class BackLinearAct extends PictureHandlerActivity {
 ////            Glide.with(BackLinearAct.this).load("file:///android_asset/ic_guide_03.gif").diskCacheStrategy(DiskCacheStrategy.NONE).into(imageview);
 //        Glide.with(BackLinearAct.this).load(getAssetsCacheFile("ic_guide_03.gif")).diskCacheStrategy(DiskCacheStrategy.NONE).into(iv);
         String source = "阿斯顿拉萨卡的萨克斯大家；大世界了解你；  解散阿基诺说法"
-                + "<font color=#f56738><strong>" + "这是改变颜<br />色加粗文字" + "</strong></font>"+"实打实大\r师的大\n神";
+                + "<font color=#f56738><strong>" + "这是改变颜<br />色加粗文字" + "</strong></font>" + "实打实大\r师的大\n神";
         String strcontent = ToDBC(source);
         htmlTv.setText(Html.fromHtml(strcontent));
 
 
     }
+
     public static String ToDBC(String input) {
         char[] c = input.toCharArray();
         for (int i = 0; i < c.length; i++) {
@@ -131,6 +138,7 @@ public class BackLinearAct extends PictureHandlerActivity {
         }
         return new String(c);
     }
+
     @Override
     protected String getCameraAbsolutePath() {
         return Environment.getExternalStorageDirectory().getPath();
@@ -145,9 +153,9 @@ public class BackLinearAct extends PictureHandlerActivity {
     protected void resultPhotoPath(ImageView view, String photoPath) {
 //        return Environment.getExternalStorageDirectory().getPath();
         AppTool.log("返回的路径", "返回的路径=====" + photoPath);
-        startXj.setScaleType(ImageView.ScaleType.CENTER_CROP);
-//        //本地加载图片
-        startXj.setImageBitmap(revitionImageSize(photoPath));
+//        startXj.setScaleType(ImageView.ScaleType.CENTER_CROP);
+////        //本地加载图片
+//        startXj.setImageBitmap(revitionImageSize(photoPath));
 
     }
 

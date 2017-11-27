@@ -9,6 +9,8 @@ package com.example.lijinduo.mydemo.animation;
  * 修订历史：
  * 参考链接：
  */
+import android.graphics.Path;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -18,7 +20,7 @@ import java.util.List;
  * 客户端使用类,记录一系列的不同移动轨迹
  */
 
-public class AnimatorPath {
+public class AnimatorPath extends Path {
     //一系列的轨迹记录动作
     private List<PathPoint> mPoints = new ArrayList<>();
 

@@ -7,31 +7,33 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.ViewGroup;
+import android.view.View;
 import android.webkit.JavascriptInterface;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
+import android.webkit.WebSettings;
+import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.R;
+import com.example.lijinduo.mydemo.redbag.RedBagAct;
 import com.example.lijinduo.mydemo.view.CacheWebView;
 import com.example.lijinduo.mydemo.view.WebViewCache;
 import com.tencent.smtt.export.external.interfaces.SslError;
 import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
 import com.tencent.smtt.sdk.DownloadListener;
 import com.tencent.smtt.sdk.WebChromeClient;
-import com.tencent.smtt.sdk.WebSettings;
+//import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
-import com.tencent.smtt.sdk.WebViewClient;
-
-import java.io.File;
-import java.net.URI;
-import java.net.URISyntaxException;
+//import com.tencent.smtt.sdk.WebViewClient;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -52,6 +54,8 @@ public class Book extends BaseActivity {
     FrameLayout webviewContentChache;
     @BindView(R.id.webview_contentChacheall)
     FrameLayout webviewContentChacheall;
+    @BindView(R.id.reload)
+    Button reload;
     private String TAG = "TAG";
     //是否缓存
     private String isCache = null;
@@ -70,11 +74,18 @@ public class Book extends BaseActivity {
         isCache = getIntent().getStringExtra("isCache");
         commonUrl = getIntent().getStringExtra("commonUrl");
 //        commonUrl = "https://test1static.edspay.com/#/storeIndex?uid=&token=&vcode=3.0.4&osType=Android&osVersion=Android:6.0";
-//        commonUrl = "https://www.baidu.com/";
-        commonUrl  ="https://ywww.edspay.com/#/customRedEnvelope?uid=58764&token=150925854568358764&vcode=3.0.4&osType=Android&osVersion=Android%3A6.0.1";
+//        commonUrl = "file:///android_asset/web1.html";
+        commonUrl="asdasdasdasdasdasdas";
+//        commonUrl  ="https://ywww.edspa.com/#/customRedEnvelope?uid=58764&token=150925854568358764&vcode=3.0.4&osType=Android&osVersion=Android%3A6.0.1";
 
         ButterKnife.bind(this);
         bookWeb = new WebView(context);
+        reload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Book.this, RedBagAct.class));
+            }
+        });
         webviewContent.addView(bookWeb, new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.MATCH_PARENT,
                 FrameLayout.LayoutParams.MATCH_PARENT));
@@ -86,7 +97,7 @@ public class Book extends BaseActivity {
         cacheweb.getWebViewCache().getStaticRes().addExtension("swf").addExtension("svg")
                 .addRamExtension("png").addRamExtension("html");
 
-        cacheWebView=new ren.yale.android.cachewebviewlib.CacheWebView(context);
+        cacheWebView = new ren.yale.android.cachewebviewlib.CacheWebView(context);
         webviewContentChacheall.addView(cacheWebView, new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.MATCH_PARENT,
                 FrameLayout.LayoutParams.MATCH_PARENT));
@@ -106,7 +117,7 @@ public class Book extends BaseActivity {
 
 
     private void initView() {
-        WebSettings settings = bookWeb.getSettings();
+        WebSettings settings = cacheWebView.getSettings();
         //设置背景需要代码证先设置颜色在设置背景图
 //        bookWeb.setBackgroundColor(0);
 //        bookWeb.setBackgroundResource(0);
@@ -116,10 +127,10 @@ public class Book extends BaseActivity {
         settings.setBuiltInZoomControls(true);
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
-        bookWeb.setWebViewClient(new WebClient());
-        bookWeb.setDownloadListener(new MyWebViewDownLoadListener());
-        bookWeb.addJavascriptInterface(new WebReturn(), "webReturn");
-        bookWeb.setWebChromeClient(new WebChromeClient());
+        cacheWebView.setWebViewClient(new WebClient());
+//        cacheWebView.setDownloadListener(new MyWebViewDownLoadListener());
+        cacheWebView.addJavascriptInterface(new WebReturn(), "webReturn");
+//        cacheWebView.setWebChromeClient(new WebChromeClient());
         CaChe();
     }
 
@@ -159,35 +170,65 @@ public class Book extends BaseActivity {
     //webclient
     public class WebClient extends WebViewClient {
 
-        @Override
-        public void onPageFinished(WebView view, String url) {
-            Log.d(TAG, "onPageFinished: " + url);
-            //防止webview销毁 执行该方法而引发的空指针异常
-            if (bookWeb != null) {
-                bookWeb.loadUrl("javascript:appReturnInfo(" + "传递前段信息" + ")");
-            }
-            super.onPageFinished(view, url);
-        }
+//        @Override
+//        public void onPageFinished(WebView view, String url) {
+//            Log.d(TAG, "onPageFinished: " + url);
+//            //防止webview销毁 执行该方法而引发的空指针异常
+//            if (bookWeb != null) {
+//                bookWeb.loadUrl("javascript:appReturnInfo(" + "传递前段信息" + ")");
+//            }
+//            super.onPageFinished(view, url);
+//        }
+//
+//        @Override
+//        public void onPageStarted(WebView webView, String s, Bitmap bitmap) {
+//            Log.d(TAG, "onPageStarted: " + s);
+//            super.onPageStarted(webView, s, bitmap);
+//
+//        }
+//
+//        @Override
+//        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+//            Log.d(TAG, "shouldOverrideUrlLoading: " + url);
+//            if (url.startsWith("http") || url.startsWith("https")) {
+//                view.loadUrl(url);
+//            } else {
+//                Intent in = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+//                startActivity(in);
+//            }
+//            return true;
+//        }
+
 
         @Override
-        public void onPageStarted(WebView webView, String s, Bitmap bitmap) {
-            Log.d(TAG, "onPageStarted: " + s);
-            super.onPageStarted(webView, s, bitmap);
-
-        }
-
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            Log.d(TAG, "shouldOverrideUrlLoading: " + url);
+        public boolean shouldOverrideUrlLoading(android.webkit.WebView view, String url) {
             view.loadUrl(url);
             return true;
         }
 
         @Override
-        public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
-            sslErrorHandler.proceed();  // 接受所有网站的证书
-            super.onReceivedSslError(webView, sslErrorHandler, sslError);
+        public void onReceivedError(android.webkit.WebView view, int errorCode, String description, String failingUrl) {
+            super.onReceivedError(view, errorCode, description, failingUrl);
+            Toast.makeText(Book.this,"2",200).show();
         }
+
+        @Override
+        public void onReceivedHttpError(android.webkit.WebView view, WebResourceRequest request, WebResourceResponse errorResponse) {
+            super.onReceivedHttpError(view, request, errorResponse);
+            Toast.makeText(Book.this,"3",200).show();
+        }
+
+        @Override
+        public void onReceivedError(android.webkit.WebView view, WebResourceRequest request, WebResourceError error) {
+            super.onReceivedError(view, request, error);
+            Toast.makeText(Book.this,"1",200).show();
+        }
+
+//        @Override
+//        public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
+//            sslErrorHandler.proceed();  // 接受所有网站的证书
+//            super.onReceivedSslError(webView, sslErrorHandler, sslError);
+//        }
     }
 
     //下载
@@ -211,7 +252,7 @@ public class Book extends BaseActivity {
                 cacheweb.loadUrl(commonUrl);
                 cacheWebView.loadUrl(commonUrl);
             } else {
-                bookWeb.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
+//                bookWeb.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
                 bookWeb.getSettings().setCacheMode(android.webkit.WebSettings.LOAD_CACHE_ELSE_NETWORK);  //设置 缓存模式
                 // 开启 DOM storage API 功能
                 bookWeb.getSettings().setDomStorageEnabled(true);
@@ -272,5 +313,13 @@ public class Book extends BaseActivity {
 //            bookWeb = null;
 //        }
 //        super.onDestroy();
+//    }
+
+
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        commonUrl="https://www.baidu.com/";
+//        bookWeb.loadUrl(commonUrl);
 //    }
 }

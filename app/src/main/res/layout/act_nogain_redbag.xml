@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:scaleType="centerCrop"
+        android:id="@+id/redbag_nogain_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <RelativeLayout
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/pop_nogain"
+        android:tag="(620,805)">
+        <View
+            android:id="@+id/redbag_nogain_close"
+            android:layout_alignParentRight="true"
+            android:tag="(80,80)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></View>
+
+
+        <View
+            android:id="@+id/redbag_nogain_look"
+            android:layout_alignParentRight="true"
+            android:tag="{0,478,45,0}(140,60)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></View>
+
+
+        <View
+            android:id="@+id/redbag_nogain_next"
+            android:layout_alignParentRight="true"
+            android:tag="{0,593,110,0}(400,120)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></View>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

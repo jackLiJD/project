@@ -1,0 +1,82 @@
+<html>
+<!--<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+    <script type="text/javascript">
+
+function javacalljs(sdd){
+     document.getElementById("content").innerHTML =
+         "<br\>"+sdd*100;
+}
+
+function javacalljswith(arg){
+     document.getElementById("content").innerHTML =
+         ("<br\>"+arg);
+
+
+}
+    //得到安卓传回的版本号参数
+    function fromApp(arg){
+    	androidVcode = parseInt(arg.replace(/[^0-9]/ig, ""));    //把版本号转换成整数型数值
+    	alert(androidVcode);
+    	if(androidVcode < 259){//上线前改成258
+    		&lt;!&ndash;$('.btns').hide();&ndash;&gt;
+    		     document.getElementById("content").innerHTML =
+         ("<br\>"+androidVcode);
+    	}
+    }
+        function pasdasdsay(arg){
+     document.getElementById("content").innerHTML =
+         ("<br\>"+arg);
+         }
+
+        function pay(money,arg){
+     document.getElementById("content").innerHTML =
+         ("<br\>"+money*6+arg);
+         }
+
+    </script>
+</head>
+
+HTML 内容显示 <br/>
+<h1>
+    <div id="content">内容显示</div>
+</h1>
+<br/>
+<input type="button" value="点击调用java代码" onclick="window.android.startFunction()"/>
+<br/>
+<input type="button" value="点击调用java代码并传递参数"
+       onclick="window.android.startFunction('http://blog.csdn.net/Leejizhou')"/>
+<br/>
+<a href="edspay://gizmos">启动应用程序</a>-->
+<body>
+<a href="test://tp/open?name=miss&age=8">启动应用程序</a>//点击可以跳转
+<a href="http://wpa.qq.com/msgrd?v=3&uin=748895431&site=qq&menu=yes">QQ启动应用程序</a>//点击可以跳转
+
+
+
+</body>
+</html>
+<!--
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+<br/>
+&lt;!&ndash;<a href="myapp://jp.app/openwith?name=zhangsan&age=26">启动应用程序</a>&ndash;&gt;
+<a href="myapp://jp.app/openwith">启动应用程序</a>
+<a href="javascript:;" id="openApp">贴吧客户端</a>
+</body>
+</html>
+ <script type="text/javascript">
+     document.getElementById('openApp').onclick = function(e){
+
+             window.location.href = "com.baidu.tieba://app";//android app协议
+             window.setTimeout(function() {
+                window.location.href = "https://****.apk";//android 下载地址
+             }, 2000)
+     };
+ </script>-->
