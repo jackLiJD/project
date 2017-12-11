@@ -26,10 +26,8 @@ import com.example.lijinduo.mydemo.tool.Constant;
 public class CommonPopWindow {
 
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
     public CommonPopWindow(final String  string, final FatherInterFace fatherinterface) {
         View view = LayoutInflater.from(AppManager.getAppManager().currentActivity()).inflate(R.layout.common_popview, null);
-        view.setForegroundGravity(Gravity.BOTTOM);
         final PopupWindow firstPop = new PopupWindow(view,
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, true);
         firstPop.setOutsideTouchable(false);

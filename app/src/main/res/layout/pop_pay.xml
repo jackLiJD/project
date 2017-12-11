@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/pop_pay_out"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#f8f8f8"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:tag="(0,90)">
+
+                <ImageView
+                    android:id="@+id/pop_pay_close"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/payclose"
+                    android:tag="{15,0,0,0}" />
+
+                <TextView
+                    android:id="@+id/pop_pay_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:tag="(34)"
+                    android:textColor="#333333" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#e5e5e5"
+                android:tag="(750,1)"></View>
+
+
+            <ImageView
+                android:id="@+id/pop_paypasswordimg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:background="@mipmap/password_0"
+                android:tag="{0,40,0,0}(690,98)" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:tag="{0,20,30,0}(28)"
+                android:text="忘记密码？"
+                android:textColor="#508cee" />
+
+
+            <TextView
+                android:id="@+id/pop_pay_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:tag="{0,5,30,60}(28)"
+                android:textColor="#ff5b4c" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:orientation="horizontal"
+                android:tag="(0,100)">
+
+                <TextView
+                    android:id="@+id/pop_pay_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:tag="(249,0,40)"
+                    android:text="1"
+                    android:textColor="#333333"></TextView>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="#333333"
+                    android:tag="(1,0)"></View>
+
+                <TextView
+                    android:id="@+id/pop_pay_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:tag="(249,0,40)"
+                    android:text="2"
+                    android:textColor="#333333"></TextView>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="#333333"
+                    android:tag="(1,0)"></View>
+
+                <TextView
+                    android:id="@+id/pop_pay_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:tag="(249,0,40)"
+                    android:text="3"
+                    android:textColor="#333333"></TextView>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#333333"
+                android:tag="(0,1)"></View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:orientation="horizontal"
+                android:tag="(0,100)">
+
+                <TextView
+                    android:id="@+id/pop_pay_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:tag="(249,0,40)"
+                    android:text="4"
+                    android:textColor="#333333"></TextView>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="#333333"
+                    android:tag="(1,0)"></View>
+
+                <TextView
+                    android:id="@+id/pop_pay_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:tag="(249,0,40)"
+                    android:text="5"
+                    android:textColor="#333333"></TextView>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="#333333"
+                    android:tag="(1,0)"></View>
+
+                <TextView
+                    android:id="@+id/pop_pay_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:tag="(249,0,40)"
+                    android:text="6"
+                    android:textColor="#333333"></TextView>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#333333"
+                android:tag="(0,1)"></View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:orientation="horizontal"
+                android:tag="(0,100)">
+
+                <TextView
+                    android:id="@+id/pop_pay_7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:tag="(249,0,40)"
+                    android:text="7"
+                    android:textColor="#333333"></TextView>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="#333333"
+                    android:tag="(1,0)"></View>
+
+                <TextView
+                    android:id="@+id/pop_pay_8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:tag="(249,0,40)"
+                    android:text="8"
+                    android:textColor="#333333"></TextView>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="#333333"
+                    android:tag="(1,0)"></View>
+
+                <TextView
+                    android:id="@+id/pop_pay_9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:tag="(249,0,40)"
+                    android:text="9"
+                    android:textColor="#333333"></TextView>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#333333"
+                android:tag="(0,1)"></View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:orientation="horizontal"
+                android:tag="(0,100)">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="#d2d5da"
+                    android:gravity="center"
+                    android:tag="(249,0)"
+                    android:textColor="#333333"></TextView>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="#333333"
+                    android:tag="(1,0)"></View>
+
+                <TextView
+                    android:id="@+id/pop_pay_0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:tag="(249,0,40)"
+                    android:text="0"
+                    android:textColor="#333333"></TextView>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="#333333"
+                    android:tag="(1,0)"></View>
+
+
+                <LinearLayout
+                    android:id="@+id/pop_pay_clear"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#d2d5da"
+                    android:gravity="center"
+                    android:tag="(249,0)">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/keyboard_chacha" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

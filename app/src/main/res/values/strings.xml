@@ -31,4 +31,6 @@
     <string name="Electrocardiogram">心电图</string>
     <string name="redbag">红包雨</string>
     <string name="fuzzy">模糊图</string>
+    <string name="poppay">poppay</string>
+
 </resources>

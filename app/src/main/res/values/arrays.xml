@@ -21,5 +21,6 @@
         <item>@string/Electrocardiogram</item>
         <item>@string/redbag</item>
         <item>@string/fuzzy</item>
+        <item>@string/poppay</item>
     </array>
 </resources>

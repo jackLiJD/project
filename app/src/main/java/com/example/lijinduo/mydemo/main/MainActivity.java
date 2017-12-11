@@ -23,6 +23,8 @@ import com.example.lijinduo.mydemo.mvp.mvpactivity.MvpActivity;
 import com.example.lijinduo.mydemo.mvvm.MvvmAct;
 import com.example.lijinduo.mydemo.mymap.MyMapAct;
 import com.example.lijinduo.mydemo.permission.PermissionAct;
+import com.example.lijinduo.mydemo.poppay.PayPop;
+import com.example.lijinduo.mydemo.poppay.PopPayAct;
 import com.example.lijinduo.mydemo.push.PushActivity;
 import com.example.lijinduo.mydemo.redbag.RedBagAct;
 import com.example.lijinduo.mydemo.retrofit.RetrofitTestAct;
@@ -158,6 +160,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 19:
                 intent = new Intent(this, FuzzyImgAct.class);
+                break;
+            case 20:
+                intent = new Intent(this, PopPayAct.class);
                 break;
         }
         startActivity(intent);

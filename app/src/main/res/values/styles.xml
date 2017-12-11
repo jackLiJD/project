@@ -9,4 +9,9 @@
         <item name="android:textAllCaps">false</item>
     </style>
 
+    <style name="mypopwindow_anim_style">
+        <item name="android:windowEnterAnimation">@animator/alpha_in</item>
+        <item name="android:windowExitAnimation">@animator/alpha_out</item>
+    </style>
+
 </resources>

@@ -171,6 +171,11 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
 
+        <activity
+            android:name=".poppay.PopPayAct"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan"></activity>
 
         <service
             android:name=".aidl.IRemoteService"
