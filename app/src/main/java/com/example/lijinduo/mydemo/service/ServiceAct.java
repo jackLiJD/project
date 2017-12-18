@@ -1,6 +1,5 @@
 package com.example.lijinduo.mydemo.service;
 
-import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
@@ -12,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.lijinduo.mydemo.BaseActivity;
-import com.example.lijinduo.mydemo.IImoocAIDL;
 import com.example.lijinduo.mydemo.R;
 
 /**

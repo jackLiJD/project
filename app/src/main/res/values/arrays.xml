@@ -22,5 +22,7 @@
         <item>@string/redbag</item>
         <item>@string/fuzzy</item>
         <item>@string/poppay</item>
+        <item>@string/surfaceView</item>
+        <item>@string/camera</item>
     </array>
 </resources>

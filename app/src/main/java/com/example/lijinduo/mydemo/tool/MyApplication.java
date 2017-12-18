@@ -5,6 +5,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
+import android.os.StrictMode;
 import android.support.annotation.Nullable;
 import android.support.multidex.MultiDex;
 
@@ -31,6 +32,9 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
+        builder.detectFileUriExposure();
         Fresco.initialize(this);
         preinitX5WebCore();
         //预加载x5内核

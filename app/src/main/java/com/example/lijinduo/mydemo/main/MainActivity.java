@@ -16,6 +16,7 @@ import com.example.lijinduo.mydemo.animation.AnimationAct;
 import com.example.lijinduo.mydemo.backlinear.BackLinearAct;
 import com.example.lijinduo.mydemo.being.BeingA;
 import com.example.lijinduo.mydemo.book.Book;
+import com.example.lijinduo.mydemo.camera.CameraAct;
 import com.example.lijinduo.mydemo.electrocardiogram.ElectrocardiogramAct;
 import com.example.lijinduo.mydemo.fuzzy.FuzzyImgAct;
 import com.example.lijinduo.mydemo.hand.HandTouchAct;
@@ -29,6 +30,7 @@ import com.example.lijinduo.mydemo.push.PushActivity;
 import com.example.lijinduo.mydemo.redbag.RedBagAct;
 import com.example.lijinduo.mydemo.retrofit.RetrofitTestAct;
 import com.example.lijinduo.mydemo.service.ServiceAct;
+import com.example.lijinduo.mydemo.surfaceview.SurfaceAct;
 import com.example.lijinduo.mydemo.thread.ThreadAct;
 import com.example.lijinduo.mydemo.toast.ToastAct;
 import com.example.lijinduo.mydemo.vr.VRAct;
@@ -164,6 +166,11 @@ public class MainActivity extends BaseActivity {
             case 20:
                 intent = new Intent(this, PopPayAct.class);
                 break;
+            case 21:
+                intent = new Intent(this, SurfaceAct.class);
+                break;
+            case 22:
+                intent = new Intent(this, CameraAct.class);
         }
         startActivity(intent);
     }

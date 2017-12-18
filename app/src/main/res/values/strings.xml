@@ -32,5 +32,7 @@
     <string name="redbag">红包雨</string>
     <string name="fuzzy">模糊图</string>
     <string name="poppay">poppay</string>
+    <string name="surfaceView">surfaceView</string>
+    <string name="camera">相机</string>
 
 </resources>
