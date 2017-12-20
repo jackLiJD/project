@@ -39,7 +39,7 @@ public class HandTouchAct extends BaseActivity {
     @BindView(R.id.in_lin)
     InLin inLin;
     @BindView(R.id.middle_lin)
-    MiddleLin middleLin;
+    LinearLayout middleLin;
     @BindView(R.id.out_lin)
     OutLin outLin;
 
@@ -100,7 +100,7 @@ public class HandTouchAct extends BaseActivity {
                 AppTool.log("in");
                 break;
             case R.id.middle_lin:
-                AppTool.log("middle");
+               Toast.makeText(HandTouchAct.this,"middle",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.out_lin:
                 AppTool.log("out");

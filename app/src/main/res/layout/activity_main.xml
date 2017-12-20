@@ -12,6 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </com.example.lijinduo.mydemo.view.AnimationVIew>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/main_list"
@@ -19,6 +22,15 @@
         android:layout_height="match_parent"
         android:background="#ffffff">
     </android.support.v7.widget.RecyclerView>
-
-
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/xuanfu"
+            android:gravity="center"
+            android:text="这是你要的效果"
+            android:textColor="#ffffff"
+            android:background="#ff0000"
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+        <include layout="@layout/title" />
+    </RelativeLayout>
 </android.support.v4.widget.DrawerLayout>

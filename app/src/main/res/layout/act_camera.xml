@@ -16,4 +16,19 @@
         android:layout_width="100dp"
         android:layout_height="100dp" />
 
+
+
+    <Button
+        android:id="@+id/touchbtn"
+        android:text="sadasdasdsa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/tostlin"
+        android:background="#ff0000"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></LinearLayout>
+
 </LinearLayout>

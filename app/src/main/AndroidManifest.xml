@@ -201,6 +201,7 @@
                 <action android:name="aidlService" />
             </intent-filter>
         </service>
+        <service android:name=".service.ViewService"></service>
         <service android:name=".service.ServiceTest"></service>
         <service android:name=".service.MyIntentService"></service>
         <service android:name=".service.MyBindService"></service>

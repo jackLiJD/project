@@ -1,12 +1,13 @@
 package com.example.lijinduo.mydemo.main;
 
-import android.animation.ObjectAnimator;
+import android.content.Context;
 import android.content.Intent;
-import android.graphics.Path;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Button;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.R;
@@ -24,7 +25,6 @@ import com.example.lijinduo.mydemo.mvp.mvpactivity.MvpActivity;
 import com.example.lijinduo.mydemo.mvvm.MvvmAct;
 import com.example.lijinduo.mydemo.mymap.MyMapAct;
 import com.example.lijinduo.mydemo.permission.PermissionAct;
-import com.example.lijinduo.mydemo.poppay.PayPop;
 import com.example.lijinduo.mydemo.poppay.PopPayAct;
 import com.example.lijinduo.mydemo.push.PushActivity;
 import com.example.lijinduo.mydemo.redbag.RedBagAct;
@@ -44,16 +44,14 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity {
 
-//    @BindView(R.id.asdasdasdas)
-//    Button asdasdasdas;
+
     @BindView(R.id.main_list)
     RecyclerView mainList;
-    //返利风账号上传
-    //source tree修改代码上传GitHub
-    //git修改
     private List<String> stringList;
-
-    private String str = "李金多多mast分之提交";
+    private Context context = MainActivity.this;
+    private LinearLayout inclue_title;
+    MainAdapter adapter;
+    private TextView xuanfutitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,9 +59,11 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         initData();
+        inclue_title = (LinearLayout) findViewById(R.id.inclue_title);
+        xuanfutitle = (TextView) findViewById(R.id.xuanfutitle);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.main_list);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
-        MainAdapter adapter = new MainAdapter(stringList);
+        adapter = new MainAdapter(stringList, context);
         recyclerView.setAdapter(adapter);
         adapter.setItemListener(new MainAdapter.onItemClick() {
             @Override
@@ -71,12 +71,29 @@ public class MainActivity extends BaseActivity {
                 jump(position);
             }
         });
-//        Path path = new Path();
-//        path.moveTo(0,0);
-//        path.lineTo(500,500);
-//        path.lineTo(300,600);
-//        ObjectAnimator objectAnimator= ObjectAnimator.ofFloat(asdasdasdas, "translationX","translationY", path);
-//        objectAnimator.setDuration(3000).start();
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+
+                View transInfoView = recyclerView.findChildViewUnder(
+                        inclue_title.getMeasuredWidth(), inclue_title.getMeasuredHeight());
+
+                    xuanfutitle.setText(transInfoView.getTag().toString());
+                    if (transInfoView.getTop() > 0) {
+                        inclue_title.setTranslationY(transInfoView.getTop()-inclue_title.getMeasuredHeight());
+                    } else {
+                        inclue_title.setTranslationY(0);
+                    }
+
+                super.onScrolled(recyclerView, dx, dy);
+            }
+        });
+
     }
 
 

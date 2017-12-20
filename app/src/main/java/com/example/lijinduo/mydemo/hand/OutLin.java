@@ -24,18 +24,18 @@ public class OutLin extends LinearLayout {
         super(context, attrs);
     }
 
-//    @Override
-//    public boolean onTouchEvent(MotionEvent event) {
-////        return super.onTouchEvent(event);
-//        return false;
-//    }
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+//         super.onTouchEvent(event);
+        return true;
+    }
 
 
-    //    @Override
-//    public boolean onInterceptTouchEvent(MotionEvent ev) {
-////        return super.onInterceptTouchEvent(ev);
-//        return false;
-//    }
+        @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+//        return super.onInterceptTouchEvent(ev);
+        return true;
+    }
 
 
 

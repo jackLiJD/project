@@ -2,7 +2,9 @@ package com.example.lijinduo.mydemo.main;
 
 
 import android.content.Context;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,9 +27,11 @@ import java.util.List;
 public class MainAdapter extends RecyclerView.Adapter<MainViewHoler> {
     private List<String> stringList;
     private onItemClick onItemClick;
+    private Context context;
 
-    public MainAdapter(List<String> stringList) {
+    public MainAdapter(List<String> stringList,Context context) {
         this.stringList = stringList;
+        this.context=context;
     }
 
     @Override
@@ -38,6 +42,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHoler> {
 
     @Override
     public void onBindViewHolder(MainViewHoler holder, final int position) {
+        Log.d("绑定", "onBindViewHolder: ");
+        holder.recycle_main_nei.setLayoutManager(new GridLayoutManager(context, 1));
+        holder.recycle_main_nei.setAdapter(holder.adapter);
         holder.item_tv.setText(stringList.get(position));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +52,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHoler> {
                 onItemClick.itemClick(position);
             }
         });
+        holder.itemView.setTag(stringList.get(position));
+
     }
 
 
@@ -71,9 +80,12 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHoler> {
 
 class MainViewHoler extends RecyclerView.ViewHolder {
     public TextView item_tv;
+    public RecyclerView recycle_main_nei;
+    public MainNeiAdapter adapter=new MainNeiAdapter();
 
     public MainViewHoler(View itemView) {
         super(itemView);
         item_tv = (TextView) itemView.findViewById(R.id.item_textview);
+        recycle_main_nei = (RecyclerView) itemView.findViewById(R.id.recycle_main_nei);
     }
 }
