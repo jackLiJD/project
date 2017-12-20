@@ -2,6 +2,7 @@ package com.example.lijinduo.mydemo.main;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -79,17 +80,19 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                //这个5这个参数 如果换成inclue_title.getMeasuredHeight() 就有问题 他这个取值 咋取的
+                View stickyInfoView = recyclerView.findChildViewUnder(inclue_title.getMeasuredWidth(), 5);
+                if (stickyInfoView != null && stickyInfoView.getContentDescription() != null) {
+                    xuanfutitle.setText(String.valueOf(stickyInfoView.getContentDescription()));
+                }
 
                 View transInfoView = recyclerView.findChildViewUnder(
                         inclue_title.getMeasuredWidth(), inclue_title.getMeasuredHeight());
-
-                    xuanfutitle.setText(transInfoView.getTag().toString());
-                    if (transInfoView.getTop() > 0) {
-                        inclue_title.setTranslationY(transInfoView.getTop()-inclue_title.getMeasuredHeight());
-                    } else {
-                        inclue_title.setTranslationY(0);
-                    }
-
+                if (transInfoView.getTop() > 0) {
+                    inclue_title.setTranslationY(transInfoView.getTop() - inclue_title.getMeasuredHeight());
+                } else {
+                    inclue_title.setTranslationY(0);
+                }
                 super.onScrolled(recyclerView, dx, dy);
             }
         });

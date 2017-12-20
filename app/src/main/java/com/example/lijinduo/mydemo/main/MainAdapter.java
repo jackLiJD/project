@@ -42,7 +42,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHoler> {
 
     @Override
     public void onBindViewHolder(MainViewHoler holder, final int position) {
-        Log.d("绑定", "onBindViewHolder: ");
         holder.recycle_main_nei.setLayoutManager(new GridLayoutManager(context, 1));
         holder.recycle_main_nei.setAdapter(holder.adapter);
         holder.item_tv.setText(stringList.get(position));
@@ -52,8 +51,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHoler> {
                 onItemClick.itemClick(position);
             }
         });
-        holder.itemView.setTag(stringList.get(position));
-
+        holder.itemView.setContentDescription(stringList.get(position));
     }
 
 
