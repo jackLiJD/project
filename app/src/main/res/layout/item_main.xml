@@ -9,7 +9,6 @@
     <TextView
         android:textColor="#FF00ff"
         android:textSize="18dp"
-        android:padding="10dp"
         android:id="@+id/item_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

@@ -4,10 +4,12 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.ViewGroup;
 
 import com.example.lijinduo.mydemo.tool.AppManager;
 import com.example.lijinduo.mydemo.tool.MyApplication;
+import com.zcx.helper.scale.ScaleScreenHelperFactory;
 
 import butterknife.ButterKnife;
 
@@ -30,12 +32,18 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
         super.setContentView(layoutResID);
+        MyApplication.scaleScreenHelper = ScaleScreenHelperFactory.create(this, 750);
         MyApplication.scaleScreenHelper.loadView((ViewGroup) getWindow().getDecorView());
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        AppManager.getAppManager().finishActivity(this);
+        Log.d("销毁", "onDestroy: ");
+        if (this!=null){
+            Log.d("销毁", "onDestroy:1111111 ");
+        }
+        AppManager.getAppManager().removeActivity(this);
+        finish();
     }
 }

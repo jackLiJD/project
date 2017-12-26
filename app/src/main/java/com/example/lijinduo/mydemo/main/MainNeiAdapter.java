@@ -32,7 +32,7 @@ public class MainNeiAdapter extends RecyclerView.Adapter<MainNeiAdapter.MainNeiV
 
     @Override
     public int getItemCount() {
-        return 4;
+        return 2;
     }
 
     class MainNeiViewHoler extends RecyclerView.ViewHolder {

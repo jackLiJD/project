@@ -6,7 +6,20 @@
     android:background="#ffffff"
     android:gravity="center"
     android:orientation="vertical">
+    <com.bruce.touch.Touch3DView
+        app:shadow_color="@color/colorPrimary"
+        android:id="@+id/touch_view"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:z_depth="depth2"
+        app:touch_level="3">
+        <TextView
+            android:textSize="50dp"
+            android:text="这特么的描述的是一段文字"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
+    </com.bruce.touch.Touch3DView>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -20,7 +33,6 @@
                 <!--android:id="@+id/draweeve"-->
                 <!--android:layout_width="100dp"-->
                 <!--android:layout_height="100dp" />-->
-
 
 
             <LinearLayout

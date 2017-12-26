@@ -24,5 +24,7 @@
         <item>@string/poppay</item>
         <item>@string/surfaceView</item>
         <item>@string/camera</item>
+        <item>@string/adaptation</item>
+
     </array>
 </resources>

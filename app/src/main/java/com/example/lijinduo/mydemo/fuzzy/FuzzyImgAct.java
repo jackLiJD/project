@@ -26,15 +26,16 @@ public class FuzzyImgAct extends BaseActivity {
     ImageView fuzzyImg;
     @BindView(R.id.fuzzy_seek)
     SeekBar fuzzySeek;
-
+    BlurBitmap bb;
+    Bitmap bitmap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_fuzzy_img);
         ButterKnife.bind(this);
 
-        final Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.pop_nogain);
-        final BlurBitmap bb = new BlurBitmap();
+          bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.pop_nogain);
+         bb = new BlurBitmap();
         fuzzySeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -58,5 +59,17 @@ public class FuzzyImgAct extends BaseActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        bb=null;
+        if(bitmap != null && !bitmap.isRecycled()){
+            bitmap.recycle();
+            bitmap = null;
+        }
+        fuzzyImg.setImageBitmap(null);
+        System.gc();
     }
 }

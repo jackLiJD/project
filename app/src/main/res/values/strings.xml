@@ -34,5 +34,7 @@
     <string name="poppay">poppay</string>
     <string name="surfaceView">surfaceView</string>
     <string name="camera">相机</string>
+    <string name="adaptation">适配问题</string>
+
 
 </resources>

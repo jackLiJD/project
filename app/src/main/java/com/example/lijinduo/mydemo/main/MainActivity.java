@@ -2,7 +2,6 @@ package com.example.lijinduo.mydemo.main;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.R;
+import com.example.lijinduo.mydemo.adaptation.AdaptationAct;
 import com.example.lijinduo.mydemo.aidl.AIDLAct;
 import com.example.lijinduo.mydemo.album.MyAlbum;
 import com.example.lijinduo.mydemo.animation.AnimationAct;
@@ -81,7 +81,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 //这个5这个参数 如果换成inclue_title.getMeasuredHeight() 就有问题 他这个取值 咋取的
-                View stickyInfoView = recyclerView.findChildViewUnder(inclue_title.getMeasuredWidth(), 5);
+               View stickyInfoView = recyclerView.findChildViewUnder(inclue_title.getMeasuredWidth(), 20);
                 if (stickyInfoView != null && stickyInfoView.getContentDescription() != null) {
                     xuanfutitle.setText(String.valueOf(stickyInfoView.getContentDescription()));
                 }
@@ -191,6 +191,10 @@ public class MainActivity extends BaseActivity {
                 break;
             case 22:
                 intent = new Intent(this, CameraAct.class);
+                break;
+            case 23:
+                intent = new Intent(this, AdaptationAct.class);
+                break;
         }
         startActivity(intent);
     }

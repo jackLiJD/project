@@ -10,7 +10,6 @@
         android:background="#ffffff"
         android:textColor="#FF00ff"
         android:textSize="18dp"
-        android:padding="10dp"
         android:id="@+id/xuanfutitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

@@ -26,15 +26,16 @@ public class BlurBitmap {
      * 最大模糊度(在0.0到25.0之间)
      */
     private float BLUR_RADIUS = 25f;
-
+    Bitmap inputBitmap;
+    Bitmap outputBitmap;
     private float percent=1f;
     public Bitmap blur(Context context,Bitmap bitmap){
         int width=Math.round(bitmap.getWidth()*BITMAP_SCALE);
         int height=Math.round(bitmap.getHeight()*BITMAP_SCALE);
         //将缩小的图片作为渲染的图片
-        Bitmap inputBitmap=Bitmap.createScaledBitmap(bitmap,width,height,false);
+        inputBitmap=Bitmap.createScaledBitmap(bitmap,width,height,false);
         // 创建一张渲染后的输出图片。
-        Bitmap outputBitmap=Bitmap.createBitmap(inputBitmap);
+         outputBitmap=Bitmap.createBitmap(inputBitmap);
         // 创建RenderScript内核对象
         RenderScript rs=RenderScript.create(context);
         // 创建一个模糊效果的RenderScript的工具对象
@@ -61,6 +62,16 @@ public class BlurBitmap {
     }
 
 
+    public void clear(){
+        if(inputBitmap != null && !inputBitmap.isRecycled()){
+            inputBitmap.recycle();
+            inputBitmap = null;
+        }
+        if(outputBitmap != null && !outputBitmap.isRecycled()){
+            outputBitmap.recycle();
+            outputBitmap = null;
+        }
+    }
 
 
 

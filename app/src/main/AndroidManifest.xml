@@ -21,7 +21,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.lijinduo.mydemo.main.MainActivity">
+        <activity android:name="com.example.lijinduo.mydemo.main.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -193,6 +194,11 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan">
         </activity>
+        <activity
+            android:name=".adaptation.AdaptationAct">
+        </activity>
+
+
         <service
             android:name=".aidl.IRemoteService"
             android:exported="true"
