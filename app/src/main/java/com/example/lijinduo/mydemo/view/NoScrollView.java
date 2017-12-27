@@ -2,6 +2,7 @@ package com.example.lijinduo.mydemo.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.ScrollView;
 
@@ -15,6 +16,8 @@ import android.widget.ScrollView;
  * 参考链接：
  */
 public class NoScrollView extends ScrollView {
+    String TAG="手势";
+    int y=0;
     public NoScrollView(Context context) {
         super(context);
     }
@@ -22,19 +25,22 @@ public class NoScrollView extends ScrollView {
     public NoScrollView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
-
-
     @Override
-    public boolean onTouchEvent(MotionEvent ev) { // 屏蔽touch事件,才能在监听其子控件的touch事件
-        // TODO Auto-generated method stub
-        super.onTouchEvent(ev);
-        return false;
-    }
-
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent event)// 屏蔽touch事件传递,才能在监听其子控件的touch事件
-    {
-        super.onInterceptTouchEvent(event);
-        return false;
-    }
+    public boolean onTouchEvent(MotionEvent event) {
+        int action = event.getAction();
+        int moveY=0;
+        switch (action) {
+            case MotionEvent.ACTION_DOWN:
+                y= (int) event.getRawY();
+                Log.d(TAG, "onTouch: "+y);
+                break;
+            case MotionEvent.ACTION_MOVE:
+                moveY=(int) event.getRawY()-y;
+                Log.d(TAG, event.getRawY()+"==="+y+"===="+moveY);
+                y=(int) event.getRawY();
+                scrollBy(0,2*moveY);
+                break;
         }
+        return true;
+    }
+}

@@ -3,6 +3,7 @@ package com.example.lijinduo.mydemo.adaptation;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -26,73 +27,13 @@ import butterknife.ButterKnife;
  * 参考链接：
  */
 public class AdaptationAct extends BaseActivity {
-    @BindView(R.id.in_scroll)
-    ScrollView inScroll;
-    @BindView(R.id.out_scroll)
-    NoScrollView outScroll;
-    @BindView(R.id.transition_view)
-    ImageView transitionView;
-    private int screenHeight = 0;
-    private int topY = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_adaptation);
         ButterKnife.bind(this);
-
-        initView();
-
-    }
-
-    private void initView() {
-//        screenHeight = measureHeight();
-//        //设置第一个滑动布局
-//        ViewGroup.LayoutParams view = (ViewGroup.LayoutParams) inScroll.getLayoutParams();
-//        view.height = screenHeight - getStatusBarHeight();
-//        inScroll.setLayoutParams(view);
-        inScroll.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                int action = event.getAction();
-                int y = 0;
-                int offsety = 0;
-                switch (action) {
-                    case MotionEvent.ACTION_DOWN:
-                        topY = (int) event.getRawY();
-                        break;
-                    case MotionEvent.ACTION_MOVE:
-                        y = (int) event.getRawY();
-                        offsety = y - topY;
-                        outScroll.scrollBy(0, offsety / 4);
-                        transitionView.setTranslationY(offsety);
-                        break;
-                }
-
-
-                return false;
-            }
-        });
-
-
     }
 
 
-    public int measureHeight() {
-        WindowManager wManager = (WindowManager) getApplicationContext().getSystemService(Context.WINDOW_SERVICE);
-        DisplayMetrics dm = new DisplayMetrics();
-        wManager.getDefaultDisplay().getMetrics(dm);
-        return dm.heightPixels;
-    }
-
-    private int getStatusBarHeight() {
-        int result = 0;
-        int resourceId = getResources().getIdentifier("status_bar_height",
-                "dimen", "android");
-        if (resourceId > 0) {
-            result = getResources().getDimensionPixelSize(resourceId);
-        }
-        return result;
-    }
 
 }

@@ -1,9 +1,8 @@
 package com.example.lijinduo.mydemo.memory;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -26,21 +25,11 @@ import butterknife.OnClick;
  * 参考链接：
  */
 public class MemoryAct extends BaseActivity {
-    @BindView(R.id.button10)
-    Button button10;
-    @BindView(R.id.button11)
-    Button button11;
-    @BindView(R.id.button12)
-    Button button12;
     @BindView(R.id.button13)
     Button button13;
     @BindView(R.id.button14)
     Button button14;
-    @BindView(R.id.button15)
-    Button button15;
-    Bitmap bitmap;
     LottieAnimationView animation_view_click;
-    Thread thread;
     Context context=MemoryAct.this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,39 +46,31 @@ public class MemoryAct extends BaseActivity {
                 animation_view_click.playAnimation();
             }
         });
+        Log.d("线程id", "onCreate: "+ Thread.currentThread().getId());
 
+        Thread thread=new Thread(){
+
+            @Override
+            public void run() {
+                Log.d("线程id", "onCreate: "+ Thread.currentThread().getId());
+                try {
+                    Thread.sleep(10000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        thread.start();
     }
 
-    @OnClick({R.id.button10, R.id.button11, R.id.button12, R.id.button13, R.id.button14, R.id.button15})
+    @OnClick({R.id.button13, R.id.button14})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.button10:
-                bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.andes);
-                break;
-            case R.id.button11:
-                bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.pop_nogain);
-                break;
-            case R.id.button12:
-                if (bitmap != null) {
-                    bitmap.recycle();
-                    bitmap = null;
-                    System.gc();
-                }
-                break;
             case R.id.button13:
                 startAnima();
                 break;
             case R.id.button14:
                 stopAnima();
-                break;
-            case R.id.button15:
-                thread=new Thread(){
-
-                    @Override
-                    public void run() {
-                    }
-                };
-                thread.start();
                 break;
         }
     }
