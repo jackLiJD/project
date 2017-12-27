@@ -1,7 +1,9 @@
 package com.example.lijinduo.mydemo.adaptation;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.R;
@@ -24,7 +26,9 @@ public class AdaptationAct extends BaseActivity {
     NoScrollView outScroll;
     @BindView(R.id.crop)
     LinearLayout crop;
-    int height=0;
+    int height = 0;
+    @BindView(R.id.outview)
+    RelativeLayout outview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +38,16 @@ public class AdaptationAct extends BaseActivity {
         outScroll.setCallback(new NoScrollView.spaceY() {
             @Override
             public void space(int y) {
-                height=height+y;
+                height = height + y;
+                if (height < 0) {
+                    height = 0;
+                }
+                if (height >outview.getMeasuredHeight()-crop.getMeasuredHeight()) {
+                    height=outview.getMeasuredHeight()-crop.getMeasuredHeight();
+                }
+
                 crop.setTranslationY(height);
+                Log.d("距离顶部距离", crop.getTranslationY() + "space: ");
             }
         });
     }
