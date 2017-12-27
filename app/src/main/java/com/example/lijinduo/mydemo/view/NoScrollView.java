@@ -18,6 +18,8 @@ import android.widget.ScrollView;
 public class NoScrollView extends ScrollView {
     String TAG="手势";
     int y=0;
+    public spaceY spaceY;
+
     public NoScrollView(Context context) {
         super(context);
     }
@@ -39,8 +41,22 @@ public class NoScrollView extends ScrollView {
                 Log.d(TAG, event.getRawY()+"==="+y+"===="+moveY);
                 y=(int) event.getRawY();
                 scrollBy(0,2*moveY);
+                spaceY.space(moveY);
                 break;
         }
         return true;
     }
+
+    public void setCallback(spaceY spaceY){
+        this.spaceY=spaceY;
+    }
+
+    public interface spaceY{
+        void space(int y);
+    }
+
+
+
+
+
 }

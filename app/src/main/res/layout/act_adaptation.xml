@@ -3,6 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <com.example.lijinduo.mydemo.view.NoScrollView
             android:id="@+id/out_scroll"
@@ -18,4 +21,13 @@
             </LinearLayout>
         </com.example.lijinduo.mydemo.view.NoScrollView>
 
+
+        <LinearLayout
+            android:background="#ff0000"
+            android:orientation="horizontal"
+            android:id="@+id/crop"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"></LinearLayout>
+
+    </RelativeLayout>
 </LinearLayout>

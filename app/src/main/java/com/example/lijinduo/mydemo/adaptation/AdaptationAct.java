@@ -1,14 +1,7 @@
 package com.example.lijinduo.mydemo.adaptation;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.ScrollView;
+import android.widget.LinearLayout;
 
 import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.R;
@@ -27,13 +20,25 @@ import butterknife.ButterKnife;
  * 参考链接：
  */
 public class AdaptationAct extends BaseActivity {
+    @BindView(R.id.out_scroll)
+    NoScrollView outScroll;
+    @BindView(R.id.crop)
+    LinearLayout crop;
+    int height=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_adaptation);
         ButterKnife.bind(this);
+        outScroll.setCallback(new NoScrollView.spaceY() {
+            @Override
+            public void space(int y) {
+                height=height+y;
+                crop.setTranslationY(height);
+            }
+        });
     }
-
 
 
 }
