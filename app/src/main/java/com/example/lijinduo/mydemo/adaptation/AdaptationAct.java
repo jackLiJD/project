@@ -38,16 +38,14 @@ public class AdaptationAct extends BaseActivity {
         outScroll.setCallback(new NoScrollView.spaceY() {
             @Override
             public void space(int y) {
-                height = height + y;
+                height+=y;
                 if (height < 0) {
                     height = 0;
                 }
                 if (height >outview.getMeasuredHeight()-crop.getMeasuredHeight()) {
                     height=outview.getMeasuredHeight()-crop.getMeasuredHeight();
                 }
-
                 crop.setTranslationY(height);
-                Log.d("距离顶部距离", crop.getTranslationY() + "space: ");
             }
         });
     }
