@@ -197,7 +197,11 @@
         <activity
             android:name=".adaptation.AdaptationAct">
         </activity>
-
+        <activity
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:name=".memory.MemoryAct">
+        </activity>
 
         <service
             android:name=".aidl.IRemoteService"

@@ -58,4 +58,5 @@ dependencies {
     compile 'com.facebook.fresco:fresco:0.8.1+'
         compile 'com.mandome:touch3DView:1.0.0'
     compile 'com.android.support:design:26.0.0-alpha1'
+    compile 'com.airbnb.android:lottie:1.0.1'
 }

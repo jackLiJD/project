@@ -8,6 +8,8 @@ import android.os.IBinder;
 import android.os.StrictMode;
 import android.support.annotation.Nullable;
 import android.support.multidex.MultiDex;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.tencent.smtt.sdk.QbSdk;

@@ -35,6 +35,6 @@
     <string name="surfaceView">surfaceView</string>
     <string name="camera">相机</string>
     <string name="adaptation">适配问题</string>
-
+    <string name="memory">消除内存</string>
 
 </resources>

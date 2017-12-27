@@ -25,6 +25,6 @@
         <item>@string/surfaceView</item>
         <item>@string/camera</item>
         <item>@string/adaptation</item>
-
+        <item>@string/memory</item>
     </array>
 </resources>

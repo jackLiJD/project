@@ -22,6 +22,7 @@ import com.example.lijinduo.mydemo.camera.CameraAct;
 import com.example.lijinduo.mydemo.electrocardiogram.ElectrocardiogramAct;
 import com.example.lijinduo.mydemo.fuzzy.FuzzyImgAct;
 import com.example.lijinduo.mydemo.hand.HandTouchAct;
+import com.example.lijinduo.mydemo.memory.MemoryAct;
 import com.example.lijinduo.mydemo.mvp.mvpactivity.MvpActivity;
 import com.example.lijinduo.mydemo.mvvm.MvvmAct;
 import com.example.lijinduo.mydemo.mymap.MyMapAct;
@@ -195,6 +196,13 @@ public class MainActivity extends BaseActivity {
             case 23:
                 intent = new Intent(this, AdaptationAct.class);
                 break;
+            case 24:
+                intent = new Intent(this, MemoryAct.class);
+                break;
+
+
+
+
         }
         startActivity(intent);
     }
