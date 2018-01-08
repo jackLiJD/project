@@ -1,6 +1,8 @@
 package com.example.lijinduo.mydemo.mvvm;
 
 import android.app.Activity;
+import android.databinding.ObservableArrayList;
+import android.databinding.ObservableList;
 import android.util.Log;
 
 import com.example.lijinduo.mydemo.BR;
@@ -21,7 +23,7 @@ import me.tatarka.bindingcollectionadapter.ItemView;
  */
 public class MvvmActNeiVM extends BaseRecyclerViewVM<inBean> {
     public MvvmActNeiVM(List<inBean> inBeanList) {
-        items.addAll(inBeanList);
+        itemsNei.addAll(inBeanList);
     }
 
     @Override

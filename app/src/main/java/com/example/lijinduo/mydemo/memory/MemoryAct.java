@@ -1,6 +1,7 @@
 package com.example.lijinduo.mydemo.memory;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -61,6 +62,13 @@ public class MemoryAct extends BaseActivity {
             }
         };
         thread.start();
+
+        AsyncTask task=new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object[] params) {
+                return null;
+            }
+        };
     }
 
     @OnClick({R.id.button13, R.id.button14})

@@ -54,6 +54,7 @@ public abstract class BaseRecyclerViewVM<T> {
      * 数据源
      */
     public final ObservableList<T> items = new ObservableArrayList<>();
+    public final ObservableList<T> itemsNei = new ObservableArrayList<>();
     public final ItemViewSelector<T> itemView = new ItemViewSelector<T>() {
         @Override
         public void select(ItemView itemView, int position, T item) {
@@ -67,6 +68,17 @@ public abstract class BaseRecyclerViewVM<T> {
         }
     };
 
+    public final ItemViewSelector<T> itemViewNei = new ItemViewSelector<T>() {
+        @Override
+        public void select(ItemView itemView, int position, T item) {
+            MyApplication.scaleScreenHelper.loadView((ViewGroup) AppManager.getAppManager().currentActivity().getWindow().getDecorView());
+            selectView(itemView, position, item);
+        }
 
+        @Override
+        public int viewTypeCount() {
+            return 0;
+        }
+    };
 
 }

@@ -9,11 +9,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.lijinduo.mydemo.R;
 
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * 版权：XXX公司 版权所有
@@ -29,9 +33,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHoler> {
     private onItemClick onItemClick;
     private Context context;
 
-    public MainAdapter(List<String> stringList,Context context) {
+    public MainAdapter(List<String> stringList, Context context) {
         this.stringList = stringList;
-        this.context=context;
+        this.context = context;
     }
 
     @Override
@@ -41,7 +45,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHoler> {
     }
 
     @Override
-    public void onBindViewHolder(MainViewHoler holder, final int position) {
+    public void onBindViewHolder(final MainViewHoler holder, final int position) {
         holder.recycle_main_nei.setLayoutManager(new GridLayoutManager(context, 1));
         holder.recycle_main_nei.setAdapter(holder.adapter);
         holder.item_tv.setText(stringList.get(position));
@@ -52,8 +56,26 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHoler> {
             }
         });
         holder.itemView.setContentDescription(stringList.get(position));
+        holder.edt_item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                keyBoardOut(holder.edt_item);
+            }
+        });
     }
-
+    private void keyBoardOut(final EditText editText) {
+        editText.setFocusableInTouchMode(true);
+        editText.requestFocus();
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            public void run() {
+                InputMethodManager inputManager = (InputMethodManager) editText
+                        .getContext().getSystemService(
+                                Context.INPUT_METHOD_SERVICE);
+                inputManager.showSoftInput(editText, 0);
+            }
+        }, 200);
+    }
 
     @Override
     public int getItemCount() {
@@ -79,11 +101,13 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHoler> {
 class MainViewHoler extends RecyclerView.ViewHolder {
     public TextView item_tv;
     public RecyclerView recycle_main_nei;
-    public MainNeiAdapter adapter=new MainNeiAdapter();
+    public MainNeiAdapter adapter = new MainNeiAdapter();
+    public EditText edt_item;
 
     public MainViewHoler(View itemView) {
         super(itemView);
-        item_tv = (TextView) itemView.findViewById(R.id.item_textview);
-        recycle_main_nei = (RecyclerView) itemView.findViewById(R.id.recycle_main_nei);
+        item_tv = itemView.findViewById(R.id.item_textview);
+        recycle_main_nei = itemView.findViewById(R.id.recycle_main_nei);
+        edt_item = itemView.findViewById(R.id.edt_item);
     }
 }

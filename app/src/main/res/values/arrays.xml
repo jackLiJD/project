@@ -26,5 +26,6 @@
         <item>@string/camera</item>
         <item>@string/adaptation</item>
         <item>@string/memory</item>
+        <item>@string/TodayNewsAct</item>
     </array>
 </resources>

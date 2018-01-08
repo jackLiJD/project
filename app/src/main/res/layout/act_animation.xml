@@ -37,6 +37,16 @@
             android:layout_height="wrap_content" />
 
     </LinearLayout>
+    <LinearLayout
+        android:background="#ff0000"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"></LinearLayout>
+
+    <com.example.lijinduo.mydemo.view.AnimationVIew
+        android:background="#00ff00"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.example.lijinduo.mydemo.view.AnimationVIew>
 
 
 

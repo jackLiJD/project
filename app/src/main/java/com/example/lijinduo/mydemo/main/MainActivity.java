@@ -2,9 +2,16 @@ package com.example.lijinduo.mydemo.main;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.AbsoluteSizeSpan;
+import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -35,11 +42,18 @@ import com.example.lijinduo.mydemo.service.ServiceAct;
 import com.example.lijinduo.mydemo.surfaceview.SurfaceAct;
 import com.example.lijinduo.mydemo.thread.ThreadAct;
 import com.example.lijinduo.mydemo.toast.ToastAct;
+import com.example.lijinduo.mydemo.todaynews.TodayNewsAct;
+import com.example.lijinduo.mydemo.view.CustomVerticalCenterSpan;
 import com.example.lijinduo.mydemo.vr.VRAct;
 
+import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -49,17 +63,25 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.main_list)
     RecyclerView mainList;
+    @BindView(R.id.xuanfu)
+    TextView xuanfu;
+    @BindView(R.id.inclue_title)
+    LinearLayout inclueTitle;
     private List<String> stringList;
     private Context context = MainActivity.this;
     private LinearLayout inclue_title;
     MainAdapter adapter;
     private TextView xuanfutitle;
-
+    private Long danwei = 1350435520l;
+    private double danweiq = 1234567l;
+    private double danweim = 1234l;
+    private Typeface cmtTypeFace;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        xuanfu.setText(XLIFFNumFormatPhoneSize(changeMoneyStr2(danwei)));
         initData();
         inclue_title = (LinearLayout) findViewById(R.id.inclue_title);
         xuanfutitle = (TextView) findViewById(R.id.xuanfutitle);
@@ -82,7 +104,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 //这个5这个参数 如果换成inclue_title.getMeasuredHeight() 就有问题 他这个取值 咋取的
-               View stickyInfoView = recyclerView.findChildViewUnder(inclue_title.getMeasuredWidth(), 20);
+                View stickyInfoView = recyclerView.findChildViewUnder(inclue_title.getMeasuredWidth(), 20);
                 if (stickyInfoView != null && stickyInfoView.getContentDescription() != null) {
                     xuanfutitle.setText(String.valueOf(stickyInfoView.getContentDescription()));
                 }
@@ -199,13 +221,52 @@ public class MainActivity extends BaseActivity {
             case 24:
                 intent = new Intent(this, MemoryAct.class);
                 break;
-
-
-
+            case 25:
+                intent = new Intent(this, TodayNewsAct.class);
+                break;
 
         }
         startActivity(intent);
     }
 
+    public  String changeMoneyStr2(Long money) {
+        String str = "";
+        if (str == null) {
+
+        }
+        if (money >= 100000000) {
+            str = money / 100000000 + " 亿 ";
+        }
+        if (money >= 10000) {
+            if (money >= 100000000) {
+                str = str + String.valueOf(money / 10000).substring(String.valueOf(money / 10000).length() - 4, String.valueOf(money / 10000).length()) + " 万 ";
+            } else {
+                str = str + money / 10000 + " 万 ";
+            }
+        }
+        if (money > 10000) {
+            str = str + String.valueOf(money).substring(String.valueOf(money).length() - 4, String.valueOf(money).length());
+
+        } else {
+            str = String.valueOf(money);
+        }
+        return str;
+    }
+
+    public  Spannable XLIFFNumFormatPhoneSize(String params) {
+        Matcher matcher = Pattern.compile("[\\u4e00-\\u9fa5]").matcher(params);
+        Spannable span = new SpannableString(params);
+        while (matcher.find()){
+            int start = matcher.start();
+            int end = matcher.end();
+            span.setSpan(new CustomVerticalCenterSpan(), start, end, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
+            // 设置字体大小
+            span.setSpan(new AbsoluteSizeSpan(50), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            // 设置字体颜色
+//            span.setSpan(new ForegroundColorSpan(Color.parseColor("#000000")), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+
+        return span;
+    }
 
 }

@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.databinding.DataBindingUtil;
 import android.databinding.ObservableField;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.example.lijinduo.mydemo.BR;
 import com.example.lijinduo.mydemo.R;
@@ -27,8 +30,7 @@ public class MvvmActVM extends BaseRecyclerViewVM<OutBean>{
     public  ObservableField<InvestListBean> investListBeanObservableField = new ObservableField<>();
     public List<OutBean> outBeans=new ArrayList<>();
     private Activity context;
-    private ItemMvvmBinding binding;
-
+//    private ItemMvvmBinding binding;
     public MvvmActVM(Activity context) {
         this.context=context;
         data();
@@ -46,6 +48,7 @@ public class MvvmActVM extends BaseRecyclerViewVM<OutBean>{
             outBeans.add(outBean);
         }
         items.addAll(outBeans);
+        Log.d("items", "data: "+items.get(5).outTitle);
 
     }
 
@@ -53,8 +56,11 @@ public class MvvmActVM extends BaseRecyclerViewVM<OutBean>{
     @Override
     protected void selectView(ItemView itemView, int position, OutBean item) {
         Log.d("selectViewOut", "selectView: ");
-        itemView.set(BR.item, R.layout.item_mvvm);
-        binding=DataBindingUtil.setContentView(context,R.layout.item_mvvm);
+        int layoutRes=R.layout.item_mvvm;
+        itemView.set(BR.item, layoutRes);
+        ItemMvvmBinding binding= DataBindingUtil.setContentView(context,layoutRes);
+//        ItemMvvmBinding binding= DataBindingUtil.bind(context.getWindow().getDecorView());
+//        ItemMvvmBinding binding = DataBindingUtil.inflate(LayoutInflater.from(context), layoutRes,(ViewGroup) context.getWindow().getDecorView() , true);
         MvvmActNeiVM mvvmnei=new MvvmActNeiVM(item.inBeanList);
         binding.setViewModel(mvvmnei);
     }
