@@ -67,7 +67,7 @@ public class TodayNewsAct extends BaseActivity {
             lists.add(newsBean);
             fragmentList.add(new Fragment1());
         }
-        FragAdapter adapter = new FragAdapter(getSupportFragmentManager(), fragmentList);
+        FragAdapter adapter = new FragAdapter(getSupportFragmentManager(), fragmentList,lists);
         viewpage.setAdapter(adapter);
         viewpage.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override

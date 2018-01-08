@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lijinduo.mydemo.R;
@@ -29,6 +30,11 @@ public class Fragment1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.act_frag1, container,false);
         view.findViewById(R.id.btn).setBackgroundColor(Color.parseColor("#"+getRandColorCode()));
+        //获取Activity传递过来的参数
+        Bundle mBundle = getArguments();
+        String title = mBundle.getString("arg");
+        TextView textView=view.findViewById(R.id.tv_frag);
+        textView.setText(title);
         Log.d("fragment","11111");
         return view;
     }

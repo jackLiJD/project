@@ -1,5 +1,6 @@
 package com.example.lijinduo.mydemo.todaynews;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -18,14 +19,21 @@ import java.util.List;
  */
 public class FragAdapter extends FragmentPagerAdapter {
     private List<Fragment> fragmentList=new ArrayList<>();
-    public FragAdapter(FragmentManager fm,List<Fragment> fragmentList) {
+    private List<NewsBean> lists = new ArrayList<>();
+    public FragAdapter(FragmentManager fm,List<Fragment> fragmentList,List<NewsBean> lists) {
         super(fm);
         this.fragmentList=fragmentList;
+        this.lists=lists;
     }
 
     @Override
     public Fragment getItem(int position) {
-        return fragmentList.get(position) ;
+        Fragment fragment = fragmentList.get(position);
+        Bundle args = new Bundle();
+        args.putString("arg", lists.get(position).getStr());
+        fragment.setArguments(args);
+
+        return fragment;
     }
 
     @Override
