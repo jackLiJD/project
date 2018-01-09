@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.example.lijinduo.mydemo.BaseActivity;
@@ -20,6 +21,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * 版权：XXX公司 版权所有
@@ -37,12 +39,18 @@ public class TodayNewsAct extends BaseActivity {
     ClipViewPager viewpage;
     @BindView(R.id.viewpage_lin)
     LinearLayout viewpageLin;
+    @BindView(R.id.btn1)
+    Button btn1;
+    @BindView(R.id.btn2)
+    Button btn2;
+    @BindView(R.id.btn3)
+    Button btn3;
     private List<String> stringList;
     private NewsHeadAdapter adapter;
     private Context context = TodayNewsAct.this;
     LinearLayoutManager linearLayoutManager;
     private List<NewsBean> lists = new ArrayList<>();
-
+    ScalePageTransformer scalePageTransformer;
     private List<Fragment> fragmentList = new ArrayList<>();
 
     @Override
@@ -60,6 +68,7 @@ public class TodayNewsAct extends BaseActivity {
             }
         });
         thread.start();
+
     }
 
     /**
@@ -80,7 +89,8 @@ public class TodayNewsAct extends BaseActivity {
             lists.add(newsBean);
             fragmentList.add(new Fragment1());
         }
-        viewpage.setPageTransformer(true, new ScalePageTransformer());
+        scalePageTransformer=new ScalePageTransformer(1);
+        viewpage.setPageTransformer(true,scalePageTransformer );
         viewpageLin.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -160,4 +170,21 @@ public class TodayNewsAct extends BaseActivity {
         }
     }
 
+    @OnClick({R.id.btn1, R.id.btn2, R.id.btn3})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.btn1:
+                scalePageTransformer=new ScalePageTransformer(1);
+                viewpage.setPageTransformer(true,scalePageTransformer );
+                break;
+            case R.id.btn2:
+                scalePageTransformer=new ScalePageTransformer(2);
+                viewpage.setPageTransformer(true,scalePageTransformer );
+                break;
+            case R.id.btn3:
+                scalePageTransformer=new ScalePageTransformer(3);
+                viewpage.setPageTransformer(true,scalePageTransformer );
+                break;
+        }
+    }
 }

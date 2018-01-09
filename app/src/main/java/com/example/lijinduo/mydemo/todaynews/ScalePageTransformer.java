@@ -15,8 +15,33 @@ import android.view.View;
  */
 public class ScalePageTransformer implements ViewPager.PageTransformer {
 
-    public static final float MAX_SCALE = 1.2f;
-    public static final float MIN_SCALE = 0.6f;
+    //中间大  左右小
+    public   float MAX_SCALE = 1.2f;
+    public   float MIN_SCALE = 0.6f;
+
+    public ScalePageTransformer(int type) {
+        switch (type){
+            case 1:
+               MAX_SCALE = 1.2f;
+               MIN_SCALE = 0.6f;
+                break;
+            case 2:
+                MAX_SCALE = 0.8f;
+                MIN_SCALE = 0.8f;
+                break;
+            case 3:
+                MAX_SCALE = 1f;
+                MIN_SCALE = 1f;
+                break;
+        }
+    }
+    //等大
+//public static final float MAX_SCALE = 0.8f;
+//    public static final float MIN_SCALE = 0.8f;
+
+    //链接等大
+//public static final float MAX_SCALE = 1f;
+//    public static final float MIN_SCALE = 1f;
 
     @Override
     public void transformPage(View page, float position) {
