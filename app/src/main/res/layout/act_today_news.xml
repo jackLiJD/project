@@ -10,18 +10,27 @@
         android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
 
 
-
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpage"
+    <LinearLayout
+        android:id="@+id/viewpage_lin"
+        android:gravity="center"
+        android:clipChildren="false"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+        android:layout_height="match_parent">
+
+
+    <com.example.lijinduo.mydemo.todaynews.ClipViewPager
+        android:tag="(400,400)"
+        android:clipChildren="false"
+        android:overScrollMode="never"
+        android:id="@+id/viewpage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"></com.example.lijinduo.mydemo.todaynews.ClipViewPager>
 
 
 
 
 
-
+    </LinearLayout>
 
 
 

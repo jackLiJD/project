@@ -7,6 +7,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.R;
@@ -31,7 +34,9 @@ public class TodayNewsAct extends BaseActivity {
     @BindView(R.id.head_recycler)
     RecyclerView headRecycler;
     @BindView(R.id.viewpage)
-    ViewPager viewpage;
+    ClipViewPager viewpage;
+    @BindView(R.id.viewpage_lin)
+    LinearLayout viewpageLin;
     private List<String> stringList;
     private NewsHeadAdapter adapter;
     private Context context = TodayNewsAct.this;
@@ -47,6 +52,14 @@ public class TodayNewsAct extends BaseActivity {
         ButterKnife.bind(this);
         data();
         headView();
+        Log.d("线程id", "onCreate: " + Thread.currentThread().getId());
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Log.d("线程id", "onCreate: " + Thread.currentThread().getId());
+            }
+        });
+        thread.start();
     }
 
     /**
@@ -67,8 +80,17 @@ public class TodayNewsAct extends BaseActivity {
             lists.add(newsBean);
             fragmentList.add(new Fragment1());
         }
-        FragAdapter adapter = new FragAdapter(getSupportFragmentManager(), fragmentList,lists);
+        viewpage.setPageTransformer(true, new ScalePageTransformer());
+        viewpageLin.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return viewpage.dispatchTouchEvent(event);
+            }
+        });
+
+        FragAdapter adapter = new FragAdapter(getSupportFragmentManager(), fragmentList, lists);
         viewpage.setAdapter(adapter);
+        viewpage.setOffscreenPageLimit(3);
         viewpage.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -136,8 +158,6 @@ public class TodayNewsAct extends BaseActivity {
                 headRecycler.smoothScrollToPosition(firstItem - (middleItem - position));
             }
         }
-
-
     }
 
 }
