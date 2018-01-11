@@ -58,9 +58,9 @@ public class MvvmActVM extends BaseRecyclerViewVM<OutBean>{
         Log.d("selectViewOut", "selectView: ");
         int layoutRes=R.layout.item_mvvm;
         itemView.set(BR.item, layoutRes);
-        ItemMvvmBinding binding= DataBindingUtil.setContentView(context,layoutRes);
+//        ItemMvvmBinding binding= DataBindingUtil.setContentView(context,layoutRes);
 //        ItemMvvmBinding binding= DataBindingUtil.bind(context.getWindow().getDecorView());
-//        ItemMvvmBinding binding = DataBindingUtil.inflate(LayoutInflater.from(context), layoutRes,(ViewGroup) context.getWindow().getDecorView() , true);
+        ItemMvvmBinding binding = DataBindingUtil.inflate(LayoutInflater.from(context), layoutRes,(ViewGroup) context.getWindow().getDecorView() , true);
         MvvmActNeiVM mvvmnei=new MvvmActNeiVM(item.inBeanList);
         binding.setViewModel(mvvmnei);
     }

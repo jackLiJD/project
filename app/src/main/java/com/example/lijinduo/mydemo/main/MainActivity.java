@@ -29,6 +29,7 @@ import com.example.lijinduo.mydemo.camera.CameraAct;
 import com.example.lijinduo.mydemo.electrocardiogram.ElectrocardiogramAct;
 import com.example.lijinduo.mydemo.fuzzy.FuzzyImgAct;
 import com.example.lijinduo.mydemo.hand.HandTouchAct;
+import com.example.lijinduo.mydemo.kotlin.Kotlin;
 import com.example.lijinduo.mydemo.memory.MemoryAct;
 import com.example.lijinduo.mydemo.mvp.mvpactivity.MvpActivity;
 import com.example.lijinduo.mydemo.mvvm.MvvmAct;
@@ -80,6 +81,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        new Kotlin().main();
         ButterKnife.bind(this);
         xuanfu.setText(XLIFFNumFormatPhoneSize(changeMoneyStr2(danwei)));
         initData();

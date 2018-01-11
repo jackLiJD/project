@@ -1,69 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/head_recycler"
-        android:tag="(700,100)"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:text="中间大量变小"
-            android:id="@+id/btn1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:text="等大"
-            android:id="@+id/btn2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <Button
-            android:text="等大无间隙"
-            android:id="@+id/btn3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-
-
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:tag="(700,100)"></android.support.v7.widget.RecyclerView>
 
 
     <LinearLayout
         android:id="@+id/viewpage_lin"
-        android:gravity="center"
-        android:clipChildren="false"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-    <com.example.lijinduo.mydemo.todaynews.ClipViewPager
-        android:tag="(400,400)"
+        android:layout_height="match_parent"
         android:clipChildren="false"
-        android:overScrollMode="never"
-        android:id="@+id/viewpage"
-        android:layout_width="50dp"
-        android:layout_height="50dp"></com.example.lijinduo.mydemo.todaynews.ClipViewPager>
+        android:gravity="center"
+        android:tag="(0,440)">
 
 
-
+        <com.example.lijinduo.mydemo.todaynews.ClipViewPager
+            android:id="@+id/viewpage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:clipChildren="false"
+            android:overScrollMode="never"
+            android:tag="(400,400)"></com.example.lijinduo.mydemo.todaynews.ClipViewPager>
 
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="中间大量变小" />
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="等大" />
+
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="等大无间隙" />
+
+        <Button
+            android:id="@+id/btn4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="左对齐" />
 
 
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clipChildren="false"
+        android:gravity="center">
 
-
-
-
-
+        <com.example.lijinduo.mydemo.view.NoTouchViewpage
+            android:id="@+id/viewpage1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="false"
+            android:overScrollMode="never"></com.example.lijinduo.mydemo.view.NoTouchViewpage>
+    </LinearLayout>
 
 </LinearLayout>

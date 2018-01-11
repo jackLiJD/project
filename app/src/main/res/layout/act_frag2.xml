@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:gravity="center_horizontal"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="外部viewpage" />
+
+
+    <com.example.lijinduo.mydemo.todaynews.ClipViewPager
+        android:layout_weight="1"
+        android:background="#00ff00"
+        android:id="@+id/viewpage2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:overScrollMode="never"></com.example.lijinduo.mydemo.todaynews.ClipViewPager>
+
+
+
+
+    <com.example.lijinduo.mydemo.view.IndicatorView
+        android:id="@+id/guide_myline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp">
+
+    </com.example.lijinduo.mydemo.view.IndicatorView>
+
+
+</LinearLayout>

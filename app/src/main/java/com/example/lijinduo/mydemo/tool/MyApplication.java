@@ -11,7 +11,7 @@ import android.support.multidex.MultiDex;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
+//import com.facebook.drawee.backends.pipeline.Fresco;
 import com.tencent.smtt.sdk.QbSdk;
 import com.zcx.helper.scale.ScaleScreenHelper;
 import com.zcx.helper.scale.ScaleScreenHelperFactory;
@@ -37,7 +37,7 @@ public class MyApplication extends Application {
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
         builder.detectFileUriExposure();
-        Fresco.initialize(this);
+//        Fresco.initialize(this);
         preinitX5WebCore();
         //预加载x5内核
         Intent intent = new Intent(this, AdvanceLoadX5Service.class);

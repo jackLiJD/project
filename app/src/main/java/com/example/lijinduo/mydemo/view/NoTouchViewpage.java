@@ -1,26 +1,26 @@
-package com.example.lijinduo.mydemo.hand;
+package com.example.lijinduo.mydemo.view;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.widget.LinearLayout;
+
+import com.example.lijinduo.mydemo.todaynews.ClipViewPager;
 
 /**
  * 版权：XXX公司 版权所有
  * 作者：lijinduo
  * 版本：2.0
- * 创建日期：2017/8/30
+ * 创建日期：2018/1/11
  * 描述：(重构)
  * 修订历史：
  * 参考链接：
  */
-public class OutLin extends LinearLayout {
-    public OutLin(Context context) {
+public class NoTouchViewpage extends ClipViewPager {
+    public NoTouchViewpage(Context context) {
         super(context);
     }
 
-    public OutLin(Context context, @Nullable AttributeSet attrs) {
+    public NoTouchViewpage(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
@@ -31,20 +31,10 @@ public class OutLin extends LinearLayout {
     }
 
 
-        @Override
+    @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
 //        return super.onInterceptTouchEvent(ev);
         return false;
     }
-
-
-
-
-
-
-
-
-
-
 
 }

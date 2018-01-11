@@ -1,12 +1,14 @@
 package com.example.lijinduo.mydemo.todaynews;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +16,8 @@ import android.widget.LinearLayout;
 
 import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.R;
+import com.example.lijinduo.mydemo.view.IndicatorView;
+import com.example.lijinduo.mydemo.view.NoTouchViewpage;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -45,6 +49,11 @@ public class TodayNewsAct extends BaseActivity {
     Button btn2;
     @BindView(R.id.btn3)
     Button btn3;
+    @BindView(R.id.btn4)
+    Button btn4;
+    @BindView(R.id.viewpage1)
+    NoTouchViewpage viewpage1;
+
     private List<String> stringList;
     private NewsHeadAdapter adapter;
     private Context context = TodayNewsAct.this;
@@ -52,7 +61,7 @@ public class TodayNewsAct extends BaseActivity {
     private List<NewsBean> lists = new ArrayList<>();
     ScalePageTransformer scalePageTransformer;
     private List<Fragment> fragmentList = new ArrayList<>();
-
+    private List<Fragment> fragmentList1 = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,15 +69,15 @@ public class TodayNewsAct extends BaseActivity {
         ButterKnife.bind(this);
         data();
         headView();
-        Log.d("线程id", "onCreate: " + Thread.currentThread().getId());
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Log.d("线程id", "onCreate: " + Thread.currentThread().getId());
-            }
-        });
-        thread.start();
+        bottom();
+    }
 
+    private void bottom() {
+        scalePageTransformer = new ScalePageTransformer(3);
+        viewpage1.setPageTransformer(true, scalePageTransformer);
+        FragAdapter adapter = new FragAdapter(getSupportFragmentManager(), fragmentList1, lists);
+        viewpage1.setOffscreenPageLimit(fragmentList1.size());
+        viewpage1.setAdapter(adapter);
     }
 
     /**
@@ -88,9 +97,10 @@ public class TodayNewsAct extends BaseActivity {
             }
             lists.add(newsBean);
             fragmentList.add(new Fragment1());
+            fragmentList1.add(new Fragment2());
         }
-        scalePageTransformer=new ScalePageTransformer(1);
-        viewpage.setPageTransformer(true,scalePageTransformer );
+        scalePageTransformer = new ScalePageTransformer(1);
+        viewpage.setPageTransformer(true, scalePageTransformer);
         viewpageLin.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -98,19 +108,19 @@ public class TodayNewsAct extends BaseActivity {
             }
         });
 
+
         FragAdapter adapter = new FragAdapter(getSupportFragmentManager(), fragmentList, lists);
         viewpage.setAdapter(adapter);
         viewpage.setOffscreenPageLimit(3);
         viewpage.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
             }
 
             @Override
             public void onPageSelected(int position) {
-                Log.d("选中", "onPageSelected: " + position);
                 TAB(position);
+                viewpage1.setCurrentItem(position);
             }
 
             @Override
@@ -170,21 +180,31 @@ public class TodayNewsAct extends BaseActivity {
         }
     }
 
-    @OnClick({R.id.btn1, R.id.btn2, R.id.btn3})
+    @OnClick({R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn1:
-                scalePageTransformer=new ScalePageTransformer(1);
-                viewpage.setPageTransformer(true,scalePageTransformer );
+                viewpageLin.setGravity(Gravity.CENTER);
+                scalePageTransformer = new ScalePageTransformer(1);
+                viewpage.setPageTransformer(true, scalePageTransformer);
                 break;
             case R.id.btn2:
-                scalePageTransformer=new ScalePageTransformer(2);
-                viewpage.setPageTransformer(true,scalePageTransformer );
+                viewpageLin.setGravity(Gravity.CENTER);
+                scalePageTransformer = new ScalePageTransformer(2);
+                viewpage.setPageTransformer(true, scalePageTransformer);
                 break;
             case R.id.btn3:
-                scalePageTransformer=new ScalePageTransformer(3);
-                viewpage.setPageTransformer(true,scalePageTransformer );
+                viewpageLin.setGravity(Gravity.CENTER);
+                scalePageTransformer = new ScalePageTransformer(3);
+                viewpage.setPageTransformer(true, scalePageTransformer);
                 break;
+            case R.id.btn4:
+                viewpageLin.setGravity(Gravity.LEFT | Gravity.CENTER_VERTICAL);
+                break;
+
+
         }
     }
+
+
 }

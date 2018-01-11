@@ -23,6 +23,7 @@
         android:background="#ffffff">
     </android.support.v7.widget.RecyclerView>
         <TextView
+            android:visibility="gone"
             android:layout_marginTop="100dp"
             android:includeFontPadding="false"
             android:textSize="40dp"

@@ -1,6 +1,5 @@
 package com.example.lijinduo.mydemo.todaynews;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,8 +7,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.example.lijinduo.mydemo.R;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * 版权：XXX公司 版权所有
@@ -20,15 +25,32 @@ import com.example.lijinduo.mydemo.R;
  * 修订历史：
  * 参考链接：
  */
-public class Fragment3  extends Fragment {
+public class Fragment3 extends Fragment {
+
+    @BindView(R.id.button12)
+    Button button12;
+    @BindView(R.id.btnlin)
+    LinearLayout btnlin;
+    Unbinder unbinder;
+    private String title;
+
+    public Fragment3(String title) {
+        this.title=title;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.act_frag1, container,false);
-        view.findViewById(R.id.btn).setBackgroundColor(Color.RED);
-        Log.d("fragment","3333");
-//        (TextView) view.findViewById(R.id.tv_frag).setTextAlignment();
+        View view = inflater.inflate(R.layout.act_frag3, container, false);
+        Log.d("fragment", "3333");
+        unbinder = ButterKnife.bind(this, view);
+        button12.setText(title);
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 }

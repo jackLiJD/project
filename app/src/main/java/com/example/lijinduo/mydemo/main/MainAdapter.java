@@ -56,25 +56,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHoler> {
             }
         });
         holder.itemView.setContentDescription(stringList.get(position));
-        holder.edt_item.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                keyBoardOut(holder.edt_item);
-            }
-        });
-    }
-    private void keyBoardOut(final EditText editText) {
-        editText.setFocusableInTouchMode(true);
-        editText.requestFocus();
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            public void run() {
-                InputMethodManager inputManager = (InputMethodManager) editText
-                        .getContext().getSystemService(
-                                Context.INPUT_METHOD_SERVICE);
-                inputManager.showSoftInput(editText, 0);
-            }
-        }, 200);
     }
 
     @Override
@@ -102,12 +83,10 @@ class MainViewHoler extends RecyclerView.ViewHolder {
     public TextView item_tv;
     public RecyclerView recycle_main_nei;
     public MainNeiAdapter adapter = new MainNeiAdapter();
-    public EditText edt_item;
 
     public MainViewHoler(View itemView) {
         super(itemView);
         item_tv = itemView.findViewById(R.id.item_textview);
         recycle_main_nei = itemView.findViewById(R.id.recycle_main_nei);
-        edt_item = itemView.findViewById(R.id.edt_item);
     }
 }

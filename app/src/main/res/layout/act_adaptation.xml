@@ -3,6 +3,83 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+
+    <!--  <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+
+
+
+          <LinearLayout
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+              <LinearLayout
+                  android:background="#ff0000"
+                  android:orientation="vertical"
+                  android:tag="(750,591)"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent">
+
+
+              </LinearLayout>
+
+
+
+
+                  <LinearLayout
+                      android:orientation="vertical"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent">
+
+
+
+
+
+              </LinearLayout>
+
+
+
+
+
+
+
+          </LinearLayout>
+
+
+
+          <LinearLayout
+              android:background="#00ff00"
+              android:layout_centerHorizontal="true"
+              android:tag="{0,326,0,0}(640,340)"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"></LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </RelativeLayout>
+
+
+
+
+
+  -->
+
+
     <RelativeLayout
         android:id="@+id/outview"
         android:layout_width="match_parent"
@@ -12,23 +89,25 @@
             android:id="@+id/out_scroll"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <LinearLayout
-                    android:background="@mipmap/ic_launcher"
                     android:layout_width="match_parent"
-                    android:layout_height="2000dp"></LinearLayout>
+                    android:layout_height="2000dp"
+                    android:background="@mipmap/ic_launcher"></LinearLayout>
             </LinearLayout>
         </com.example.lijinduo.mydemo.view.NoScrollView>
 
 
         <LinearLayout
-            android:background="#ff0000"
-            android:orientation="horizontal"
             android:id="@+id/crop"
             android:layout_width="match_parent"
-            android:layout_height="100dp"></LinearLayout>
+            android:layout_height="100dp"
+            android:background="#ff0000"
+            android:orientation="horizontal"></LinearLayout>
 
     </RelativeLayout>
 </LinearLayout>

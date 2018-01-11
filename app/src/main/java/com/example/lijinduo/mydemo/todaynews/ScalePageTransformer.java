@@ -2,6 +2,7 @@ package com.example.lijinduo.mydemo.todaynews;
 
 import android.os.Build;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 
 /**
@@ -16,14 +17,14 @@ import android.view.View;
 public class ScalePageTransformer implements ViewPager.PageTransformer {
 
     //中间大  左右小
-    public   float MAX_SCALE = 1.2f;
-    public   float MIN_SCALE = 0.6f;
+    public float MAX_SCALE = 1.2f;
+    public float MIN_SCALE = 0.6f;
 
     public ScalePageTransformer(int type) {
         switch (type){
             case 1:
-               MAX_SCALE = 1.2f;
-               MIN_SCALE = 0.6f;
+               MAX_SCALE = 1.1f;
+               MIN_SCALE = 0.8f;
                 break;
             case 2:
                 MAX_SCALE = 0.8f;
@@ -35,13 +36,6 @@ public class ScalePageTransformer implements ViewPager.PageTransformer {
                 break;
         }
     }
-    //等大
-//public static final float MAX_SCALE = 0.8f;
-//    public static final float MIN_SCALE = 0.8f;
-
-    //链接等大
-//public static final float MAX_SCALE = 1f;
-//    public static final float MIN_SCALE = 1f;
 
     @Override
     public void transformPage(View page, float position) {
@@ -57,6 +51,7 @@ public class ScalePageTransformer implements ViewPager.PageTransformer {
         float slope = (MAX_SCALE - MIN_SCALE) / 1;
         //一个公式
         float scaleValue = MIN_SCALE + tempScale * slope;
+        Log.d("scaleValue", "transformPage: "+scaleValue);
         page.setScaleX(scaleValue);
         page.setScaleY(scaleValue);
 
