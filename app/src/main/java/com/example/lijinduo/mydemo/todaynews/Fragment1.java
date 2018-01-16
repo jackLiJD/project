@@ -1,5 +1,6 @@
 package com.example.lijinduo.mydemo.todaynews;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 
 import com.example.lijinduo.mydemo.R;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -32,9 +35,9 @@ public class Fragment1 extends Fragment {
         view.findViewById(R.id.btn).setBackgroundColor(Color.parseColor("#"+getRandColorCode()));
         //获取Activity传递过来的参数
         Bundle mBundle = getArguments();
-        String title = mBundle.getString("arg");
+        NewsBean newsBean= (NewsBean) mBundle.getSerializable("bean");
         TextView textView=view.findViewById(R.id.tv_frag);
-        textView.setText(title);
+        textView.setText(newsBean.getStr());
         Log.d("fragment","11111");
         return view;
     }

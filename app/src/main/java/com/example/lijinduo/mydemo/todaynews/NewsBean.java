@@ -1,5 +1,9 @@
 package com.example.lijinduo.mydemo.todaynews;
 
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
 /**
  * 版权：XXX公司 版权所有
  * 作者：lijinduo
@@ -9,7 +13,7 @@ package com.example.lijinduo.mydemo.todaynews;
  * 修订历史：
  * 参考链接：
  */
-public class NewsBean {
+public class NewsBean implements Serializable {
 
     public String getStr() {
         return str;

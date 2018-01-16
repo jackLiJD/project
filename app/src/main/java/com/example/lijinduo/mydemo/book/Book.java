@@ -17,7 +17,6 @@ import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
-import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Toast;
@@ -33,6 +32,7 @@ import com.tencent.smtt.sdk.DownloadListener;
 import com.tencent.smtt.sdk.WebChromeClient;
 //import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
+import com.tencent.smtt.sdk.WebViewClient;
 //import com.tencent.smtt.sdk.WebViewClient;
 
 import butterknife.BindView;
@@ -73,10 +73,8 @@ public class Book extends BaseActivity {
         setContentView(R.layout.act_book);
         isCache = getIntent().getStringExtra("isCache");
         commonUrl = getIntent().getStringExtra("commonUrl");
-//        commonUrl = "https://test1static.edspay.com/#/storeIndex?uid=&token=&vcode=3.0.4&osType=Android&osVersion=Android:6.0";
 //        commonUrl = "file:///android_asset/web1.html";
-        commonUrl="asdasdasdasdasdasdas";
-//        commonUrl  ="https://ywww.edspa.com/#/customRedEnvelope?uid=58764&token=150925854568358764&vcode=3.0.4&osType=Android&osVersion=Android%3A6.0.1";
+        commonUrl="https://test2static.edspay.com/#/wx/iceSnowCarnival?uid=300338&token=1515999065926300338&vcode=3.2.0&osType=Android&osVersion=Android:4.4.2&zhou=1515999189234";
 
         ButterKnife.bind(this);
         bookWeb = new WebView(context);
@@ -89,13 +87,15 @@ public class Book extends BaseActivity {
         webviewContent.addView(bookWeb, new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.MATCH_PARENT,
                 FrameLayout.LayoutParams.MATCH_PARENT));
+
+
         cacheweb = new CacheWebView(context);
         webviewContentChache.addView(cacheweb, new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.MATCH_PARENT,
                 FrameLayout.LayoutParams.MATCH_PARENT));
-        cacheweb.setCacheStrategy(WebViewCache.CacheStrategy.FORCE);
-        cacheweb.getWebViewCache().getStaticRes().addExtension("swf").addExtension("svg")
-                .addRamExtension("png").addRamExtension("html");
+//        cacheweb.setCacheStrategy(WebViewCache.CacheStrategy.FORCE);
+//        cacheweb.getWebViewCache().getStaticRes().addExtension("swf").addExtension("svg")
+//                .addRamExtension("png").addRamExtension("html");
 
         cacheWebView = new ren.yale.android.cachewebviewlib.CacheWebView(context);
         webviewContentChacheall.addView(cacheWebView, new FrameLayout.LayoutParams(
@@ -127,10 +127,10 @@ public class Book extends BaseActivity {
         settings.setBuiltInZoomControls(true);
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
-        cacheWebView.setWebViewClient(new WebClient());
+        cacheweb.setWebViewClient(new WebClient());
 //        cacheWebView.setDownloadListener(new MyWebViewDownLoadListener());
-        cacheWebView.addJavascriptInterface(new WebReturn(), "webReturn");
-//        cacheWebView.setWebChromeClient(new WebChromeClient());
+        cacheweb.addJavascriptInterface(new WebReturn(), "webReturn");
+        cacheweb.setWebChromeClient(new WebChromeClient());
         CaChe();
     }
 
@@ -201,28 +201,41 @@ public class Book extends BaseActivity {
 
 
         @Override
-        public boolean shouldOverrideUrlLoading(android.webkit.WebView view, String url) {
-            view.loadUrl(url);
+        public boolean shouldOverrideUrlLoading(WebView webView, String s) {
+            webView.loadUrl(s);
             return true;
         }
 
-        @Override
-        public void onReceivedError(android.webkit.WebView view, int errorCode, String description, String failingUrl) {
-            super.onReceivedError(view, errorCode, description, failingUrl);
-            Toast.makeText(Book.this,"2",200).show();
-        }
+//        public boolean shouldOverrideUrlLoading(android.webkit.WebView view, String url) {
+//            view.loadUrl(url);
+//            return true;
+//        }
+
+
+//        @Override
+//        public void onReceivedError(android.webkit.WebView view, int errorCode, String description, String failingUrl) {
+//            super.onReceivedError(view, errorCode, description, failingUrl);
+//            Toast.makeText(Book.this,"2",200).show();
+//        }
+//
+//        @Override
+//        public void onReceivedHttpError(android.webkit.WebView view, WebResourceRequest request, WebResourceResponse errorResponse) {
+//            super.onReceivedHttpError(view, request, errorResponse);
+//            Toast.makeText(Book.this,"3",200).show();
+//        }
+//
+//        @Override
+//        public void onReceivedError(android.webkit.WebView view, WebResourceRequest request, WebResourceError error) {
+//            super.onReceivedError(view, request, error);
+//            Toast.makeText(Book.this,"1",200).show();
+//        }
 
         @Override
-        public void onReceivedHttpError(android.webkit.WebView view, WebResourceRequest request, WebResourceResponse errorResponse) {
-            super.onReceivedHttpError(view, request, errorResponse);
-            Toast.makeText(Book.this,"3",200).show();
+        public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
+            sslErrorHandler.proceed();
+            super.onReceivedSslError(webView, sslErrorHandler, sslError);
         }
 
-        @Override
-        public void onReceivedError(android.webkit.WebView view, WebResourceRequest request, WebResourceError error) {
-            super.onReceivedError(view, request, error);
-            Toast.makeText(Book.this,"1",200).show();
-        }
 
 //        @Override
 //        public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {

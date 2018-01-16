@@ -185,7 +185,7 @@ public class  CacheWebView extends WebView {
 
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 //            webSettings.setMixedContentMode(
-//                    WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
+//                   2);
 //        }
 
         mUserAgent = webSettings.getUserAgentString();

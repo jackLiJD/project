@@ -56,8 +56,8 @@ public class Fragment2 extends Fragment {
         View view = inflater.inflate(R.layout.act_frag2, container, false);
         unbinder = ButterKnife.bind(this, view);
         Bundle mBundle = getArguments();
-        String title = mBundle.getString("arg");
-        button10.setText(title);
+        NewsBean newsBeanl = (NewsBean) mBundle.getSerializable("bean");
+        button10.setText(newsBeanl.getStr());
         String[] stringArray = getResources().getStringArray(R.array.main_item_title);
         stringList = new ArrayList<>(Arrays.asList(stringArray));
         for (int i = 0; i < stringList.size(); i++) {
@@ -69,7 +69,7 @@ public class Fragment2 extends Fragment {
                 } else {
                     newsBean.setB(false);
                 }
-                fragmentList.add(new Fragment3(title));
+                fragmentList.add(new Fragment3(newsBeanl.getStr()));
             }
 
         }
