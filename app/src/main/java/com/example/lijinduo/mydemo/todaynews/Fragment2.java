@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.bumptech.glide.Glide;
 import com.example.lijinduo.mydemo.R;
 import com.example.lijinduo.mydemo.view.IndicatorView;
 import com.example.lijinduo.mydemo.view.NoTouchViewpage;
@@ -43,7 +44,6 @@ public class Fragment2 extends Fragment {
     @BindView(R.id.button10)
     Button button10;
     Unbinder unbinder;
-    FragAdapter2 adapter;
     private List<String> stringList;
     private List<Fragment> fragmentList = new ArrayList<>();
     ScalePageTransformer scalePageTransformer;
@@ -52,7 +52,6 @@ public class Fragment2 extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         View view = inflater.inflate(R.layout.act_frag2, container, false);
         unbinder = ButterKnife.bind(this, view);
         Bundle mBundle = getArguments();
@@ -60,34 +59,24 @@ public class Fragment2 extends Fragment {
         button10.setText(newsBeanl.getStr());
         String[] stringArray = getResources().getStringArray(R.array.main_item_title);
         stringList = new ArrayList<>(Arrays.asList(stringArray));
+        stringList = stringList.subList(0, 6);
         for (int i = 0; i < stringList.size(); i++) {
-            if (i <6) {
-                NewsBean newsBean = new NewsBean();
-                newsBean.setStr(stringList.get(i).toString());
-                if (i == 0) {
-                    newsBean.setB(true);
-                } else {
-                    newsBean.setB(false);
-                }
-                fragmentList.add(new Fragment3(newsBeanl.getStr()));
-            }
-
+            fragmentList.add(new Fragment3());
         }
-        Log.d("这他妈长度", "onCreateView: "+fragmentList.size());
         scalePageTransformer = new ScalePageTransformer(3);
         viewpage2.setPageTransformer(true, scalePageTransformer);
-        adapter = new FragAdapter2(getChildFragmentManager(), fragmentList);
+        FragAdapter2 adapter = new FragAdapter2(getChildFragmentManager(), fragmentList,newsBeanl.getStr());
         viewpage2.setAdapter(adapter);
         guideMyline.attribute(6, 8, 5);
         viewpage2.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                guideMyline.moveView(position, positionOffset);
+                guideMyline.moveView(position,positionOffset);
             }
 
             @Override
             public void onPageSelected(int position) {
-                viewpage2.setCurrentItem(position);
+
             }
 
             @Override
@@ -95,6 +84,7 @@ public class Fragment2 extends Fragment {
 
             }
         });
+
         return view;
     }
 

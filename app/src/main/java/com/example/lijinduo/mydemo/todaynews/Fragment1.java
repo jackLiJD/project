@@ -29,6 +29,7 @@ import java.util.Random;
  */
 public class Fragment1 extends Fragment {
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.act_frag1, container,false);

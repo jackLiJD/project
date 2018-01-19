@@ -34,15 +34,14 @@ public class Fragment3 extends Fragment {
     Unbinder unbinder;
     private String title;
 
-    public Fragment3(String title) {
-        this.title=title;
+    public Fragment3() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         View view = inflater.inflate(R.layout.act_frag3, container, false);
-        Log.d("fragment", "3333");
+        Bundle mBundle = getArguments();
+        String title = mBundle.getString("string");
         unbinder = ButterKnife.bind(this, view);
         button12.setText(title);
         return view;

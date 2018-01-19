@@ -1,7 +1,6 @@
 package com.example.lijinduo.mydemo.todaynews;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -9,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,7 +16,6 @@ import android.widget.LinearLayout;
 
 import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.R;
-import com.example.lijinduo.mydemo.view.IndicatorView;
 import com.example.lijinduo.mydemo.view.NoTouchViewpage;
 
 import java.util.ArrayList;
@@ -64,29 +61,40 @@ public class TodayNewsAct extends BaseActivity {
     ScalePageTransformer scalePageTransformer;
     private List<Fragment> fragmentList = new ArrayList<>();
     private List<Fragment> fragmentList1 = new ArrayList<>();
-    FragAdapter adaptermm;
-    FragAdapter adapteryy;
-    private Handler handler=new Handler(){
+    FragAdapterNoDes adapterHead;
+    FragAdapter adapterBottom;
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            for (int i = 0; i < stringList.size(); i++) {
-                NewsBean newsBean = new NewsBean();
-                Log.d("数据", stringList.get(i).toString());
-                newsBean.setStr(stringList.get(i).toString());
-                if (i == 0) {
-                    newsBean.setB(true);
-                } else {
-                    newsBean.setB(false);
+            if (msg.what == 123) {
+                lists.clear();
+                fragmentList.clear();
+                fragmentList1.clear();
+                for (int i = 0; i < stringList.size(); i++) {
+                    NewsBean newsBean = new NewsBean();
+                    newsBean.setStr(stringList.get(i).toString());
+                    if (i == 0) {
+                        newsBean.setB(true);
+                    } else {
+                        newsBean.setB(false);
+                    }
+                    lists.add(newsBean);
+                    fragmentList.add(new Fragment1());
+                    fragmentList1.add(new Fragment2());
                 }
-                lists.add(newsBean);
-                fragmentList.add(new Fragment1());
-                fragmentList1.add(new Fragment2());
+                adapter.notifyDataSetChanged();
+                adapterHead = new FragAdapterNoDes(getSupportFragmentManager(), fragmentList, lists);
+                viewpage.setAdapter(adapterHead);
+                adapterBottom = new FragAdapter(getSupportFragmentManager(), fragmentList1, lists);
+                viewpage1.setAdapter(adapterBottom);
 
-                adapteryy.notifyDataSetChanged();
-                adaptermm.notifyDataSetChanged();
             }
+
         }
+
+
     };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,15 +103,16 @@ public class TodayNewsAct extends BaseActivity {
         data();
         headView();
         bottom();
-        handler.sendEmptyMessageDelayed(123,200);
+        handler.sendEmptyMessageDelayed(123, 2000);
     }
 
     private void bottom() {
         scalePageTransformer = new ScalePageTransformer(3);
         viewpage1.setPageTransformer(true, scalePageTransformer);
-         adapteryy = new FragAdapter(getSupportFragmentManager(), fragmentList1, lists);
+        adapterBottom = new FragAdapter(getSupportFragmentManager(), fragmentList1, lists);
         viewpage1.setOffscreenPageLimit(fragmentList1.size());
-        viewpage1.setAdapter(adapteryy);
+        viewpage1.setAdapter(adapterBottom);
+
 
     }
 
@@ -113,19 +122,14 @@ public class TodayNewsAct extends BaseActivity {
     private void data() {
         String[] stringArray = getResources().getStringArray(R.array.main_item_title);
         stringList = new ArrayList<>(Arrays.asList(stringArray));
-//        for (int i = 0; i < stringList.size(); i++) {
-//            NewsBean newsBean = new NewsBean();
-//            Log.d("数据", stringList.get(i).toString());
-//            newsBean.setStr(stringList.get(i).toString());
-//            if (i == 0) {
-//                newsBean.setB(true);
-//            } else {
-//                newsBean.setB(false);
-//            }
-//            lists.add(newsBean);
-//            fragmentList.add(new Fragment1());
-//            fragmentList1.add(new Fragment2());
-//        }
+        stringList = stringList.subList(0, 10);
+        NewsBean newsBean = new NewsBean();
+        newsBean.setStr("默认");
+        newsBean.setB(false);
+        lists.add(newsBean);
+        fragmentList.add(new Fragment1());
+        fragmentList1.add(new Fragment2());
+
         scalePageTransformer = new ScalePageTransformer(1);
         viewpage.setPageTransformer(true, scalePageTransformer);
         viewpageLin.setOnTouchListener(new View.OnTouchListener() {
@@ -134,23 +138,8 @@ public class TodayNewsAct extends BaseActivity {
                 return viewpage.dispatchTouchEvent(event);
             }
         });
-         adaptermm = new FragAdapter(getSupportFragmentManager(), fragmentList, lists);
-        viewpage.setAdapter(adaptermm);
-//        for (int i = 0; i < stringList.size(); i++) {
-//            NewsBean newsBean = new NewsBean();
-//            Log.d("数据", stringList.get(i).toString());
-//            newsBean.setStr(stringList.get(i).toString());
-//            if (i == 0) {
-//                newsBean.setB(true);
-//            } else {
-//                newsBean.setB(false);
-//            }
-//            lists.add(newsBean);
-//            fragmentList.add(new Fragment1());
-//            fragmentList1.add(new Fragment2());
-//        }
-
-
+        adapterHead = new FragAdapterNoDes(getSupportFragmentManager(), fragmentList, lists);
+        viewpage.setAdapter(adapterHead);
         viewpage.setOffscreenPageLimit(3);
         viewpage.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -169,20 +158,7 @@ public class TodayNewsAct extends BaseActivity {
             }
         });
 
-//        for (int i = 0; i < stringList.size(); i++) {
-//            NewsBean newsBean = new NewsBean();
-//            Log.d("数据", stringList.get(i).toString());
-//            newsBean.setStr(stringList.get(i).toString());
-//            if (i == 0) {
-//                newsBean.setB(true);
-//            } else {
-//                newsBean.setB(false);
-//            }
-//            lists.add(newsBean);
-//            fragmentList.add(new Fragment1());
-//            fragmentList1.add(new Fragment2());
-//        }
-//        adapter.notifyDataSetChanged();
+
     }
 
     /**
