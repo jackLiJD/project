@@ -2,7 +2,10 @@ package com.example.lijinduo.mydemo.retrofit;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -23,7 +26,18 @@ import retrofit2.Response;
  * 参考链接：http://www.jianshu.com/p/eab096d82ce1
  */
 public class RetrofitTestAct extends BaseActivity {
-    Button query_weather,other_load,system_maintain;
+    Button query_weather, other_load, system_maintain;
+     Thread thread;
+    int i;
+    String TAG="次数";
+    private Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+        }
+    };
+
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,12 +46,52 @@ public class RetrofitTestAct extends BaseActivity {
         query_weather.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                i=0;
                 init();
             }
         });
 
     }
+
     private void init() {
+
+
+          thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (i<2){
+                    try {
+
+                        Log.d(TAG, "run: "+i);
+                        i++;
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                CommonPopWindow.getInstance().CreatCommonPopWindow("该帐号已经被他人顶掉"+i, new FatherInterFace() {
+                                    @Override
+                                    public void data() {
+                                        Log.d(TAG, "father: ");
+                                    }
+                                });
+                            }
+                        });
+
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+
+
+            }
+        });
+
+        thread.start();
+
+
+//
 //        Call<InvestListBean> call = RetrofitClient.getInstance().getService(IWeather.class).invest();
 //        call.enqueue(new RequestCallBack<InvestListBean>(false) {
 //            @Override

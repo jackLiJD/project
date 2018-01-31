@@ -37,7 +37,7 @@ public class MvvmActVM extends BaseRecyclerViewVM<OutBean>{
     }
 
     private void data() {
-        for (int i = 0; i <10 ; i++) {
+        for (int i = 0; i <30 ; i++) {
             OutBean outBean=new OutBean();
             outBean.outTitle="外部"+i;
             for (int j = 0; j < 3; j++) {
@@ -48,7 +48,6 @@ public class MvvmActVM extends BaseRecyclerViewVM<OutBean>{
             outBeans.add(outBean);
         }
         items.addAll(outBeans);
-        Log.d("items", "data: "+items.get(5).outTitle);
 
     }
 
@@ -56,12 +55,15 @@ public class MvvmActVM extends BaseRecyclerViewVM<OutBean>{
     @Override
     protected void selectView(ItemView itemView, int position, OutBean item) {
         Log.d("selectViewOut", "selectView: ");
-        int layoutRes=R.layout.item_mvvm;
-        itemView.set(BR.item, layoutRes);
+        itemView.set(BR.item, R.layout.item_mvvm);
+
+
+
+
 //        ItemMvvmBinding binding= DataBindingUtil.setContentView(context,layoutRes);
 //        ItemMvvmBinding binding= DataBindingUtil.bind(context.getWindow().getDecorView());
-        ItemMvvmBinding binding = DataBindingUtil.inflate(LayoutInflater.from(context), layoutRes,(ViewGroup) context.getWindow().getDecorView() , true);
-        MvvmActNeiVM mvvmnei=new MvvmActNeiVM(item.inBeanList);
-        binding.setViewModel(mvvmnei);
+//        ItemMvvmBinding binding = DataBindingUtil.inflate(LayoutInflater.from(context), layoutRes,(ViewGroup) context.getWindow().getDecorView() , true);
+//        MvvmActNeiVM mvvmnei=new MvvmActNeiVM(item.inBeanList);
+//        binding.setViewModel(mvvmnei);
     }
 }

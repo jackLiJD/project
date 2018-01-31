@@ -30,14 +30,14 @@ public abstract class RequestCallBack<T> implements Callback<T> {
     @Override
     public void onResponse(Call<T> call, Response<T> response) {
         AppTool.log("onResponseFather", "onResponse" + ((HttpResult) response.body()).getResCode());
-        if (!Constant.OTHERLOAD) {
-            Constant.OTHERLOAD = !Constant.OTHERLOAD;
-            CommonPopWindow commonPopWindow = new CommonPopWindow("该帐号已经被他人顶掉", new FatherInterFace() {
-                @Override
-                public void data() {
-                }
-            });
-        }
+//        if (!Constant.OTHERLOAD) {
+//            Constant.OTHERLOAD = !Constant.OTHERLOAD;
+//            CommonPopWindow commonPopWindow = new CommonPopWindow("该帐号已经被他人顶掉", new FatherInterFace() {
+//                @Override
+//                public void data() {
+//                }
+//            });
+//        }
         if (response.isSuccessful()) {
             onSuccess(call, response);
         }

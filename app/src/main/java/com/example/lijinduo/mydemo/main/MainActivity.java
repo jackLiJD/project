@@ -64,8 +64,6 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.main_list)
     RecyclerView mainList;
-    @BindView(R.id.xuanfu)
-    TextView xuanfu;
     @BindView(R.id.inclue_title)
     LinearLayout inclueTitle;
     private List<String> stringList;
@@ -73,17 +71,12 @@ public class MainActivity extends BaseActivity {
     private LinearLayout inclue_title;
     MainAdapter adapter;
     private TextView xuanfutitle;
-    private Long danwei = 1350435520l;
-    private double danweiq = 1234567l;
-    private double danweim = 1234l;
-    private Typeface cmtTypeFace;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         new Kotlin().main();
         ButterKnife.bind(this);
-        xuanfu.setText(XLIFFNumFormatPhoneSize(changeMoneyStr2(danwei)));
         initData();
         inclue_title = (LinearLayout) findViewById(R.id.inclue_title);
         xuanfutitle = (TextView) findViewById(R.id.xuanfutitle);
@@ -231,44 +224,5 @@ public class MainActivity extends BaseActivity {
         startActivity(intent);
     }
 
-    public  String changeMoneyStr2(Long money) {
-        String str = "";
-        if (str == null) {
-
-        }
-        if (money >= 100000000) {
-            str = money / 100000000 + " 亿 ";
-        }
-        if (money >= 10000) {
-            if (money >= 100000000) {
-                str = str + String.valueOf(money / 10000).substring(String.valueOf(money / 10000).length() - 4, String.valueOf(money / 10000).length()) + " 万 ";
-            } else {
-                str = str + money / 10000 + " 万 ";
-            }
-        }
-        if (money > 10000) {
-            str = str + String.valueOf(money).substring(String.valueOf(money).length() - 4, String.valueOf(money).length());
-
-        } else {
-            str = String.valueOf(money);
-        }
-        return str;
-    }
-
-    public  Spannable XLIFFNumFormatPhoneSize(String params) {
-        Matcher matcher = Pattern.compile("[\\u4e00-\\u9fa5]").matcher(params);
-        Spannable span = new SpannableString(params);
-        while (matcher.find()){
-            int start = matcher.start();
-            int end = matcher.end();
-            span.setSpan(new CustomVerticalCenterSpan(), start, end, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
-            // 设置字体大小
-            span.setSpan(new AbsoluteSizeSpan(50), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            // 设置字体颜色
-//            span.setSpan(new ForegroundColorSpan(Color.parseColor("#000000")), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        }
-
-        return span;
-    }
 
 }

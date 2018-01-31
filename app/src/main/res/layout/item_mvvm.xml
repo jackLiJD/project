@@ -19,16 +19,16 @@
 
     <TextView
         android:id="@+id/mvvmtv"
-        android:tag="{50,0,0,0}(50)"
+        android:tag="{50,10,10,0}(50)"
         android:text="@{item.outTitle}"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></TextView>
-   <android.support.v7.widget.RecyclerView
+ <!--  <android.support.v7.widget.RecyclerView
        android:background="#ff0000"
         app:itemView="@{viewModel.itemViewNei}"
         app:layoutManager="@{LayoutManagers.grid(1)}"
         app:items="@{viewModel.itemsNei}"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>-->
     </LinearLayout>
 </layout>

@@ -22,18 +22,6 @@
         android:layout_height="match_parent"
         android:background="#ffffff">
     </android.support.v7.widget.RecyclerView>
-        <TextView
-            android:visibility="gone"
-            android:layout_marginTop="100dp"
-            android:includeFontPadding="false"
-            android:textSize="40dp"
-            android:id="@+id/xuanfu"
-            android:gravity="center"
-            android:text="这是你要的效果"
-            android:textColor="#ffffff"
-            android:background="#ff0000"
-            android:layout_width="match_parent"
-            android:layout_height="40dp" />
         <include layout="@layout/title" />
     </RelativeLayout>
 </android.support.v4.widget.DrawerLayout>

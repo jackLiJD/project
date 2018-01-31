@@ -5,10 +5,13 @@ import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.lijinduo.mydemo.tool.AppManager;
 import com.example.lijinduo.mydemo.tool.MyApplication;
+import com.example.lijinduo.mydemo.view.CommonPopWindow;
 import com.zcx.helper.scale.ScaleScreenHelperFactory;
 
 import butterknife.ButterKnife;
@@ -40,10 +43,21 @@ public class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Log.d("销毁", "onDestroy: ");
-        if (this!=null){
+        if (this != null) {
             Log.d("销毁", "onDestroy:1111111 ");
         }
         AppManager.getAppManager().removeActivity(this);
         finish();
     }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+            CommonPopWindow.getInstance().closePop();
+        }
+        return super.onKeyDown(keyCode, event);
+
+    }
+
+
 }

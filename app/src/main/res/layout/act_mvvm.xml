@@ -11,19 +11,6 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <LinearLayout
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{viewModel.investListBeanObservableField.getResData().getList().get(0).getGoodType()}"
-            android:textSize="20sp" />
-    </LinearLayout>
         <android.support.v7.widget.RecyclerView
             app:itemView="@{viewModel.itemView}"
             app:layoutManager="@{LayoutManagers.linear()}"
