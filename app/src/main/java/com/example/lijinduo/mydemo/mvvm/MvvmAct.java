@@ -3,10 +3,14 @@ package com.example.lijinduo.mydemo.mvvm;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.R;
 import com.example.lijinduo.mydemo.databinding.ActMvvmBinding;
+import com.example.lijinduo.mydemo.tool.AppManager;
+import com.example.lijinduo.mydemo.tool.MyApplication;
 
 /**
  * 版权：XXX公司 版权所有

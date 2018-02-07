@@ -27,5 +27,6 @@
         <item>@string/adaptation</item>
         <item>@string/memory</item>
         <item>@string/TodayNewsAct</item>
+        <item>@string/magnifying_glass</item>
     </array>
 </resources>

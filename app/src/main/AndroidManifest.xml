@@ -205,8 +205,10 @@
             android:name=".todaynews.ViewPageNestAct"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"></activity>
-
-
+        <activity
+            android:name=".magnifyingglass.MagnifyingGlassAct"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"></activity>
 
         <service
             android:name=".aidl.IRemoteService"

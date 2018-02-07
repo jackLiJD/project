@@ -30,6 +30,7 @@ import com.example.lijinduo.mydemo.electrocardiogram.ElectrocardiogramAct;
 import com.example.lijinduo.mydemo.fuzzy.FuzzyImgAct;
 import com.example.lijinduo.mydemo.hand.HandTouchAct;
 import com.example.lijinduo.mydemo.kotlin.Kotlin;
+import com.example.lijinduo.mydemo.magnifyingglass.MagnifyingGlassAct;
 import com.example.lijinduo.mydemo.memory.MemoryAct;
 import com.example.lijinduo.mydemo.mvp.mvpactivity.MvpActivity;
 import com.example.lijinduo.mydemo.mvvm.MvvmAct;
@@ -218,6 +219,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 25:
                 intent = new Intent(this, TodayNewsAct.class);
+                break;
+            case 26:
+                intent = new Intent(this, MagnifyingGlassAct.class);
                 break;
 
         }
