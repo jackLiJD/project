@@ -15,6 +15,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.example.lijinduo.mydemo.BaseActivity;
@@ -47,12 +48,13 @@ public class MyAlbum extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_album);
-
-
+        WindowManager wm = (WindowManager) this
+                .getSystemService(Context.WINDOW_SERVICE);
+        int width = wm.getDefaultDisplay().getWidth();
         onCall();
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.album_view);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL));
-        AlbumAdapter adapter = new AlbumAdapter(mContext,imagePath);
+        AlbumAdapter adapter = new AlbumAdapter(mContext,imagePath,width);
         recyclerView.setAdapter(adapter);
 
     }
@@ -63,7 +65,6 @@ public class MyAlbum extends BaseActivity {
         while (cursor.moveToNext()) {
             //获取图片的生成日期
             byte[] data = cursor.getBlob(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
-            Log.d("图片路径", "queryPhotos: "+new String(data, 0, data.length - 1));
             imagePath.add(new String(data, 0, data.length - 1));
         }
     }

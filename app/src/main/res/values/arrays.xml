@@ -28,5 +28,11 @@
         <item>@string/memory</item>
         <item>@string/TodayNewsAct</item>
         <item>@string/magnifying_glass</item>
+        <item>@string/video_Player</item>
+        <item>@string/quick_adapter</item>
+        <item>@string/RouterAct</item>
+        <item>@string/LinearGradientAct</item>
+
+
     </array>
 </resources>

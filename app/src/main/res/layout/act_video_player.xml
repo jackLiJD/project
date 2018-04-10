@@ -3,10 +3,14 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:adjustViewBounds="true"
-        android:id="@+id/item_album_img"
+    
+    <cn.jzvd.JZVideoPlayerStandard
+        android:id="@+id/video_player"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="200dp"></cn.jzvd.JZVideoPlayerStandard>
+    
+    
+    
+    
+    
 </LinearLayout>

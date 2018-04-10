@@ -4,6 +4,13 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/head_recycler"
@@ -66,8 +73,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_height="200dp"
         android:clipChildren="false"
         android:gravity="center">
 
@@ -78,5 +84,10 @@
             android:clipChildren="false"
             android:overScrollMode="never"></com.example.lijinduo.mydemo.view.NoTouchViewpage>
     </LinearLayout>
-
+        <LinearLayout
+            android:background="#00ff00"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"></LinearLayout>
+    </LinearLayout>
+    </ScrollView>
 </LinearLayout>

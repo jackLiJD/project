@@ -11,4 +11,8 @@ interface IImoocAIDL {
 //    void basicTypes(int anInt, long aLong, boolean aBoolean, float aFloat,
 //            double aDouble, String aString);
      int add(int num1,int num2);
+
+     int remove(String a,String b);
+
+     void notic(double a,String b);
 }

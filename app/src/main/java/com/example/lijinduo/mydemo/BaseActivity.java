@@ -15,6 +15,8 @@ import com.example.lijinduo.mydemo.view.CommonPopWindow;
 import com.zcx.helper.scale.ScaleScreenHelperFactory;
 
 import butterknife.ButterKnife;
+import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
+import me.imid.swipebacklayout.lib.app.SwipeBackPreferenceActivity;
 
 /**
  * 版权：XXX公司 版权所有
@@ -25,11 +27,12 @@ import butterknife.ButterKnife;
  * 修订历史：
  * 参考链接：
  */
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends SwipeBackActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AppManager.getAppManager().addActivity(this);
+        overridePendingTransition(R.animator.act_in, R.animator.act_out);
     }
 
     @Override
@@ -42,12 +45,14 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d("销毁", "onDestroy: ");
-        if (this != null) {
-            Log.d("销毁", "onDestroy:1111111 ");
-        }
         AppManager.getAppManager().removeActivity(this);
         finish();
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.animator.act_in, R.animator.act_out);
     }
 
     @Override

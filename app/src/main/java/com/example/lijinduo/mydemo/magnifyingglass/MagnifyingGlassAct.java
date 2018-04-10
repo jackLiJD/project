@@ -2,6 +2,7 @@ package com.example.lijinduo.mydemo.magnifyingglass;
 
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 

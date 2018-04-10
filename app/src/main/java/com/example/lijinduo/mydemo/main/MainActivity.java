@@ -2,15 +2,9 @@ package com.example.lijinduo.mydemo.main;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.AbsoluteSizeSpan;
-import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -27,9 +21,11 @@ import com.example.lijinduo.mydemo.being.BeingA;
 import com.example.lijinduo.mydemo.book.Book;
 import com.example.lijinduo.mydemo.camera.CameraAct;
 import com.example.lijinduo.mydemo.electrocardiogram.ElectrocardiogramAct;
+import com.example.lijinduo.mydemo.Router.RouterAct;
 import com.example.lijinduo.mydemo.fuzzy.FuzzyImgAct;
 import com.example.lijinduo.mydemo.hand.HandTouchAct;
 import com.example.lijinduo.mydemo.kotlin.Kotlin;
+import com.example.lijinduo.mydemo.lineargradient.LinearGradientAct;
 import com.example.lijinduo.mydemo.magnifyingglass.MagnifyingGlassAct;
 import com.example.lijinduo.mydemo.memory.MemoryAct;
 import com.example.lijinduo.mydemo.mvp.mvpactivity.MvpActivity;
@@ -38,6 +34,7 @@ import com.example.lijinduo.mydemo.mymap.MyMapAct;
 import com.example.lijinduo.mydemo.permission.PermissionAct;
 import com.example.lijinduo.mydemo.poppay.PopPayAct;
 import com.example.lijinduo.mydemo.push.PushActivity;
+import com.example.lijinduo.mydemo.quickrefresh.QuickRefreshAct;
 import com.example.lijinduo.mydemo.redbag.RedBagAct;
 import com.example.lijinduo.mydemo.retrofit.RetrofitTestAct;
 import com.example.lijinduo.mydemo.service.ServiceAct;
@@ -45,17 +42,12 @@ import com.example.lijinduo.mydemo.surfaceview.SurfaceAct;
 import com.example.lijinduo.mydemo.thread.ThreadAct;
 import com.example.lijinduo.mydemo.toast.ToastAct;
 import com.example.lijinduo.mydemo.todaynews.TodayNewsAct;
-import com.example.lijinduo.mydemo.view.CustomVerticalCenterSpan;
+import com.example.lijinduo.mydemo.videoplayer.VideoPlayer;
 import com.example.lijinduo.mydemo.vr.VRAct;
 
-import java.math.BigDecimal;
-import java.text.DateFormat;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -76,8 +68,11 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSwipeBackLayout().setEnableGesture(false);//关闭右滑返回上一级
         new Kotlin().main();
         ButterKnife.bind(this);
+        int pid = android.os.Process.myPid();
+        Log.e("进程id","MainPid====" + pid );
         initData();
         inclue_title = (LinearLayout) findViewById(R.id.inclue_title);
         xuanfutitle = (TextView) findViewById(R.id.xuanfutitle);
@@ -95,6 +90,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
+                Log.d("recyclerView", "onScrollStateChanged: "+newState);
             }
 
             @Override
@@ -222,6 +218,18 @@ public class MainActivity extends BaseActivity {
                 break;
             case 26:
                 intent = new Intent(this, MagnifyingGlassAct.class);
+                break;
+            case 27:
+                intent = new Intent(this, VideoPlayer.class);
+                break;
+            case 28:
+                intent = new Intent(this, QuickRefreshAct.class);
+                break;
+            case 29:
+                intent = new Intent(this, RouterAct.class);
+                break;
+            case 30:
+                intent = new Intent(this, LinearGradientAct.class);
                 break;
 
         }

@@ -20,6 +20,8 @@ import android.widget.Button;
 import com.example.lijinduo.mydemo.BaseActivity;
 import com.example.lijinduo.mydemo.R;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -36,6 +38,7 @@ import java.util.Random;
 public class AnimationAct extends BaseActivity {
     Button animation_start,startAnimatorPath;
     Button animation_xml_start, animation_start_time;
+    List list=new ArrayList();
     int i = 0;
     long time = 0;
     private Button fab;

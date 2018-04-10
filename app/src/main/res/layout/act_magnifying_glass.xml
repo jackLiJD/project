@@ -106,6 +106,7 @@
             android:layout_height="wrap_content" />
 
         <Button
+            android:background="#ff0000"
             android:id="@+id/clear"
             android:text="clear"
             android:layout_width="wrap_content"

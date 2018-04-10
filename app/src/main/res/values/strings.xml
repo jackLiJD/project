@@ -38,4 +38,9 @@
     <string name="memory">消除内存</string>
     <string name="TodayNewsAct">今日头条</string>
     <string name="magnifying_glass">放大镜效果</string>
+    <string name="video_Player">视频播放器</string>
+    <string name="quick_adapter">quick_adapter</string>
+    <string name="RouterAct">RouterAct</string>
+    <string name="LinearGradientAct">文字渐变</string>
+
 </resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <com.example.lijinduo.mydemo.lineargradient.LinearGradientTextView
+        android:textColor="#00ff00"
+        android:textSize="30dp"
+        android:text="这里是一个渐变色的文字"
+        android:id="@+id/tv_linear_gradient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <com.example.lijinduo.mydemo.lineargradient.TextViewPlay
+        android:layout_marginRight="30dp"
+        android:background="#000000"
+        android:text="1231231231"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center|right"
+        android:textSize="25dp"
+        android:id="@+id/text_view_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>

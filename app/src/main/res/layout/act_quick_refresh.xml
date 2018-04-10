@@ -3,24 +3,22 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button3"
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swiperefresh"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="去C" />
+        android:layout_height="match_parent">
 
 
 
-    <Button
-        android:id="@+id/back_router"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/quick_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="返回RouterA页面" />
+        android:layout_height="match_parent" />
 
 
 
-
-
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 
 

@@ -1,39 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <Button
-        android:id="@+id/reload"
-        android:text="text"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <EditText
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:id="@+id/outkeybord"
+        android:hint="我勒个去"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-<!--    <com.tencent.smtt.sdk.WebView
-        android:background="#ffffff"
-        android:scrollbars="none"
-        android:id="@+id/book_web"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>-->
+
+    <!--    <com.tencent.smtt.sdk.WebView
+            android:background="#ffffff"
+            android:scrollbars="none"
+            android:id="@+id/book_web"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>-->
     <!--<com.example.lijinduo.mydemo.view.MyView-->
-        <!--android:dividerPadding="1dp"-->
-        <!--android:divider="@mipmap/ic_launcher"-->
-        <!--android:layout_width="100dp"-->
-        <!--android:layout_height="100dp"></com.example.lijinduo.mydemo.view.MyView>-->
+    <!--android:dividerPadding="1dp"-->
+    <!--android:divider="@mipmap/ic_launcher"-->
+    <!--android:layout_width="100dp"-->
+    <!--android:layout_height="100dp"></com.example.lijinduo.mydemo.view.MyView>-->
     <FrameLayout
-        android:visibility="gone"
-        android:layout_weight="1"
         android:id="@+id/webview_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-    <FrameLayout
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:visibility="gone" />
 
-        android:layout_weight="1"
-        android:id="@+id/webview_contentChache"
+    <ScrollView
+        android:id="@+id/out_scroll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="2000px"
+                android:background="#ff0000">
+
+                <Button
+                    android:id="@+id/reload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="text" />
+
+            </LinearLayout>
+
+
+            <FrameLayout
+                android:id="@+id/webview_contentChache"
+                android:layout_width="match_parent"
+                android:layout_height="1000px" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
     <FrameLayout
-        android:visibility="gone"
-        android:layout_weight="1"
         android:id="@+id/webview_contentChacheall"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:visibility="gone" />
 </LinearLayout>

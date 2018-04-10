@@ -8,17 +8,25 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.example.lijinduo.mydemo.BaseActivity;
@@ -34,6 +42,9 @@ import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
 //import com.tencent.smtt.sdk.WebViewClient;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -65,25 +76,74 @@ public class Book extends BaseActivity {
     private WebView bookWeb;
     private CacheWebView cacheweb;
     private ren.yale.android.cachewebviewlib.CacheWebView cacheWebView;
+    ScrollView scrollView;
+    boolean isfirst=true;
+    private int jindu = 30;
+    private int currtjindu=0;
+    private Thread thread=null;
+
+    private void go(){
+            thread  =new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    while (true){
+                        if (currtjindu<jindu) {
+                            currtjindu++;
+                            Log.d("进度", "run: "+currtjindu);
+                            try {
+                                Thread.sleep(40);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                    }
+
+                }
+            });
+            thread.start();
 
 
+    }
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_book);
         isCache = getIntent().getStringExtra("isCache");
         commonUrl = getIntent().getStringExtra("commonUrl");
-//        commonUrl = "file:///android_asset/web1.html";
-        commonUrl="https://test2static.edspay.com/#/wx/iceSnowCarnival?uid=300338&token=1515999065926300338&vcode=3.2.0&osType=Android&osVersion=Android:4.4.2&zhou=1515999189234";
+        commonUrl = "https://test3static.edspay.com/#/wxIdpoint?uuid=183&uid=&token=&vcode=3.3.4&osType=Android&osVersion=Android:7.1.1&zhou=1521603283959";
+//        commonUrl="https://luna.58.com/list.shtml?plat=m&city=hz&cate=siji&-15=20&tag=job_common_secondremen_siji&PGTID=0d202408-0004-f782-223f-70a5971c1b4d&ClickID=1";
 
         ButterKnife.bind(this);
         bookWeb = new WebView(context);
         reload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Book.this, RedBagAct.class));
+               Toast.makeText(Book.this,"1",200).show();
+                if (thread==null) {
+                    go();
+                }else{
+                    currtjindu=0;
+                }
             }
         });
+      final  EditText outkeybord= (EditText) findViewById(R.id.outkeybord);
+
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            public void run() {
+                InputMethodManager inputManager = (InputMethodManager) outkeybord
+                        .getContext().getSystemService(
+                                Context.INPUT_METHOD_SERVICE);
+                inputManager.showSoftInput(outkeybord, 0);
+            }
+        }, 200);
+
+
+
+
+
+
         webviewContent.addView(bookWeb, new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.MATCH_PARENT,
                 FrameLayout.LayoutParams.MATCH_PARENT));
@@ -112,8 +172,83 @@ public class Book extends BaseActivity {
 //        bookWeb.loadUrl("https://test1static.edspay.com/#/wxAnnouncement?id=401&uid=&token=&vcode=3.0.4&osType=Android&osVersion=Android:6.0");
         initView();
 
+          scrollView= (ScrollView) findViewById(R.id.out_scroll);
 
+        int screenHeight=measureHeight();
+        FrameLayout   webview_contentChache= (FrameLayout) findViewById(R.id.webview_contentChache);
+
+        ViewGroup.LayoutParams bottom = (ViewGroup.LayoutParams) webview_contentChache.getLayoutParams();
+        bottom.height = screenHeight;
+        webview_contentChache.setLayoutParams(bottom);
+        cacheweb.setOnScrollChangeListener(new CacheWebView.OnScrollChangeListener() {
+            @Override
+            public void onPageEnd(int l, int t, int oldl, int oldt) {
+                isBottom=true;
+
+            }
+
+            @Override
+            public void onPageTop(int l, int t, int oldl, int oldt) {
+                isTop=true;
+
+
+            }
+
+            @Override
+            public void onScrollChanged(int l, int t, int oldl, int oldt) {
+                isBottom=false;
+                isTop=false;
+
+            }
+        });
+
+        cacheweb.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent ev) {
+                switch (ev.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        downY= (int) ev.getRawY();
+                        scrollView.requestDisallowInterceptTouchEvent(true);
+                        Log.d(TAG, "onTouch111: "+space);
+                        break;
+                    case MotionEvent.ACTION_HOVER_MOVE:
+                        space=(int) ev.getRawY()-downY;
+                        downY=(int) ev.getRawY();
+
+                        Log.d(TAG, "onTouch: "+space);
+                        scrollView.requestDisallowInterceptTouchEvent(true);
+//                        if (isTop) {
+//                            if (space>0) {
+//                                scrollView.requestDisallowInterceptTouchEvent(false);
+//                            }else{
+//                                scrollView.requestDisallowInterceptTouchEvent(true);
+//                            }
+//
+//                        }else if (isBottom) {
+//
+//                        }else{
+//                            scrollView.requestDisallowInterceptTouchEvent(true);
+//                        }
+
+
+
+                        break;
+                    case MotionEvent.ACTION_CANCEL:
+                        scrollView.requestDisallowInterceptTouchEvent(false);
+                        break;
+                }
+                return false;
+            }
+        });
     }
+
+    private int downY;
+    private int space;
+
+    private boolean isTop=true;
+    private boolean isBottom=false;
+
 
 
     private void initView() {
@@ -335,4 +470,11 @@ public class Book extends BaseActivity {
 //        commonUrl="https://www.baidu.com/";
 //        bookWeb.loadUrl(commonUrl);
 //    }
+
+    public int measureHeight() {
+        WindowManager wManager = (WindowManager) getApplicationContext().getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics dm = new DisplayMetrics();
+        wManager.getDefaultDisplay().getMetrics(dm);
+        return dm.heightPixels;
+    }
 }

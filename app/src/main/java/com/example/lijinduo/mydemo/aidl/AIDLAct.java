@@ -49,6 +49,8 @@ public class AIDLAct extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_aidl);
+        int pid = android.os.Process.myPid();
+        Log.e("进程id","ActPid====" + pid );
         aidl_computations= (Button) findViewById(R.id.aidl_computations);
         bindService();
         aidl_computations.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +59,9 @@ public class AIDLAct extends BaseActivity {
                 try {
                     int res=  iImoocAIDL.add(100,55);
                     Log.d("输出", "onClick: "+res);
+                    Log.d("输出", "onClick: "+iImoocAIDL.remove("",""));
+
+
                     aidl_computations.setText(res+"");
                 } catch (RemoteException e) {
                     e.printStackTrace();

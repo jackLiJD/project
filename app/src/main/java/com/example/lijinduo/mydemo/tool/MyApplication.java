@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 //import com.facebook.drawee.backends.pipeline.Fresco;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.tencent.smtt.sdk.QbSdk;
 import com.zcx.helper.scale.ScaleScreenHelper;
 import com.zcx.helper.scale.ScaleScreenHelperFactory;
@@ -45,6 +46,10 @@ public class MyApplication extends Application {
         scaleScreenHelper = ScaleScreenHelperFactory.create(this, 750);
         File cacheFile = new File(getCacheDir(),"CacheWebView");
         CacheWebView.getWebViewCache().init(this,cacheFile,1024*1024*100,1024*1024*10);
+
+        // 初始化
+        ARouter.init(this);
+
 //        File cacheFile = new File(this.getCacheDir(),"cache_path_name");
 //        CacheWebView.getWebViewCache().init(this,cacheFile,1024*1024*100,1024*1024*10);
     }

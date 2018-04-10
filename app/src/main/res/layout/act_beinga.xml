@@ -15,4 +15,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="直接去C" />
+
+    <ImageView
+        android:background="#ff0000"
+        android:src="@drawable/timi"
+        android:scaleType="fitEnd"
+        android:id="@+id/image_borrow_people"
+        android:layout_width="1000dp"
+        android:layout_height="100dp" />
 </LinearLayout>

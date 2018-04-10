@@ -46,5 +46,11 @@
         <attr name="borderDashGap" format="dimension"/>
 
     </declare-styleable>-->
+        <declare-styleable name="ArrowTextView">
+            <attr name="radius1" format="dimension" />
+            <attr name="arrowWidth" format="dimension" />
+            <attr name="arrowInHeight" format="dimension" />
+            <attr name="bg" format="color" />
+        </declare-styleable>
 
 </resources>

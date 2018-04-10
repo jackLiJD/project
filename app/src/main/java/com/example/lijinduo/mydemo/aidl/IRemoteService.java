@@ -28,7 +28,35 @@ public class IRemoteService extends Service{
         @Override
         public int add(int num1, int num2) throws RemoteException {
             Log.e("TAG","收到了来自客户端的请求" + num1 + "+" + num2 );
+            int pid = android.os.Process.myPid();
+            Log.e("进程id","ServicePid====" + pid );
+
+//            new Thread(new Runnable() {
+//                @Override
+//                public void run() {
+//                    while (true){
+//                        Log.e("进程id","进程打印日志");
+//                        try {
+//                            Thread.sleep(2000);
+//                        } catch (InterruptedException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//
+//                }
+//            }).start();
+
             return num1 + num2;
+        }
+
+        @Override
+        public int remove(String a, String b) throws RemoteException {
+            return 100;
+        }
+
+        @Override
+        public void notic(double a, String b) throws RemoteException {
+
         }
     };
 }

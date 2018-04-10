@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -24,6 +23,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:theme="@style/AppTheme1"
             android:name=".main.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -120,6 +120,7 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:name=".book.Book"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
@@ -191,7 +192,7 @@
             android:name=".camera.CameraAct"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan"></activity>
+            android:windowSoftInputMode="stateHidden|adjustPan"/>
         <activity android:name=".adaptation.AdaptationAct"></activity>
         <activity
             android:name=".memory.MemoryAct"
@@ -207,6 +208,28 @@
             android:screenOrientation="portrait"></activity>
         <activity
             android:name=".magnifyingglass.MagnifyingGlassAct"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:name=".videoplayer.VideoPlayer"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".quickrefresh.QuickRefreshAct"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".Router.RouterAct"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".Router.RouterAct2"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:process=":remote"
+            android:name=".lineargradient.LinearGradientAct"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"></activity>
 
