@@ -237,5 +237,8 @@ public class TodayNewsAct extends BaseActivity {
         }
     }
 
+    @Override
+    public void doSmoething() {
 
+    }
 }

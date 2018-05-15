@@ -45,6 +45,11 @@ public class PermissionAct extends BaseActivity {
         ButterKnife.bind(this);
     }
 
+    @Override
+    public void doSmoething() {
+
+    }
+
     @OnClick(R.id.call)
     public void onViewClicked() {
         onCall();
@@ -54,7 +59,7 @@ public class PermissionAct extends BaseActivity {
             if (Build.VERSION.SDK_INT >= 23) {
                 int checkCallPhonePermission = ContextCompat.checkSelfPermission(mContext, Manifest.permission.CALL_PHONE);
                 if(checkCallPhonePermission != PackageManager.PERMISSION_GRANTED){
-                    ActivityCompat.requestPermissions((Activity) mContext,new String[]{Manifest.permission.CALL_PHONE},REQUEST_CODE_ASK_CALL_PHONE);
+                    ActivityCompat.requestPermissions((Activity) mContext,new String[]{Manifest.permission.CAMERA,Manifest.permission.CALL_PHONE},REQUEST_CODE_ASK_CALL_PHONE);
                     return;
                 }else{
                     //上面已经写好的拨号方法

@@ -36,7 +36,10 @@ public class RedBagGainAct extends BaseActivity {
     @BindView(R.id.redbag_gain)
     ImageView redbagGain;
     private Context context = RedBagGainAct.this;
+    @Override
+    public void doSmoething() {
 
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

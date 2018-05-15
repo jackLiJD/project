@@ -46,9 +46,16 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHoler> {
 
     @Override
     public void onBindViewHolder(final MainViewHoler holder, final int position) {
+
+
         holder.recycle_main_nei.setLayoutManager(new GridLayoutManager(context, 1));
         holder.recycle_main_nei.setAdapter(holder.adapter);
         holder.item_tv.setText(stringList.get(position));
+
+
+
+
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

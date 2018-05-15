@@ -35,7 +35,10 @@ public class RetrofitTestAct extends BaseActivity {
         public void handleMessage(Message msg) {
         }
     };
+    @Override
+    public void doSmoething() {
 
+    }
 
 
     @Override
@@ -91,17 +94,22 @@ public class RetrofitTestAct extends BaseActivity {
         thread.start();
 
 
-//
-//        Call<InvestListBean> call = RetrofitClient.getInstance().getService(IWeather.class).invest();
-//        call.enqueue(new RequestCallBack<InvestListBean>(false) {
-//            @Override
-//            public void onSuccess(Call<InvestListBean> call, Response<InvestListBean> response) {
-//                InvestListBean investBean = response.body();
-//                query_weather.setText(investBean.getResData().getList().get(0).getGoodType());
-//            }
-//        });
-//        Intent intent=new Intent(RetrofitTestAct.this,DoubleActTest.class);
-//        startActivity(intent);
+
+        Call<String> call = RetrofitClient.getInstance().getService(IWeather.class).invest();
+        call.enqueue(new RequestCallBack<String>(false) {
+            @Override
+            public void onSuccess(Call<String> call, Response<String> response) {
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                super.onFailure(call, t);
+            }
+        });
+
+
+        Intent intent=new Intent(RetrofitTestAct.this,DoubleActTest.class);
+        startActivity(intent);
 
     }
 

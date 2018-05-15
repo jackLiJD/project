@@ -36,4 +36,8 @@ public class BeingC extends BaseActivity {
         }
 
     }
+    @Override
+    public void doSmoething() {
+
+    }
 }

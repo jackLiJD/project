@@ -31,4 +31,8 @@ public class MvvmAct extends BaseActivity{
         viewmode=new MvvmActVM(MvvmAct.this);
         binding.setViewModel(viewmode);
     }
+    @Override
+    public void doSmoething() {
+
+    }
 }

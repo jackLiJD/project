@@ -99,4 +99,5 @@ public class MvpActivity extends Activity implements LoginView {
                 break;
         }
     }
+
 }

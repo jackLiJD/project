@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/button16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="设置自己的聊天id" />
+
+    <Button
+        android:id="@+id/button17"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="连接融云获取token" />
+
+    <Button
+        android:id="@+id/button18"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="查看最近会话列表" />
+
+    <EditText
+        android:id="@+id/button19"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="输入想要聊天的id" />
+
+    <Button
+        android:id="@+id/button20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打开制定的聊天人" />
+
+
+    <Button
+        android:id="@+id/button21"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="创建讨论组会话并进入会话界面" />
+
+    <Button
+        android:id="@+id/button22"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打开的讨论组,id本地保存" />
+
+    <Button
+        android:id="@+id/button23"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="查看最近会话列表1" />
+
+
+    <Button
+        android:id="@+id/button24"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="查看最近会话列表1" />
+
+
+
+
+
+
+
+
+
+</LinearLayout>

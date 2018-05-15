@@ -124,4 +124,8 @@ public class HandTouchAct extends BaseActivity {
                 super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
+    @Override
+    public void doSmoething() {
+
+    }
 }

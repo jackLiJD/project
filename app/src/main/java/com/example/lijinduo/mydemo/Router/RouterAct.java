@@ -34,7 +34,10 @@ public class RouterAct extends BaseActivity {
     private String TAG="NavigationCallback";
 
     private int RequestCode = 123;
+    @Override
+    public void doSmoething() {
 
+    }
     @BindView(R.id.router_jump0)
     Button routerJump0;
     @BindView(R.id.router_jump1)

@@ -94,4 +94,8 @@ public class VRAct extends BaseActivity {
             super.onDisplayModeChanged(newDisplayMode);
         }
     }
+    @Override
+    public void doSmoething() {
+
+    }
 }

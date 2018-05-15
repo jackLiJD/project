@@ -109,4 +109,8 @@ public class MemoryAct extends BaseActivity {
         super.onStop();
         animation_view_click.cancelAnimation();
     }
+    @Override
+    public void doSmoething() {
+
+    }
 }

@@ -54,6 +54,11 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumViewHoler> {
     @Override
     public void onBindViewHolder(final AlbumViewHoler holder, final int position) {
         ViewGroup.LayoutParams params = holder.item_album_img.getLayoutParams();
+        if (stringList.get(position).contains("155843")) {
+            return;
+        }
+
+
         params.height=width/3*getImageHeight(stringList.get(position))/getImageWidth(stringList.get(position));
         holder.item_album_img.setLayoutParams(params);
         Glide.with(context).load(stringList.get(position)).into(holder.item_album_img);
@@ -72,29 +77,20 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumViewHoler> {
 
     private  int getImageHeight(String path){
         BitmapFactory.Options options = new BitmapFactory.Options();
-
-        /**
-         * 最关键在此，把options.inJustDecodeBounds = true;
-         * 这里再decodeFile()，返回的bitmap为空，但此时调用options.outHeight时，已经包含了图片的高了
-         */
         options.inJustDecodeBounds = true;
         Bitmap bitmap = BitmapFactory.decodeFile(path, options); // 此时返回的bitmap为null
-        /**
-         *options.outHeight为原始图片的高
-         */
         return options.outHeight;
     }
 
     private  int getImageWidth(String path){
         BitmapFactory.Options options = new BitmapFactory.Options();
-
         /**
          * 最关键在此，把options.inJustDecodeBounds = true;
          * 这里再decodeFile()，返回的bitmap为空，但此时调用options.outHeight时，已经包含了图片的高了
          */
         options.inJustDecodeBounds = true;
         Bitmap bitmap = BitmapFactory.decodeFile(path, options); // 此时返回的bitmap为null
-        /**
+        /**／
          *options.outHeight为原始图片的高
          */
         return options.outWidth;

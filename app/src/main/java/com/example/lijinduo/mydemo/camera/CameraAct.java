@@ -241,4 +241,8 @@ public class CameraAct extends BaseActivity {
         isComplete = true;
         startActivityForResult(intent, REQUEST_CODE_CUTTING);
     }
+    @Override
+    public void doSmoething() {
+
+    }
 }

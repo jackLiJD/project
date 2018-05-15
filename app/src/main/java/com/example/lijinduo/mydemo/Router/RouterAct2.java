@@ -39,7 +39,10 @@ public class RouterAct2 extends BaseActivity {
     @Autowired
     int yy;
 
+    @Override
+    public void doSmoething() {
 
+    }
     @Autowired
     RouterParcelable routerParcelable = new RouterParcelable();
     @BindView(R.id.back_router)

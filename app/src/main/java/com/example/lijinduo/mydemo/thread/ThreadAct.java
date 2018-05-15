@@ -193,5 +193,8 @@ public class ThreadAct extends BaseActivity {
 //
 //    }
 
+    @Override
+    public void doSmoething() {
 
+    }
 }

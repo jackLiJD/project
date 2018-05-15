@@ -43,4 +43,8 @@ public class VideoPlayer extends BaseActivity {
         super.onPause();
         JZVideoPlayer.releaseAllVideos();
     }
+    @Override
+    public void doSmoething() {
+
+    }
 }

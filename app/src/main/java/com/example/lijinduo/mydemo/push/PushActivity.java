@@ -68,4 +68,8 @@ public class PushActivity extends BaseActivity {
         }
         startActivity(localIntent);
     }
+    @Override
+    public void doSmoething() {
+
+    }
 }

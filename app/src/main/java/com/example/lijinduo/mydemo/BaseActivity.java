@@ -1,8 +1,14 @@
 package com.example.lijinduo.mydemo;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -11,6 +17,8 @@ import android.widget.Toast;
 
 import com.example.lijinduo.mydemo.tool.AppManager;
 import com.example.lijinduo.mydemo.tool.MyApplication;
+import com.example.lijinduo.mydemo.tool.PermissionsManager;
+import com.example.lijinduo.mydemo.tool.PermissionsResultAction;
 import com.example.lijinduo.mydemo.view.CommonPopWindow;
 import com.zcx.helper.scale.ScaleScreenHelperFactory;
 
@@ -27,7 +35,7 @@ import me.imid.swipebacklayout.lib.app.SwipeBackPreferenceActivity;
  * 修订历史：
  * 参考链接：
  */
-public class BaseActivity extends SwipeBackActivity {
+public abstract class BaseActivity extends SwipeBackActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +70,38 @@ public class BaseActivity extends SwipeBackActivity {
         }
         return super.onKeyDown(keyCode, event);
 
+    }
+    final int REQUEST_CODE_ASK_CALL_PHONE=123;
+    public abstract void doSmoething();
+
+    public void getPermission(String[] permissions){
+        if (Build.VERSION.SDK_INT >= 23) {
+            int checkCallPhonePermission = ContextCompat.checkSelfPermission(this, permissions[0]);
+            if(checkCallPhonePermission != PackageManager.PERMISSION_GRANTED){
+                ActivityCompat.requestPermissions(this,permissions,REQUEST_CODE_ASK_CALL_PHONE);
+                return;
+            }else{
+                doSmoething();
+            }
+        } else {
+            doSmoething();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_CODE_ASK_CALL_PHONE:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    doSmoething();
+                } else {
+                    Toast.makeText(this, "权限未确认", Toast.LENGTH_SHORT)
+                            .show();
+                }
+                break;
+            default:
+                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
     }
 
 

@@ -59,6 +59,11 @@ public class MyAlbum extends BaseActivity {
 
     }
 
+    @Override
+    public void doSmoething() {
+
+    }
+
     private void queryPhotos() {
         Cursor cursor = getContentResolver().query(
                 MediaStore.Images.Media.EXTERNAL_CONTENT_URI, null, null, null, null);

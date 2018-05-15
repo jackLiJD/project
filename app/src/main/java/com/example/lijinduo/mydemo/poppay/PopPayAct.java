@@ -71,4 +71,8 @@ public class PopPayAct extends BaseActivity {
                 break;
         }
     }
+    @Override
+    public void doSmoething() {
+
+    }
 }

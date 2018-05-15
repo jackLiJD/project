@@ -32,7 +32,11 @@
         <item>@string/quick_adapter</item>
         <item>@string/RouterAct</item>
         <item>@string/LinearGradientAct</item>
-
+        <item>@string/SeaAct</item>
+        <item>@string/location</item>
+        <item>@string/RxJava</item>
+        <item>@string/RxPermissions</item>
+        <item>@string/RongYunAct</item>
 
     </array>
 </resources>

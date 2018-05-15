@@ -82,4 +82,8 @@ public class ViewPageNestAct extends BaseActivity {
                 break;
         }
     }
+    @Override
+    public void doSmoething() {
+
+    }
 }

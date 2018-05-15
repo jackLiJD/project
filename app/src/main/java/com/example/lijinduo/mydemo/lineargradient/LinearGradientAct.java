@@ -1,5 +1,6 @@
 package com.example.lijinduo.mydemo.lineargradient;
 
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,7 +38,8 @@ public class LinearGradientAct extends BaseActivity {
         ButterKnife.bind(this);
         textViewPlay.setText("爱就一个字，我只说一次");
         testInstanceof();
-        Log.d(TAG,   Uri.encode("1111+qqqq"));
+
+
     }
 
 
@@ -47,6 +49,10 @@ public class LinearGradientAct extends BaseActivity {
     public void onViewClicked() {
         Toast.makeText(this, "33333", Toast.LENGTH_SHORT).show();
         PopPrompt popPrompt=new PopPrompt(LinearGradientAct.this,textViewPlay);
+
+    }
+    @Override
+    public void doSmoething() {
 
     }
 

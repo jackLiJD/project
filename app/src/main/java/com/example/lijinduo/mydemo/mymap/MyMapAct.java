@@ -22,4 +22,8 @@ public class MyMapAct extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_mymap);
     }
+    @Override
+    public void doSmoething() {
+
+    }
 }

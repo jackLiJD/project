@@ -25,5 +25,8 @@ public class ElectrocardiogramAct extends BaseActivity {
         ButterKnife.bind(this);
     }
 
+    @Override
+    public void doSmoething() {
 
+    }
 }

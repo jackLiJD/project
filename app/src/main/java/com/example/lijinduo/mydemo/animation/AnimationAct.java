@@ -251,5 +251,8 @@ public class AnimationAct extends BaseActivity {
         fab.setTranslationX(newLoc.mX);
         fab.setTranslationY(newLoc.mY);
     }
+    @Override
+    public void doSmoething() {
 
+    }
 }

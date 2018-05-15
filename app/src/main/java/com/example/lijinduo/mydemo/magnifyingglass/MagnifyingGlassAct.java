@@ -123,4 +123,8 @@ public class MagnifyingGlassAct extends BaseActivity {
                 break;
         }
     }
+    @Override
+    public void doSmoething() {
+
+    }
 }

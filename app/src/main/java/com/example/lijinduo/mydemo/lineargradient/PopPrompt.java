@@ -47,8 +47,8 @@ public class PopPrompt {
         view = LayoutInflater.from(context).inflate(R.layout.pop_prompt_redbag, null);
         firstPop = new PopupWindow(view,
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, false);
-        firstPop.setFocusable(false);
-        firstPop.setOutsideTouchable(false);
+        firstPop.setFocusable(true);
+        firstPop.setOutsideTouchable(true);
         firstPop.setBackgroundDrawable(new ColorDrawable(0x00000000));
         LinearLayout touch=view.findViewById(R.id.touch);
         touch.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +70,7 @@ public class PopPrompt {
         view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
         int promptHeight =view.getMeasuredHeight();
         firstPop.showAtLocation(locationView, Gravity.NO_GRAVITY,0, location[1] - promptHeight);
+//        firstPop.showAtLocation(locationView, Gravity.BOTTOM,0, 0);
     }
 
 }

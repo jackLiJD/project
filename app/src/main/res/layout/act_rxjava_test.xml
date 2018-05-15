@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/myedittextview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_marginRight="20dp"
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+        <Button
+            android:layout_marginRight="20dp"
+            android:id="@+id/textView100"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="rxJavaMyTest" />
+    <Button
+        android:layout_marginRight="20dp"
+        android:id="@+id/textView1001"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="先关闭后更新ui会崩溃么？" />
+    <Button
+        android:layout_marginRight="20dp"
+        android:id="@+id/textView1002"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="屏蔽多次连点问题？" />
+    <ImageView
+        android:id="@+id/rxjava_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+</LinearLayout>

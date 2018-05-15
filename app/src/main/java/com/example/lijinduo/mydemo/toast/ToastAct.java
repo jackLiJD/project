@@ -90,4 +90,8 @@ public class ToastAct extends BaseActivity {
 
         }
     }
+    @Override
+    public void doSmoething() {
+
+    }
 }

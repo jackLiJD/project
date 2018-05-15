@@ -1,1 +1,2 @@
-include ':app'
+include ':app', ':IMLib', ':IMKit'
+include ':library_zhy_CircleMenu'

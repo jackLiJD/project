@@ -1,262 +1,254 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.lijinduo.mydemo">
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest package="com.example.lijinduo.mydemo" xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.IMAGE_CAPTURE"/>
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.IMAGE_CAPTURE" />
-
-    <application
-        android:name=".tool.MyApplication"
-        android:allowBackup="true"
+    <application android:allowBackup="true"
+        android:largeHeap="true"
+        android:persistent="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:name=".tool.MyApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity
-            android:theme="@style/AppTheme1"
-            android:name=".main.MainActivity"
-            android:screenOrientation="portrait">
+        android:supportsRtl="true" android:theme="@style/AppTheme">
+        <activity android:name=".main.MainActivity"
+            android:screenOrientation="portrait" android:theme="@style/AppTheme1">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+      <!--          <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.MONKEY"/>-->
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+          <!--      <category android:name="android.intent.category.HOME" />-->
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="jp.app" android:path="/openwith" android:scheme="myapp"/>
+                <!-- android:pathPrefix="/openwith" -->
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask"
+            android:name=".animation.AnimationAct"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".aidl.AIDLAct"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".service.ServiceAct"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".retrofit.RetrofitTestAct"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".retrofit.DoubleActTest"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".mvvm.MvvmAct"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".mvp.mvpactivity.MvpActivity"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".push.PushActivity"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".permission.PermissionAct"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".hand.HandTouchAct"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".being.BeingA"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".being.BeingB"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".being.BeingC"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".toast.ToastAct"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".album.MyAlbum"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".book.Book"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".vr.VRAct"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".thread.ThreadAct"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".backlinear.BackLinearAct"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".mymap.MyMapAct"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".electrocardiogram.ElectrocardiogramAct"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".redbag.RedBagAct"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".redbag.RedBagNoGainAct"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".redbag.RedBagGainAct"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".fuzzy.FuzzyImgAct"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".poppay.PopPayAct"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".surfaceview.SurfaceAct"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask" android:name=".Rest"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:launchMode="singleTask"
+            android:name=".camera.CameraAct"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name=".adaptation.AdaptationAct"/>
+        <activity android:launchMode="singleTask"
+            android:name=".memory.MemoryAct" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask"
+            android:name=".todaynews.TodayNewsAct" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask"
+            android:name=".todaynews.ViewPageNestAct" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask"
+            android:name=".magnifyingglass.MagnifyingGlassAct" android:screenOrientation="portrait"/>
+        <activity
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:name=".videoplayer.VideoPlayer" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask"
+            android:name=".quickrefresh.QuickRefreshAct" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask"
+            android:name=".Router.RouterAct" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask"
+            android:name=".Router.RouterAct2" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask"
+            android:name=".lineargradient.LinearGradientAct"
+            android:process=":remote" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask"
+            android:name=".sea.SeaAct" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask"
+            android:name=".location.LocationAct" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask"
+            android:name=".rxjava.RxJavaTestAct" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask"
+            android:name=".rxjava.FlowableAct" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask"
+            android:name=".rxpermission.RxPermissionsAct" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask"
+            android:name=".rxjava.RxJavaMyTestAct" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask"
+            android:name=".ry.RongYunAct" android:screenOrientation="portrait"/>
+
+        <service android:exported="true"
+            android:name=".aidl.IRemoteService" android:process=":remote">
+            <intent-filter>
+                <action android:name="aidlService"/>
+            </intent-filter>
+        </service>
+        <service android:name=".service.ViewService"/>
+        <service android:name=".service.ServiceTest"/>
+        <service android:name=".service.MyIntentService"/>
+        <service android:name=".service.MyBindService"/>
+        <provider
+            android:authorities="com.example.lijinduo.mydemo.fileprovider"
+            android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <activity android:name=".KotlinTest"/>
+
+
+
+        <!--会话列表-->
+        <activity
+            android:name="com.example.lijinduo.mydemo.ConversationListActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="jp.app"
-                    android:path="/openwith"
-                    android:scheme="myapp" />
-                <!-- android:pathPrefix="/openwith" -->
+                    android:host="com.example.lijinduo.mydemo"
+                    android:pathPrefix="/conversationlist"
+                    android:scheme="rong" />
             </intent-filter>
         </activity>
+        <!--聚合会话列表-->
         <activity
-            android:name=".animation.AnimationAct"
-            android:launchMode="singleTask"
+            android:name="com.example.lijinduo.mydemo.SubConversationListActivtiy"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".aidl.AIDLAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".service.ServiceAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".retrofit.RetrofitTestAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".retrofit.DoubleActTest"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".mvvm.MvvmAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".mvp.mvpactivity.MvpActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".push.PushActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".permission.PermissionAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".hand.HandTouchAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".being.BeingA"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".being.BeingB"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".being.BeingC"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".toast.ToastAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".album.MyAlbum"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:name=".book.Book"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".vr.VRAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".thread.ThreadAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".backlinear.BackLinearAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".mymap.MyMapAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".electrocardiogram.ElectrocardiogramAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".redbag.RedBagAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".redbag.RedBagNoGainAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".redbag.RedBagGainAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".fuzzy.FuzzyImgAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".poppay.PopPayAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".surfaceview.SurfaceAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".Rest"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".camera.CameraAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan"/>
-        <activity android:name=".adaptation.AdaptationAct"></activity>
-        <activity
-            android:name=".memory.MemoryAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"></activity>
-        <activity
-            android:name=".todaynews.TodayNewsAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"></activity>
-        <activity
-            android:name=".todaynews.ViewPageNestAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"></activity>
-        <activity
-            android:name=".magnifyingglass.MagnifyingGlassAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"></activity>
-        <activity
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:name=".videoplayer.VideoPlayer"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"></activity>
-        <activity
-            android:name=".quickrefresh.QuickRefreshAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"></activity>
-        <activity
-            android:name=".Router.RouterAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"></activity>
-        <activity
-            android:name=".Router.RouterAct2"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"></activity>
-        <activity
-            android:process=":remote"
-            android:name=".lineargradient.LinearGradientAct"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"></activity>
+            android:windowSoftInputMode="stateHidden|adjustResize">
 
-        <service
-            android:name=".aidl.IRemoteService"
-            android:exported="true"
-            android:process=":remote">
             <intent-filter>
-                <action android:name="aidlService" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="com.example.lijinduo.mydemo"
+                    android:pathPrefix="/subconversationlist"
+                    android:scheme="rong" />
             </intent-filter>
-        </service>
-        <service android:name=".service.ViewService" />
-        <service android:name=".service.ServiceTest" />
-        <service android:name=".service.MyIntentService" />
-        <service android:name=".service.MyBindService" />
+        </activity>
+        <!--会话界面-->
+        <activity
+            android:name="com.example.lijinduo.mydemo.ConversationActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize">
 
-        <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.example.lijinduo.mydemo.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-        </provider>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
-        <activity android:name=".KotlinTest"></activity>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="com.example.lijinduo.mydemo"
+                    android:pathPrefix="/conversation/"
+                    android:scheme="rong" />
+            </intent-filter>
+        </activity>
+        <receiver
+            android:exported="true"
+            android:name=".DemoNotificationReceiver">
+            <intent-filter>
+                <action android:name="io.rong.push.intent.MESSAGE_ARRIVED" />
+                <action android:name="io.rong.push.intent.MI_MESSAGE_ARRIVED" />
+                <action android:name="io.rong.push.intent.MESSAGE_CLICKED" />
+                <action android:name="io.rong.push.intent.MI_MESSAGE_CLICKED" />
+                <action android:name="io.rong.push.intent.THIRD_PARTY_PUSH_STATE" />
+            </intent-filter>
+        </receiver>
     </application>
-
 </manifest>

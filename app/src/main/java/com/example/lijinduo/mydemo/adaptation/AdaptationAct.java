@@ -50,5 +50,8 @@ public class AdaptationAct extends BaseActivity {
         });
     }
 
+    @Override
+    public void doSmoething() {
 
+    }
 }

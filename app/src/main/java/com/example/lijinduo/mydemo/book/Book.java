@@ -477,4 +477,8 @@ public class Book extends BaseActivity {
         wManager.getDefaultDisplay().getMetrics(dm);
         return dm.heightPixels;
     }
+    @Override
+    public void doSmoething() {
+
+    }
 }

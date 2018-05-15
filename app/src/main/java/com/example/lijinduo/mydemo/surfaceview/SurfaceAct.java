@@ -50,4 +50,8 @@ public class SurfaceAct extends BaseActivity {
 
 
     }
+    @Override
+    public void doSmoething() {
+
+    }
 }

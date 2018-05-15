@@ -26,6 +26,7 @@ import com.example.lijinduo.mydemo.fuzzy.FuzzyImgAct;
 import com.example.lijinduo.mydemo.hand.HandTouchAct;
 import com.example.lijinduo.mydemo.kotlin.Kotlin;
 import com.example.lijinduo.mydemo.lineargradient.LinearGradientAct;
+import com.example.lijinduo.mydemo.location.LocationAct;
 import com.example.lijinduo.mydemo.magnifyingglass.MagnifyingGlassAct;
 import com.example.lijinduo.mydemo.memory.MemoryAct;
 import com.example.lijinduo.mydemo.mvp.mvpactivity.MvpActivity;
@@ -37,6 +38,10 @@ import com.example.lijinduo.mydemo.push.PushActivity;
 import com.example.lijinduo.mydemo.quickrefresh.QuickRefreshAct;
 import com.example.lijinduo.mydemo.redbag.RedBagAct;
 import com.example.lijinduo.mydemo.retrofit.RetrofitTestAct;
+import com.example.lijinduo.mydemo.rxjava.RxJavaTestAct;
+import com.example.lijinduo.mydemo.rxpermission.RxPermissionsAct;
+import com.example.lijinduo.mydemo.ry.RongYunAct;
+import com.example.lijinduo.mydemo.sea.SeaAct;
 import com.example.lijinduo.mydemo.service.ServiceAct;
 import com.example.lijinduo.mydemo.surfaceview.SurfaceAct;
 import com.example.lijinduo.mydemo.thread.ThreadAct;
@@ -231,9 +236,28 @@ public class MainActivity extends BaseActivity {
             case 30:
                 intent = new Intent(this, LinearGradientAct.class);
                 break;
+            case 31:
+                intent = new Intent(this, SeaAct.class);
+                break;
+            case 32:
+                intent = new Intent(this, LocationAct.class);
+                break;
+            case 33:
+                intent = new Intent(this, RxJavaTestAct.class);
+                break;
+            case 34:
+                intent = new Intent(this, RxPermissionsAct.class);
+                break;
+            case 35:
+                intent = new Intent(this, RongYunAct.class);
+                break;
 
         }
         startActivity(intent);
+    }
+    @Override
+    public void doSmoething() {
+
     }
 
 

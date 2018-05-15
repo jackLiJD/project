@@ -70,10 +70,10 @@ public class BackLinearAct extends PictureHandlerActivity {
             @Override
             public void onClick(View v) {
 //                                String url="mqqwpa://im/chat?chat_type=wpa&uin=1102377755";
-                String url = "test://tp/open?name=miss&age=8";
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                intent.putExtra("uuid", "118");
-                startActivity(intent);
+//                String url = "test://tp/open?name=miss&age=8";
+//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+//                intent.putExtra("uuid", "118");
+//                startActivity(intent);
 //                openApp("com.zw.zwlc");
 //                Intent intent = new Intent(Intent.ACTION_MAIN);
 //                intent.addCategory(Intent.CATEGORY_LAUNCHER);
@@ -250,5 +250,9 @@ public class BackLinearAct extends PictureHandlerActivity {
             // igonre
         }
         return 0;
+    }
+    @Override
+    public void doSmoething() {
+
     }
 }

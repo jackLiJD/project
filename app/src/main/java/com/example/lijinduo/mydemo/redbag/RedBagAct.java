@@ -31,7 +31,10 @@ public class RedBagAct extends BaseActivity {
     private ActRedbagBinding binding;
     private RedBagRainMvvm viewmode;
     private Context context=RedBagAct.this;
+    @Override
+    public void doSmoething() {
 
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getWindow().setFlags(

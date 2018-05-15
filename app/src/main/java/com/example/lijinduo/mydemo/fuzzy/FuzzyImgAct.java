@@ -72,4 +72,8 @@ public class FuzzyImgAct extends BaseActivity {
         fuzzyImg.setImageBitmap(null);
         System.gc();
     }
+    @Override
+    public void doSmoething() {
+
+    }
 }

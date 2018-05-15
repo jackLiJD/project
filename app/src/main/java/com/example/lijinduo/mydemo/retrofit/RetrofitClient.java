@@ -1,5 +1,7 @@
 package com.example.lijinduo.mydemo.retrofit;
 
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+
 import java.io.IOException;
 import java.util.TreeMap;
 import java.util.concurrent.TimeUnit;
@@ -30,10 +32,11 @@ public class RetrofitClient {
 
     public static String cookies="";
 
-//    private String baseUrl="https://api.thinkpage.cn";
+//    public static String baseUrl="http://tj.nineton.cn/?";
 
-    private String baseUrl="https://www.edspay.com/app/";
 
+
+    public static String baseUrl="https://test1rest.edspay.com/";
     public RetrofitClient() {
         updataRetrofit();
     }
@@ -87,6 +90,7 @@ public class RetrofitClient {
                 .baseUrl(baseUrl)
                 .client(builder.build())
                 .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
         getServiceMap().clear();
     }

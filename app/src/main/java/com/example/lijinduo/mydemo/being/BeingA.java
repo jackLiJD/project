@@ -49,4 +49,8 @@ public class BeingA extends BaseActivity {
         }
         startActivity(intent);
     }
+    @Override
+    public void doSmoething() {
+
+    }
 }

@@ -109,4 +109,8 @@ public class ServiceAct extends BaseActivity implements View.OnClickListener {
 
         }
     }
+    @Override
+    public void doSmoething() {
+
+    }
 }

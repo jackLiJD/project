@@ -131,4 +131,8 @@ public class QuickRefreshAct extends BaseActivity implements    SwipeRefreshLayo
         adapter.setEnableLoadMore(false);
         handler.sendEmptyMessageDelayed(0x234, 1000);
     }
+    @Override
+    public void doSmoething() {
+
+    }
 }

@@ -86,6 +86,9 @@ public class AIDLAct extends BaseActivity {
         super.onDestroy();
         unbindService(conn);
     }
+    @Override
+    public void doSmoething() {
 
+    }
 
 }

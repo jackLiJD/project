@@ -37,4 +37,8 @@ public class BeingB extends BaseActivity {
     public void onViewClicked() {
         startActivity(new Intent(this,BeingC.class));
     }
+    @Override
+    public void doSmoething() {
+
+    }
 }

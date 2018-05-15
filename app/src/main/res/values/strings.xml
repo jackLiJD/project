@@ -42,5 +42,10 @@
     <string name="quick_adapter">quick_adapter</string>
     <string name="RouterAct">RouterAct</string>
     <string name="LinearGradientAct">文字渐变</string>
+    <string name="SeaAct">SeaAct</string>
+    <string name="location">location</string>
+    <string name="RxJava">RxJava</string>
+    <string name="RxPermissions">RxPermissions</string>
+    <string name="RongYunAct">RongYunAct</string>
 
 </resources>

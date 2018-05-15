@@ -213,6 +213,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
                 bodySize + " body" : "") + ')');
 
         if (response.code() >= 400) {
+
             Looper.prepare();
 //            Utils.toast(R.string.app_network_error);
             Looper.loop();

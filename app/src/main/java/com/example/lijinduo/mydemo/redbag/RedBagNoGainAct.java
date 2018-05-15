@@ -34,7 +34,10 @@ public class RedBagNoGainAct extends BaseActivity {
     @BindView(R.id.redbag_nogain_next)
     View redbagNogainNext;
     private Context context = RedBagNoGainAct.this;
+    @Override
+    public void doSmoething() {
 
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

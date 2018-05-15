@@ -21,4 +21,8 @@ public class DoubleActTest extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_doubletest);
     }
+    @Override
+    public void doSmoething() {
+
+    }
 }
